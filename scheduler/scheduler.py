@@ -22,7 +22,6 @@ task_set = []
 pop = []
 kHyper_period = 1000
 kTot_util = 0
-#kMax_gen = 1000
 kMax_gen = 10
 kMax_converge = 10
 kT_amb = 26
