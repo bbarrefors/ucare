@@ -25,9 +25,9 @@ power_consumption <- as.vector(data[[4]])  # p is power consumption, column 3
 
 frequency <- frequency/1000             # Make f a measurement in GHz
 
-f <- frequency[1:23]
-T <- temperature[1:23]
-P <- power_consumption[1:23]
+f <- frequency[1:21]
+T <- temperature[1:21]
+P <- power_consumption[1:21]
 P <- (P / 10)				# convert power from 0.1W to 1W
 f2 <- f*f
 T2 <- T*T
