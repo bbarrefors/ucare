@@ -14,9 +14,16 @@ import heapq
 from random import randint
 from operator import itemgetter
 
-cluster = ({'r': 0.3685, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4}, {'r': 0.3685, 'a1': 0.0248, 'a2': 8.1349, 'a3': -0.2863, 'a4': -1.3203, 'a5': 2.6106, 'a6': 75.4638, 'util': 4}, {'r': 0.3685, 'a1': -0.0040, 'a2': 5.5272, 'a3': 0.2977, 'a4': 0.0713, 'a5': -13.2765, 'a6': 56.4242, 'util': 4}, {'r': 0.3685, 'a1': 0.0338, 'a2': 7.4625, 'a3': -0.4637, 'a4': -1.7374, 'a5': 10.1535, 'a6': 78.6566, 'util': 4}, {'r': 0.3685, 'a1': 0.0335, 'a2': 13.8525, 'a3': -0.6544, 'a4': -1.4578, 'a5': 1.1880, 'a6': 75.7025, 'util': 4}, {'r': 0.3685, 'a1': 0.0069, 'a2': 7.3865, 'a3': 0.0405, 'a4': -0.4351, 'a5': -6.9793, 'a6': 61.1205, 'util': 4}, {'r': 0.3685, 'a1': 0.0069, 'a2': 7.3865, 'a3': 0.0405, 'a4': -0.4351, 'a5': -6.9793, 'a6': 61.1205, 'util': 4}, {'r': 0.3685, 'a1': 0.0069, 'a2': 7.3865, 'a3': 0.0405, 'a4': -0.4351, 'a5': -6.9793, 'a6': 61.1205, 'util': 4})
+cluster = ({'r': 0.6458, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4}, 
+           {'r': 0.6532, 'a1': 0.0248, 'a2': 8.1349, 'a3': -0.2863, 'a4': -1.3203, 'a5': 2.6106, 'a6': 75.4638, 'util': 4}, 
+           {'r': 0.3685, 'a1': -0.0040, 'a2': 5.5272, 'a3': 0.2977, 'a4': 0.0713, 'a5': -13.2765, 'a6': 56.4242, 'util': 4}, 
+           {'r': 0.3685, 'a1': 0.0338, 'a2': 7.4625, 'a3': -0.4637, 'a4': -1.7374, 'a5': 10.1535, 'a6': 78.6566, 'util': 4}, 
+           {'r': 0.3685, 'a1': 0.0335, 'a2': 13.8525, 'a3': -0.6544, 'a4': -1.4578, 'a5': 1.1880, 'a6': 75.7025, 'util': 4}, 
+           {'r': 0.3685, 'a1': 0.0550, 'a2': 18.9665, 'a3': -1.4357, 'a4': -1.7860, 'a5': 15.1805, 'a6': 68.1403, 'util': 4}, 
+           {'r': 0.3685, 'a1': 0.0075, 'a2': 8.9752, 'a3': 0.0611, 'a4': -0.4664, 'a5': -12.0162, 'a6': 64.0839, 'util': 4}, 
+           {'r': 0.3685, 'a1': 0.0133, 'a2': 8.0939, 'a3': -0.2100, 'a4': -0.2619, 'a5': -4.4860, 'a6': 56.6180, 'util': 4})
 
-kFreq = (1.97000, 1.330000, 1.463000, 1.596000, 1.729000, 1.862000, 1.995000, 2.128000, 2.261000, 2.394000)
+kFreq = (1.197000, 1.330000, 1.463000, 1.596000, 1.729000, 1.862000, 1.995000, 2.128000, 2.261000, 2.394000)
 
 task_set = []
 pop = []
@@ -24,7 +31,7 @@ kHyper_period = 1000
 kTot_util = 0
 kMax_gen = 10
 kMax_converge = 10
-kT_amb = 26
+kT_amb = 22
 kMax_temp = 60
 large_integer = 1000
 
@@ -64,7 +71,7 @@ def buildPop(num_tasks, pop_size):
 
 def maxTemp(core, freq):
     # Based on cpu properties and frequency, return the maximum possible temperature for core
-    # TODO : Half accurate but need to get correct constants for cluster
+    # TODO : Missing correct R value
     f = freq
     a1 = cluster[core]['a1']
     a2 = cluster[core]['a2']
@@ -77,11 +84,11 @@ def maxTemp(core, freq):
     B = a3*r*f + a4*r - 1
     C = a2*r*math.pow(f,2) + a5*f*r + a6*r + kT_amb
     max_temp = -B/(2*A) - math.sqrt(math.pow(B,2) - 4*A*C)/(2*A)
+    print "Max temp for core " + str(core) + " and freq " + str(f) + " is " + str(max_temp)
     return max_temp
 
 def power(core, freq):
     # Based on cpu properties and a frequency, return the power consumption at maximum temperature
-    # TODO : Fairly accurate but not correct values for cluster constants most likely
     # PENDING : Waiting for maxTemp function to work
     f = freq
     a1 = cluster[core]['a1']
@@ -93,11 +100,12 @@ def power(core, freq):
     r = cluster[core]['r']
     t = maxTemp(core, freq)
     power1 = a1*math.pow(t,2) + a2*math.pow(f,2) + a3*f*t + a4*t + a5*f + a6
+    print "Power for core " + str(core) + " and freq " + str(f) + " is " + str(power1)
     return power1
 
 def eMax(chromo):
     # power consumption added up assuming all cpu's ran on highest frequency
-    # PENDING : Waiting for maxTemp and power formula to work
+    # PENDING : Waiting for maxTemp
     e_max = 0
     for gene in pop[chromo][1:]:
         power2 = power(gene[1], kFreq[9])
@@ -107,7 +115,7 @@ def eMax(chromo):
 def eChromo(chromo):
     # Actual power consumption for task allocation. 
     # If allocation doesn't comply w temperature restrictions it gets penalised
-    # PENDING : Waiting for maxTemp and power forumala to work
+    # PENDING : Waiting for maxTemp
     global pop
     e_chromo = 0
     for gene_i in range(len(pop[chromo][1:])):
@@ -261,5 +269,9 @@ for tmp_num in num_tasks:
         for tmp_pop in pop_size:
             print "Next population size"
             print "Task set: Num Tasks ", tmp_num, " | Util ", tmp_util, " | Pop Size ", tmp_pop
-            algorithms(tmp_num, tmp_util, tmp_pop)
+            for core in range(8):
+                for freq in kFreq:
+                    #maxTemp(core, freq)
+                    power(core, freq)
+#algorithms(tmp_num, tmp_util, tmp_pop)
 print "Done"

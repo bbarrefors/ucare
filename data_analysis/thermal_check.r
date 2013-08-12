@@ -11,36 +11,21 @@
 # ...................: Find thermal resistivity.
 # Improvements.......: 
 
-sink("thermal_checkxx.out")
+sink("thermal.out")
 
 # Read data from thermal_data.dat
-data <- read.table("./thermal_dataxx.dat", header = FALSE, sep = "\t", dec = ".", skip = 3)
-
-a1 <- -0.004537
-a2 <- 5.224674
-a3 <- 0.175453
-a4 <- 0.344344
-a5 <- -8.963781
-a6 <- 53.716303
+data <- read.table("./thermal_data.dat", header = FALSE, sep = "\t", dec = ".", skip = 3)
 
 # Put data as a linear model
 # Extract data from table
-frequency <- as.vector(data[[1]])          # f is frequency, column 1
 temperature <- as.vector(data[[3]])        # T is temperature, column 3
-amb_temperature <- as.vector(data[[5]])    # T_amb is ambient temperature, column 4
+power <- as.vector(data[[4]])    
 
-frequency <- frequency/1000000             # Make f a measurement in GHz
-
-f <- frequency[1:10]
-T <- temperature[1:10]
-T_amb <- amb_temperature[1:10]
-
-P <- a1*T^2 + a2*f^2 + a3*f*T + a4*T + a5*F + a6
+T <- temperature[1:2]
+P <- power[1:2]*0.1
 
 # Model
-R <- (T - T_amb) / P
-average <- mean(R)
+R <- (T[1] - T[2]) / (P[1] - P[2])
 
 # Print result
 print(R)
-print(average)
