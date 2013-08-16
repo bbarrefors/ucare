@@ -20,12 +20,14 @@ data <- read.table("./thermal_data.dat", header = FALSE, sep = "\t", dec = ".", 
 # Extract data from table
 temperature <- as.vector(data[[3]])        # T is temperature, column 3
 power <- as.vector(data[[4]])    
+amb <- as.vector(data[[5]])    
 
-T <- temperature[1:2]
-P <- power[1:2]*0.1
+T <- temperature[1:10]
+P <- power[1:10]*0.1
+Ta <- amb[1:10]
 
 # Model
-R <- (T[1] - T[2]) / (P[1] - P[2])
+R <- (T - Ta)/P
 
 # Print result
-print(R)
+print(mean(R))
