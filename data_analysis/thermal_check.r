@@ -11,23 +11,29 @@
 # ...................: Find thermal resistivity.
 # Improvements.......: 
 
-sink("thermal.out")
+#sink("thermal.out")
 
 # Read data from thermal_data.dat
-data <- read.table("./thermal_data.dat", header = FALSE, sep = "\t", dec = ".", skip = 3)
+# data <- read.table("./thermal_data.dat", header = FALSE, sep = "\t", dec = ".", skip = 3)
 
 # Put data as a linear model
 # Extract data from table
-temperature <- as.vector(data[[3]])        # T is temperature, column 3
-power <- as.vector(data[[4]])    
-amb <- as.vector(data[[5]])    
+#temperature <- as.vector(data[[3]])        # T is temperature, column 3
+#power <- as.vector(data[[4]])    
+#amb <- as.vector(data[[5]])    
 
-T <- temperature[1:10]
-P <- power[1:10]*0.1
-Ta <- amb[1:10]
+T <- 45.0
+P <- 84
+R <- 0.30
 
 # Model
-R <- (T - Ta)/P
+Ta <- T - R*P
 
-# Print result
-print(mean(R))
+print(Ta)
+
+#P <- 73
+
+#T <- Ta + R*P
+#print(T)
+#T <- 37.75
+#print(T)
