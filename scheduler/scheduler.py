@@ -29,7 +29,7 @@ task_set = []
 pop = []
 kHyper_period = 1000
 kTot_util = 0
-kMax_gen = 10000
+kMax_gen = 100
 kMax_converge = 10
 kMax_temp = 45
 large_integer = 1000
@@ -157,13 +157,15 @@ def fitnessValue(chromo):
     e_max = eMax(chromo)
     e_chromo = eChromo(chromo)
     fitness_value = e_max - e_chromo
-    return fitness_value
+    return (-fitness_value)
 
 def minWF():
     # Select the core with least available util left that can satisfy the conditions
     # to schedule tasks on.
     # Create one chromosome based on that scheduling philosophy
-    print "MinWF algorithm"
+    fs = open('Schedule', 'a')
+    fs.write("MW Algorithm")
+    fs.close()
     global pop
     pop = []
     chromo = [0]
@@ -197,14 +199,32 @@ def minWF():
             return 1
     pop.append(chromo)
     total_energy = eChromo(0)
-    print "Total energy " + str(total_energy)
-    print pop[0]
+    total_cores = 0
+    s = set()
+    for gene_i in range(len(pop[chromo][1:])):
+        gene_i += 1
+        gene = pop[chromo][gene_i]
+        cpu = gene[1]
+        s.add(cpu)
+    total_cores = len(s)
+    fs = open('Schedule', 'a')
+    fs.write("The total energy consumption for this schedule is", str(total_energy))
+    fs.write("the number of CPU's used is", str(total_cores))
+    fs.write("Allocation stategy")
+    for gene_i in range(len(pop[chromo][1:])):
+        gene_i += 1
+        gene = pop[chromo][gene_i]
+        cpu = gene[1]
+        util = gene[0]
+        fs.write("Allocate", str(util), "on cpu", str(cpu))
+    fs.write("\n")
+    fs.close()
     return 0
 
 def genetic():
-    # TODO : Sort population based on fitness value
-    # PENDING : Waiting for maxTemp and power formulas to work
-    print "Genetic algorithm"
+    fs = open('Schedule', 'a')
+    fs.write("Genetic Algorithm")
+    fs.close()
     global pop
     generation = 1
     converge = 1
@@ -221,7 +241,7 @@ def genetic():
         else:
             besf_fit = pop[0][0]
             converge = 1
-
+            
         # Crossover
         for i in range(max_elite, max_elite + crossover_size):
             rand = randint(0,population_size-1)
@@ -253,20 +273,42 @@ def genetic():
             for j in range(point_1, point_2):
                 chromo[j] = [task_set[j], randint(0,7)]
             pop[rand] = chromo
+    for chromo in range(len(pop)):
+        fitness_value = fitnessValue(chromo)
+        pop[chromo][0] = fitness_value
+    pop = sorted(pop, key=itemgetter(0))
     total_energy = eChromo(0)
-    print "Total energy " + str(total_energy)
-    print pop[0]
+    total_cores = 0
+    s = set()
+    for gene_i in range(len(pop[chromo][1:])):
+        gene_i += 1
+        gene = pop[chromo][gene_i]
+        cpu = gene[1]
+        s.add(cpu)
+    total_cores = len(s)
+    fs = open('Schedule', 'a')
+    fs.write("The total energy consumption for this schedule is", str(total_energy))
+    fs.write("the number of CPU's used is", str(total_cores))
+    fs.write("Allocation stategy")
+    for gene_i in range(len(pop[chromo][1:])):
+        gene_i += 1
+        gene = pop[chromo][gene_i]
+        cpu = gene[1]
+        util = gene[0]
+        fs.write("Allocate", str(util), "on cpu", str(cpu))
+    fs.write("\n")
+    fs.close()
     return 1
 
 def hybridGAWF():
-    print "HybridGAWF algorithm"
+    fs = open('Schedule', 'a')
+    fs.write("HybridWGA algorithm")
+    fs.close()
     global pop
     wf_chromo = pop[0]
     buildPop(number_tasks, population_size)
     pop[0] = wf_chromo
     genetic()
-    total_energy = eChromo(0)
-    max_energy = eMax(0)
     return 1
 
 def algorithms(num_tasks, tot_util, pop_size):
@@ -313,6 +355,9 @@ for tmp_num in num_tasks:
         print "Next total utilization"
         for tmp_pop in pop_size:
             print "Next population size"
-            print "Task set: Num Tasks ", tmp_num, " | Util ", tmp_util, " | Pop Size ", tmp_pop
+            fs = open('Schedule', 'a')
+            fs.write("Task set: Num Tasks ", tmp_num, " | Util ", tmp_util, " | Pop Size ", tmp_pop)
+            fs.write("\n")
+            fs.close()
             algorithms(tmp_num, tmp_util, tmp_pop)
 print "Done"
