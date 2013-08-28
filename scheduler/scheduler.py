@@ -29,7 +29,7 @@ task_set = []
 pop = []
 kHyper_period = 1000
 kTot_util = 0
-kMax_gen = 100
+kMax_gen = 1000
 kMax_converge = 10
 kMax_temp = 45
 large_integer = 1000
@@ -44,7 +44,6 @@ def buildTaskSet(num_tasks, tot_util):
     # task_set is a list of floats where each float is the utilization for a task
     # [ task_util, task_util, ... ]
     # CHECKED : WORKS
-    print "Building task set"
     global task_set
     global kTot_util
     kTot_util = tot_util
@@ -63,7 +62,6 @@ def buildPop(num_tasks, pop_size):
     # each gene represents the allocation of a task and contains task utilization, cpu number, and frequency of cpu.
     # [ [ fitness_value, [ task_util, cpu_num, freq ], [ task_util, cpu_num, freq ], ... ], ...]
     # CHECKED : WORKS
-    print "Building population"
     global pop
     pop = []
     for i in range(pop_size):
@@ -164,7 +162,7 @@ def minWF():
     # to schedule tasks on.
     # Create one chromosome based on that scheduling philosophy
     fs = open('Schedule', 'a')
-    fs.write("MW Algorithm")
+    fs.write("MW Algorithm\n")
     fs.close()
     global pop
     pop = []
@@ -201,29 +199,29 @@ def minWF():
     total_energy = eChromo(0)
     total_cores = 0
     s = set()
-    for gene_i in range(len(pop[chromo][1:])):
+    for gene_i in range(len(pop[0][1:])):
         gene_i += 1
-        gene = pop[chromo][gene_i]
+        gene = pop[0][gene_i]
         cpu = gene[1]
         s.add(cpu)
     total_cores = len(s)
     fs = open('Schedule', 'a')
-    fs.write("The total energy consumption for this schedule is", str(total_energy))
-    fs.write("the number of CPU's used is", str(total_cores))
-    fs.write("Allocation stategy")
-    for gene_i in range(len(pop[chromo][1:])):
+    fs.write("The total energy consumption for this schedule is " + str(total_energy) + "\n")
+    fs.write("the number of CPU's used is " + str(total_cores) + "\n")
+    fs.write("Allocation stategy\n")
+    for gene_i in range(len(pop[0][1:])):
         gene_i += 1
-        gene = pop[chromo][gene_i]
+        gene = pop[0][gene_i]
         cpu = gene[1]
         util = gene[0]
-        fs.write("Allocate", str(util), "on cpu", str(cpu))
+        fs.write("Allocate " + str(util) + " on cpu " + str(cpu) + "\n")
     fs.write("\n")
     fs.close()
     return 0
 
 def genetic():
     fs = open('Schedule', 'a')
-    fs.write("Genetic Algorithm")
+    fs.write("Genetic Algorithm\n")
     fs.close()
     global pop
     generation = 1
@@ -280,29 +278,29 @@ def genetic():
     total_energy = eChromo(0)
     total_cores = 0
     s = set()
-    for gene_i in range(len(pop[chromo][1:])):
+    for gene_i in range(len(pop[0][1:])):
         gene_i += 1
-        gene = pop[chromo][gene_i]
+        gene = pop[0][gene_i]
         cpu = gene[1]
         s.add(cpu)
     total_cores = len(s)
     fs = open('Schedule', 'a')
-    fs.write("The total energy consumption for this schedule is", str(total_energy))
-    fs.write("the number of CPU's used is", str(total_cores))
-    fs.write("Allocation stategy")
-    for gene_i in range(len(pop[chromo][1:])):
+    fs.write("The total energy consumption for this schedule is " + str(total_energy) + "\n")
+    fs.write("the number of CPU's used is " + str(total_cores) + "\n")
+    fs.write("Allocation stategy\n")
+    for gene_i in range(len(pop[0][1:])):
         gene_i += 1
-        gene = pop[chromo][gene_i]
+        gene = pop[0][gene_i]
         cpu = gene[1]
         util = gene[0]
-        fs.write("Allocate", str(util), "on cpu", str(cpu))
+        fs.write("Allocate " + str(util) + " on cpu " + str(cpu) +"\n")
     fs.write("\n")
     fs.close()
     return 1
 
 def hybridGAWF():
     fs = open('Schedule', 'a')
-    fs.write("HybridWGA algorithm")
+    fs.write("HybridWGA algorithm\n")
     fs.close()
     global pop
     wf_chromo = pop[0]
@@ -327,15 +325,14 @@ def algorithms(num_tasks, tot_util, pop_size):
     # Create a random task set
     buildTaskSet(number_tasks, tot_util)
     # Create random population for genetic alg
-    #buildPop(number_tasks, population_size)
+    buildPop(number_tasks, population_size)
     # Call algorithms
     # Run genetic w random population, print results
-    #genetic()
-    minWF()
+    genetic()
+    if minWF() == 1:
+        return 0
     hybridGAWF()
     # Run MinWF, print results
-    #if minWF() == 0:
-    #    return 0
     # Feed MinWF into Genetic, print results
     return 1
 
@@ -356,8 +353,7 @@ for tmp_num in num_tasks:
         for tmp_pop in pop_size:
             print "Next population size"
             fs = open('Schedule', 'a')
-            fs.write("Task set: Num Tasks ", tmp_num, " | Util ", tmp_util, " | Pop Size ", tmp_pop)
-            fs.write("\n")
+            fs.write("Task set: Num Tasks " + str(tmp_num) + " | Util " + str(tmp_util) + " | Pop Size " + str(tmp_pop) + "\n\n")
             fs.close()
             algorithms(tmp_num, tmp_util, tmp_pop)
 print "Done"
