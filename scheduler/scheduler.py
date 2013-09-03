@@ -343,7 +343,7 @@ def algorithms(num_tasks, tot_util, pop_size):
 #pop_size = [2000, 10000];
 
 num_tasks = [100];
-tot_util = [20];
+tot_util = [30];
 pop_size = [2000];
 
 for tmp_num in num_tasks:
