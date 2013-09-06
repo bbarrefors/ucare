@@ -1,0 +1,31 @@
+
+Call:
+lm(formula = P ~ T2 + f2 + f * T + T + f)
+
+Coefficients:
+(Intercept)           T2           f2            f            T          f:T  
+   59.49485      0.07276     31.19839     -1.02593     -0.67994     -2.49254  
+
+
+Call:
+lm(formula = P ~ T2 + f2 + f * T + T + f)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.5801 -0.1539  0.0553  0.1636  0.4701 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 59.49485    3.94372  15.086 1.07e-08 ***
+T2           0.07276    0.05386   1.351   0.2038    
+f2          31.19839   17.13339   1.821   0.0959 .  
+f           -1.02593   12.85762  -0.080   0.9378    
+T           -0.67994    0.76058  -0.894   0.3905    
+f:T         -2.49254    1.90812  -1.306   0.2181    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 0.3389 on 11 degrees of freedom
+Multiple R-squared: 0.9991,	Adjusted R-squared: 0.9987 
+F-statistic:  2489 on 5 and 11 DF,  p-value: < 2.2e-16 
+
