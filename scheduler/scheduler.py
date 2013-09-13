@@ -30,8 +30,8 @@ cluster = ({'t_amb' : -8.3, 'r': 0.646, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928
            {'t_amb' : -4.1, 'r': 0.620, 'a1': 0.0261, 'a2': 8.0382, 'a3': -0.4493, 'a4': -0.7162, 'a5': 2.1208, 'a6': 59.1880, 'util': 4}, 
            {'t_amb' : -9.1, 'r': 0.673, 'a1': 0.0011, 'a2': 4.7734, 'a3': 0.0952, 'a4': 0.1748, 'a5': -6.1500, 'a6': 52.0493, 'util': 4}, 
            {'t_amb' : -6.5, 'r': 0.670, 'a1': 0.0055, 'a2': 4.3663, 'a3': 0.0723, 'a4': -0.1552, 'a5': -3.9533, 'a6': 55.0371, 'util': 4}, 
-           {'t_amb' : -5.5, 'r': 0.675, 'a1': 0.0728, 'a2': 31.1984, 'a3': -2.4925, 'a4': -0.6799, 'a5': -1.0259, 'a6': 59.4949, 'util': 4}, 
-           {'t_amb' : -5.5, 'r': 0.644, 'a1': 0.0608, 'a2': 19.6002, 'a3': -1.6987, 'a4': -0.9364, 'a5': 4.9035, 'a6': 61.1238, 'util': 4}, 
+           {'t_amb' : -5.5, 'r': 0.675, 'a1': -0.0314, 'a2': 1.6113, 'a3': 1.0633, 'a4': 0.8576, 'a5': -29.7808, 'a6': 56.0095, 'util': 4}, 
+           {'t_amb' : -5.5, 'r': 0.644, 'a1': -0.0210, 'a2': 3.9259, 'a3': 0.4893, 'a4': 1.0868, 'a5': -18.1464, 'a6': 45.0253, 'util': 4}, 
            {'t_amb' : -6.4, 'r': 0.676, 'a1': 0.0114, 'a2': 6.3760, 'a3': -0.1265, 'a4': -0.2402, 'a5': -2.7039, 'a6': 52.7532, 'util': 4}, 
            {'t_amb' : -8.8, 'r': 0.704, 'a1': -0.0151, 'a2': 5.6876, 'a3': 0.4642, 'a4': 0.6182, 'a5': -21.2384, 'a6': 54.0389, 'util': 4})
 
@@ -99,6 +99,7 @@ def maxTemp(core, freq):
     B = a3*r*f + a4*r - 1
     C = a2*r*math.pow(f,2) + a5*f*r + a6*r + t_amb
     max_temp = -B/(2*A) - math.sqrt(math.pow(B,2) - 4*A*C)/(2*A)
+    print "Max Temp " + str(max_temp)
     return max_temp
 
 def power(core, freq):
@@ -115,6 +116,7 @@ def power(core, freq):
     t_amb = cluster[core]['t_amb']
     t = maxTemp(core, freq)
     power1 = a1*math.pow(t,2) + a2*math.pow(f,2) + a3*f*t + a4*t + a5*f + a6
+    print "power " + str(power1)
     return power1
 
 def eMax(chromo):
@@ -344,18 +346,22 @@ def algorithms(num_tasks, tot_util, pop_size):
     max_elite = int(population_size*0.01)
     crossover_size = int(population_size*0.85)
     mutation_size = int(population_size*0.005)
+    for i in range(20):
+        for f in kFreq:
+            print "CPU " + str(i) + " freq " + str(f)
+            power(i, f)
     # PENDING : Waiting for genetic algorithm
     # PENDIng : Waiting for Worst Fit algorithm
     # Create a random task set
-    buildTaskSet(number_tasks, tot_util)
+    #buildTaskSet(number_tasks, tot_util)
     # Create random population for genetic alg
-    buildPop(number_tasks, population_size)
+    #buildPop(number_tasks, population_size)
     # Call algorithms
     # Run genetic w random population, print results
-    genetic()
-    if minWF() == 1:
-        return 0
-    hybridGAWF()
+    #genetic()
+    #if minWF() == 1:
+    #    return 0
+    #hybridGAWF()
     # Run MinWF, print results
     # Feed MinWF into Genetic, print results
     return 1

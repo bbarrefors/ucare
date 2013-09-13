@@ -4,7 +4,7 @@ lm(formula = P ~ T2 + f2 + f * T + T + f)
 
 Coefficients:
 (Intercept)           T2           f2            f            T          f:T  
-   61.12382      0.06079     19.60021      4.90353     -0.93643     -1.69873  
+   45.02526     -0.02098      3.92591    -18.14635      1.08677      0.48930  
 
 
 Call:
@@ -12,20 +12,20 @@ lm(formula = P ~ T2 + f2 + f * T + T + f)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--0.8913 -0.1929  0.1077  0.2125  0.7167 
+-0.6274 -0.3381 -0.1847  0.2167  1.1487 
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 61.12382    8.39213   7.283 6.15e-06 ***
-T2           0.06079    0.06722   0.904    0.382    
-f2          19.60021   15.37901   1.274    0.225    
-f            4.90353   20.62405   0.238    0.816    
-T           -0.93643    1.38978  -0.674    0.512    
-f:T         -1.69873    2.02637  -0.838    0.417    
+             Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  45.02526   13.61092   3.308  0.00566 **
+T2           -0.02098    0.11465  -0.183  0.85763   
+f2            3.92591   23.25896   0.169  0.86856   
+f           -18.14635   35.13675  -0.516  0.61421   
+T             1.08677    2.45377   0.443  0.66512   
+f:T           0.48930    3.26895   0.150  0.88331   
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
-Residual standard error: 0.4869 on 13 degrees of freedom
-Multiple R-squared: 0.9973,	Adjusted R-squared: 0.9963 
-F-statistic: 973.2 on 5 and 13 DF,  p-value: 2.984e-16 
+Residual standard error: 0.547 on 13 degrees of freedom
+Multiple R-squared: 0.9965,	Adjusted R-squared: 0.9952 
+F-statistic: 746.3 on 5 and 13 DF,  p-value: 1.665e-15 
 
