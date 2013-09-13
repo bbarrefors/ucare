@@ -219,14 +219,20 @@ def minWF():
     total_cores = len(s)
     fs = open('Schedule', 'a')
     fs.write("The total energy consumption for this schedule is " + str(total_energy) + "\n")
-    fs.write("the number of CPU's used is " + str(total_cores) + "\n")
+    fs.write("The number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
+    tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for gene_i in range(len(pop[0][1:])):
         gene_i += 1
         gene = pop[0][gene_i]
         cpu = gene[1]
         util = gene[0]
         fs.write("Allocate " + str(util) + " on cpu " + str(cpu) + "\n")
+        tot_util[core] += util
+    i = 1
+    for cpu in tot_util:
+        fs.write("Allocate total " + str(cpu) + " on cpu " + str(i) + "\n")
+        i += 1
     fs.write("\n")
     fs.close()
     return 0
@@ -300,12 +306,18 @@ def genetic():
     fs.write("The total energy consumption for this schedule is " + str(total_energy) + "\n")
     fs.write("the number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
+    tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for gene_i in range(len(pop[0][1:])):
         gene_i += 1
         gene = pop[0][gene_i]
         cpu = gene[1]
         util = gene[0]
-        fs.write("Allocate " + str(util) + " on cpu " + str(cpu) +"\n")
+        fs.write("Allocate " + str(util) + " on cpu " + str(cpu) + "\n")
+        tot_util[core] += util
+    i = 1
+    for cpu in tot_util:
+        fs.write("Allocate total " + str(cpu) + " on cpu " + str(i) + "\n")
+        i += 1
     fs.write("\n")
     fs.close()
     return 1
@@ -350,13 +362,13 @@ def algorithms(num_tasks, tot_util, pop_size):
 
 ##### This is the start of the program #####
 
-#num_tasks = [100, 150, 200, 300];
-#tot_util = [20, 35, 45];
-#pop_size = [2000, 10000];
+num_tasks = [100, 150, 200, 300];
+tot_util = [20, 35, 45];
+pop_size = [2000, 10000];
 
-num_tasks = [100];
-tot_util = [30];
-pop_size = [2000];
+#num_tasks = [100];
+#tot_util = [30];
+#pop_size = [2000];
 
 for tmp_num in num_tasks:
     print "Next task set"
