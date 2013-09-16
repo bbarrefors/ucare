@@ -99,7 +99,6 @@ def maxTemp(core, freq):
     B = a3*r*f + a4*r - 1
     C = a2*r*math.pow(f,2) + a5*f*r + a6*r + t_amb
     max_temp = -B/(2*A) - math.sqrt(math.pow(B,2) - 4*A*C)/(2*A)
-    print "Max Temp " + str(max_temp)
     return max_temp
 
 def power(core, freq):
@@ -116,7 +115,6 @@ def power(core, freq):
     t_amb = cluster[core]['t_amb']
     t = maxTemp(core, freq)
     power1 = a1*math.pow(t,2) + a2*math.pow(f,2) + a3*f*t + a4*t + a5*f + a6
-    print "power " + str(power1)
     return power1
 
 def eMax(chromo):
@@ -158,7 +156,7 @@ def eChromo(chromo):
         if (j == 10):
             e_chromo += kFreq[9]*large_integer
         elif (j == 11):
-            e_chromo += power(core, f*kFreq[9])
+            e_chromo += power(cpu, f*kFreq[9])
         else:
             e_chromo += 0
     return e_chromo
@@ -207,7 +205,6 @@ def minWF():
                 heapq.heappush(util, cpu)
                 break
         if not util:
-            print "failed"
             return 1
     pop.append(chromo)
     total_energy = eChromo(0)
@@ -230,7 +227,7 @@ def minWF():
         cpu = gene[1]
         util = gene[0]
         fs.write("Allocate " + str(util) + " on cpu " + str(cpu) + "\n")
-        tot_util[core] += util
+        tot_util[cpu] += util
     i = 1
     for cpu in tot_util:
         fs.write("Allocate total " + str(cpu) + " on cpu " + str(i) + "\n")
@@ -248,7 +245,6 @@ def genetic():
     converge = 1
     best_fit = 0
     while ((generation < kMax_gen) and (converge < kMax_converge)):
-        print "Generation " + str(generation)
         for chromo in range(len(pop)):
             fitness_value = fitnessValue(chromo)
             pop[chromo][0] = fitness_value
@@ -315,7 +311,7 @@ def genetic():
         cpu = gene[1]
         util = gene[0]
         fs.write("Allocate " + str(util) + " on cpu " + str(cpu) + "\n")
-        tot_util[core] += util
+        tot_util[cpu] += util
     i = 1
     for cpu in tot_util:
         fs.write("Allocate total " + str(cpu) + " on cpu " + str(i) + "\n")
@@ -346,24 +342,18 @@ def algorithms(num_tasks, tot_util, pop_size):
     max_elite = int(population_size*0.01)
     crossover_size = int(population_size*0.85)
     mutation_size = int(population_size*0.005)
-    for i in range(20):
-        for f in kFreq:
-            print "CPU " + str(i) + " freq " + str(f)
-            power(i, f)
-    # PENDING : Waiting for genetic algorithm
-    # PENDIng : Waiting for Worst Fit algorithm
     # Create a random task set
-    #buildTaskSet(number_tasks, tot_util)
+    buildTaskSet(number_tasks, tot_util)
     # Create random population for genetic alg
-    #buildPop(number_tasks, population_size)
+    buildPop(number_tasks, population_size)
     # Call algorithms
     # Run genetic w random population, print results
-    #genetic()
-    #if minWF() == 1:
-    #    return 0
-    #hybridGAWF()
+    genetic()
     # Run MinWF, print results
     # Feed MinWF into Genetic, print results
+    if minWF() == 1:
+        return 0
+    hybridGAWF()
     return 1
 
 ##### This is the start of the program #####
@@ -377,13 +367,9 @@ pop_size = [2000, 10000];
 #pop_size = [2000];
 
 for tmp_num in num_tasks:
-    print "Next task set"
     for tmp_util in tot_util:
-        print "Next total utilization"
         for tmp_pop in pop_size:
-            print "Next population size"
             fs = open('Schedule', 'a')
             fs.write("Task set: Num Tasks " + str(tmp_num) + " | Util " + str(tmp_util) + " | Pop Size " + str(tmp_pop) + "\n\n")
             fs.close()
             algorithms(tmp_num, tmp_util, tmp_pop)
-print "Done"
