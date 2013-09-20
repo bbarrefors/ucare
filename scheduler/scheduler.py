@@ -60,11 +60,16 @@ def buildTaskSet(num_tasks, tot_util):
     global kTot_util
     kTot_util = tot_util
     task_set = []
-    mean = float(kTot_util)/float(num_tasks)
+    mean = float(tot_util)/float(num_tasks)
     std_dev = mean/2.75
     util = abs(numpy.random.normal(mean, std_dev, num_tasks))
+    u = 0
     for i in util:
+        u += i
         task_set.append(i)
+    fs = open('Schedule', 'a')
+    fs.write("Utilization " + str(u) + "\n")
+    fs.close()
     return 1
 
 def buildPop(num_tasks, pop_size):
@@ -130,7 +135,6 @@ def eChromo(chromo):
     # Actual power consumption for task allocation. 
     # If allocation doesn't comply w temperature restrictions it gets penalised
     # PENDING : Waiting for maxTemp
-    global pop
     e_chromo = 0
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for gene_i in range(len(pop[chromo][1:])):
@@ -139,26 +143,23 @@ def eChromo(chromo):
         util = gene[0]
         core = gene[1]
         tot_util[core] += util
-    j = 0
-    f = 0
     for cpu in range(20):
-        while (j <= 9):
-            f = kFreq[j]/kFreq[9]
-            if (tot_util[cpu]/f <= 4):
-                if (tot_util[cpu] == 0):
-                    j = 12
-                elif (kMax_temp >= maxTemp(cpu, f*kFreq[9])):
-                    j = 11
+        if not (tot_util[cpu] == 0):
+            j = 0
+            f = 0
+            while (j <= 9):
+                f = kFreq[j]/kFreq[9]
+                if (tot_util[cpu]/f <= 4):
+                    if (kMax_temp < maxTemp(cpu, kFreq[j])):
+                        j = 11
+                    else:
+                        break
                 else:
-                    j = 10
+                    j += 1
+            if (j < 10):
+                e_chromo += power(cpu, kFreq[j])
             else:
-                j += 1
-        if (j == 10):
-            e_chromo += kFreq[9]*large_integer
-        elif (j == 11):
-            e_chromo += power(cpu, f*kFreq[9])
-        else:
-            e_chromo += 0
+                e_chromo += kFreq[9]*large_integer
     return e_chromo
 
 def fitnessValue(chromo):
@@ -207,7 +208,6 @@ def minWF():
         if not util:
             return 1
     pop.append(chromo)
-    total_energy = eChromo(0)
     total_cores = 0
     s = set()
     for gene_i in range(len(pop[0][1:])):
@@ -217,7 +217,6 @@ def minWF():
         s.add(cpu)
     total_cores = len(s)
     fs = open('Schedule', 'a')
-    fs.write("The total energy consumption for this schedule is " + str(total_energy) + "\n")
     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -226,11 +225,18 @@ def minWF():
         gene = pop[0][gene_i]
         cpu = gene[1]
         util = gene[0]
-        fs.write("Allocate " + str(util) + " on cpu " + str(cpu) + "\n")
         tot_util[cpu] += util
     i = 1
     for cpu in tot_util:
-        fs.write("Allocate total " + str(cpu) + " on cpu " + str(i) + "\n")
+        j = 0
+        while (j <= 9):
+            f = kFreq[j]/kFreq[9]
+            if (cpu/f <= 4):
+                break
+            if j == 9:
+                break
+            j += 1
+        fs.write("Allocate total " + str(cpu/(kFreq[j]/kFreq[9])) + " on cpu " + str(i) + " on freq " + str(kFreq[j]) + "\n")
         i += 1
     fs.write("\n")
     fs.close()
@@ -255,7 +261,7 @@ def genetic():
         else:
             besf_fit = pop[0][0]
             converge = 1
-            
+        
         # Crossover
         for i in range(max_elite, max_elite + crossover_size):
             rand = randint(0,population_size-1)
@@ -291,7 +297,6 @@ def genetic():
         fitness_value = fitnessValue(chromo)
         pop[chromo][0] = fitness_value
     pop = sorted(pop, key=itemgetter(0))
-    total_energy = eChromo(0)
     total_cores = 0
     s = set()
     for gene_i in range(len(pop[0][1:])):
@@ -301,8 +306,7 @@ def genetic():
         s.add(cpu)
     total_cores = len(s)
     fs = open('Schedule', 'a')
-    fs.write("The total energy consumption for this schedule is " + str(total_energy) + "\n")
-    fs.write("the number of CPU's used is " + str(total_cores) + "\n")
+    fs.write("The number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for gene_i in range(len(pop[0][1:])):
@@ -310,11 +314,18 @@ def genetic():
         gene = pop[0][gene_i]
         cpu = gene[1]
         util = gene[0]
-        fs.write("Allocate " + str(util) + " on cpu " + str(cpu) + "\n")
         tot_util[cpu] += util
     i = 1
     for cpu in tot_util:
-        fs.write("Allocate total " + str(cpu) + " on cpu " + str(i) + "\n")
+        j = 0
+        while (j <= 9):
+            f = kFreq[j]/kFreq[9]
+            if (cpu/f <= 4):
+                break
+            if j == 9:
+                break
+            j += 1
+        fs.write("Allocate total " + str(cpu/(kFreq[j]/kFreq[9])) + " on cpu " + str(i) + " on freq " + str(kFreq[j]) + "\n")
         i += 1
     fs.write("\n")
     fs.close()
@@ -365,6 +376,10 @@ pop_size = [2000, 10000];
 #num_tasks = [100];
 #tot_util = [30];
 #pop_size = [2000];
+
+fs = open('Schedule', 'w')
+fs.write("Start scheduler\n\n")
+fs.close()
 
 for tmp_num in num_tasks:
     for tmp_util in tot_util:
