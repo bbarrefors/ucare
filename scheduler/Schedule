@@ -1,0 +1,1602 @@
+Start scheduler
+
+Task set: Num Tasks 100 | Util 20 | Pop Size 2000
+
+Utilization 20.8167565907
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 2.34534748189 on cpu 2 on freq 1.197
+Allocate total 2.17249386677 on cpu 3 on freq 1.197
+Allocate total 0.0 on cpu 4 on freq 1.197
+Allocate total 0.699019729154 on cpu 5 on freq 1.197
+Allocate total 3.80020800553 on cpu 6 on freq 1.197
+Allocate total 1.29876106788 on cpu 7 on freq 1.197
+Allocate total 1.79403792198 on cpu 8 on freq 1.197
+Allocate total 1.53796412308 on cpu 9 on freq 1.197
+Allocate total 3.60931604008 on cpu 10 on freq 1.33
+Allocate total 0.995043626132 on cpu 11 on freq 1.197
+Allocate total 2.8280469371 on cpu 12 on freq 1.197
+Allocate total 3.41134074104 on cpu 13 on freq 1.197
+Allocate total 1.28666757424 on cpu 14 on freq 1.197
+Allocate total 1.01044908672 on cpu 15 on freq 1.197
+Allocate total 1.66250306582 on cpu 16 on freq 1.197
+Allocate total 2.20794523647 on cpu 17 on freq 1.197
+Allocate total 3.40516357343 on cpu 18 on freq 1.197
+Allocate total 3.05019272395 on cpu 19 on freq 1.197
+Allocate total 2.53964830001 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.00613778417 on cpu 1 on freq 1.197
+Allocate total 2.24510423543 on cpu 2 on freq 1.197
+Allocate total 1.93375847984 on cpu 3 on freq 1.197
+Allocate total 1.89965185369 on cpu 4 on freq 1.197
+Allocate total 2.12821430183 on cpu 5 on freq 1.197
+Allocate total 1.89959821885 on cpu 6 on freq 1.197
+Allocate total 1.92678653219 on cpu 7 on freq 1.197
+Allocate total 1.93533594688 on cpu 8 on freq 1.197
+Allocate total 2.24151306178 on cpu 9 on freq 1.197
+Allocate total 1.93798994105 on cpu 10 on freq 1.197
+Allocate total 2.07875552614 on cpu 11 on freq 1.197
+Allocate total 2.24221658264 on cpu 12 on freq 1.197
+Allocate total 2.61459043473 on cpu 13 on freq 1.197
+Allocate total 2.31001647839 on cpu 14 on freq 1.197
+Allocate total 2.06857491804 on cpu 15 on freq 1.197
+Allocate total 2.10279104626 on cpu 16 on freq 1.197
+Allocate total 2.0770214411 on cpu 17 on freq 1.197
+Allocate total 1.92861854575 on cpu 18 on freq 1.197
+Allocate total 1.9017229297 on cpu 19 on freq 1.197
+Allocate total 2.15511492284 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 2.59485720963 on cpu 1 on freq 1.197
+Allocate total 2.51325295936 on cpu 2 on freq 1.197
+Allocate total 1.59422862539 on cpu 3 on freq 1.197
+Allocate total 0.0 on cpu 4 on freq 1.197
+Allocate total 2.37218231666 on cpu 5 on freq 1.197
+Allocate total 3.09871473707 on cpu 6 on freq 1.197
+Allocate total 1.13085124492 on cpu 7 on freq 1.197
+Allocate total 0.0 on cpu 8 on freq 1.197
+Allocate total 3.44194450861 on cpu 9 on freq 1.197
+Allocate total 1.51268140899 on cpu 10 on freq 1.197
+Allocate total 1.58545358669 on cpu 11 on freq 1.197
+Allocate total 3.63503817762 on cpu 12 on freq 1.197
+Allocate total 2.29364084498 on cpu 13 on freq 1.197
+Allocate total 2.48932799905 on cpu 14 on freq 1.197
+Allocate total 1.83710687169 on cpu 15 on freq 1.197
+Allocate total 2.98678421236 on cpu 16 on freq 1.197
+Allocate total 1.9252751381 on cpu 17 on freq 1.197
+Allocate total 2.8458375767 on cpu 18 on freq 1.197
+Allocate total 2.28368348082 on cpu 19 on freq 1.197
+Allocate total 1.50081435834 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 100 | Util 20 | Pop Size 10000
+
+Utilization 18.4191469749
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 0.0 on cpu 2 on freq 1.197
+Allocate total 3.1029378712 on cpu 3 on freq 1.197
+Allocate total 1.39855939626 on cpu 4 on freq 1.197
+Allocate total 0.861119173748 on cpu 5 on freq 1.197
+Allocate total 2.33475890769 on cpu 6 on freq 1.197
+Allocate total 2.03103738461 on cpu 7 on freq 1.197
+Allocate total 2.17391444121 on cpu 8 on freq 1.197
+Allocate total 2.60021156835 on cpu 9 on freq 1.197
+Allocate total 0.794059886726 on cpu 10 on freq 1.197
+Allocate total 1.94217133264 on cpu 11 on freq 1.197
+Allocate total 2.29711990901 on cpu 12 on freq 1.197
+Allocate total 2.62787872216 on cpu 13 on freq 1.197
+Allocate total 2.36229415746 on cpu 14 on freq 1.197
+Allocate total 2.29257227222 on cpu 15 on freq 1.197
+Allocate total 2.14989612797 on cpu 16 on freq 1.197
+Allocate total 1.63089415699 on cpu 17 on freq 1.197
+Allocate total 1.56590458177 on cpu 18 on freq 1.197
+Allocate total 2.46360803465 on cpu 19 on freq 1.197
+Allocate total 1.77541294146 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.18349484767 on cpu 1 on freq 1.197
+Allocate total 1.98011640949 on cpu 2 on freq 1.197
+Allocate total 1.75126443418 on cpu 3 on freq 1.197
+Allocate total 1.92924741343 on cpu 4 on freq 1.197
+Allocate total 1.73344848632 on cpu 5 on freq 1.197
+Allocate total 1.68201650939 on cpu 6 on freq 1.197
+Allocate total 1.79978623512 on cpu 7 on freq 1.197
+Allocate total 1.95981724968 on cpu 8 on freq 1.197
+Allocate total 1.672048175 on cpu 9 on freq 1.197
+Allocate total 1.65502057668 on cpu 10 on freq 1.197
+Allocate total 1.94501612871 on cpu 11 on freq 1.197
+Allocate total 1.95256977169 on cpu 12 on freq 1.197
+Allocate total 1.71305822619 on cpu 13 on freq 1.197
+Allocate total 1.70871964784 on cpu 14 on freq 1.197
+Allocate total 2.00535013327 on cpu 15 on freq 1.197
+Allocate total 1.76103362835 on cpu 16 on freq 1.197
+Allocate total 1.86958658687 on cpu 17 on freq 1.197
+Allocate total 1.75993213782 on cpu 18 on freq 1.197
+Allocate total 1.69076451806 on cpu 19 on freq 1.197
+Allocate total 2.08600283397 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 17
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 1.5336312243 on cpu 2 on freq 1.197
+Allocate total 1.42669053097 on cpu 3 on freq 1.197
+Allocate total 0.659853788839 on cpu 4 on freq 1.197
+Allocate total 1.63156426652 on cpu 5 on freq 1.197
+Allocate total 3.84150231448 on cpu 6 on freq 1.197
+Allocate total 3.60938421496 on cpu 7 on freq 1.33
+Allocate total 1.2473646878 on cpu 8 on freq 1.197
+Allocate total 3.83533126253 on cpu 9 on freq 1.33
+Allocate total 1.47262918904 on cpu 10 on freq 1.197
+Allocate total 3.23327326314 on cpu 11 on freq 1.197
+Allocate total 1.25406662951 on cpu 12 on freq 1.197
+Allocate total 0.504448352614 on cpu 13 on freq 1.197
+Allocate total 1.36743441296 on cpu 14 on freq 1.197
+Allocate total 2.01349643509 on cpu 15 on freq 1.197
+Allocate total 1.97797492434 on cpu 16 on freq 1.197
+Allocate total 3.37850209434 on cpu 17 on freq 1.197
+Allocate total 0.0 on cpu 18 on freq 1.197
+Allocate total 1.79569826827 on cpu 19 on freq 1.197
+Allocate total 0.0 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 100 | Util 35 | Pop Size 2000
+
+Utilization 32.3814152228
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 1.94823334998 on cpu 1 on freq 1.197
+Allocate total 2.30443073767 on cpu 2 on freq 1.197
+Allocate total 1.65239468045 on cpu 3 on freq 1.197
+Allocate total 2.55131708988 on cpu 4 on freq 1.197
+Allocate total 3.30070612247 on cpu 5 on freq 1.197
+Allocate total 3.4395179451 on cpu 6 on freq 1.197
+Allocate total 3.45763544863 on cpu 7 on freq 1.197
+Allocate total 0.0 on cpu 8 on freq 1.197
+Allocate total 3.20079016913 on cpu 9 on freq 1.197
+Allocate total 3.99152216756 on cpu 10 on freq 1.596
+Allocate total 2.70447620072 on cpu 11 on freq 1.197
+Allocate total 3.50169833386 on cpu 12 on freq 1.197
+Allocate total 0.0 on cpu 13 on freq 1.197
+Allocate total 2.66502873209 on cpu 14 on freq 1.197
+Allocate total 3.81151325017 on cpu 15 on freq 1.197
+Allocate total 3.79540836296 on cpu 16 on freq 1.197
+Allocate total 3.96024462226 on cpu 17 on freq 1.197
+Allocate total 3.86098171081 on cpu 18 on freq 2.128
+Allocate total 3.76773458704 on cpu 19 on freq 1.862
+Allocate total 3.28955114312 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.24358788945 on cpu 1 on freq 1.197
+Allocate total 3.49803418746 on cpu 2 on freq 1.197
+Allocate total 2.95152249436 on cpu 3 on freq 1.197
+Allocate total 2.87162219422 on cpu 4 on freq 1.197
+Allocate total 3.05413060604 on cpu 5 on freq 1.197
+Allocate total 2.94108791287 on cpu 6 on freq 1.197
+Allocate total 3.75139145785 on cpu 7 on freq 1.197
+Allocate total 3.20718785431 on cpu 8 on freq 1.197
+Allocate total 3.28194871531 on cpu 9 on freq 1.197
+Allocate total 3.23643146195 on cpu 10 on freq 1.197
+Allocate total 3.09627491601 on cpu 11 on freq 1.197
+Allocate total 3.29093578701 on cpu 12 on freq 1.197
+Allocate total 3.37134179515 on cpu 13 on freq 1.197
+Allocate total 3.00729493033 on cpu 14 on freq 1.197
+Allocate total 3.24250437788 on cpu 15 on freq 1.197
+Allocate total 3.41131465706 on cpu 16 on freq 1.197
+Allocate total 3.18824845484 on cpu 17 on freq 1.197
+Allocate total 3.59356655853 on cpu 18 on freq 1.197
+Allocate total 3.28230584373 on cpu 19 on freq 1.197
+Allocate total 3.24209835132 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 3.64343574474 on cpu 1 on freq 1.33
+Allocate total 3.0551410293 on cpu 2 on freq 1.197
+Allocate total 3.82141739096 on cpu 3 on freq 1.33
+Allocate total 3.72074113704 on cpu 4 on freq 1.197
+Allocate total 3.94611640454 on cpu 5 on freq 2.128
+Allocate total 2.77206355665 on cpu 6 on freq 1.197
+Allocate total 3.8885179165 on cpu 7 on freq 1.197
+Allocate total 3.24820572627 on cpu 8 on freq 1.197
+Allocate total 2.60031877448 on cpu 9 on freq 1.197
+Allocate total 1.75592923727 on cpu 10 on freq 1.197
+Allocate total 1.73624932498 on cpu 11 on freq 1.197
+Allocate total 2.14406989247 on cpu 12 on freq 1.197
+Allocate total 3.97411354634 on cpu 13 on freq 1.463
+Allocate total 0.0 on cpu 14 on freq 1.197
+Allocate total 0.0 on cpu 15 on freq 1.197
+Allocate total 3.65069963401 on cpu 16 on freq 1.33
+Allocate total 3.62668471398 on cpu 17 on freq 1.197
+Allocate total 3.85206183576 on cpu 18 on freq 1.33
+Allocate total 3.71122558059 on cpu 19 on freq 1.33
+Allocate total 3.14909978184 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 100 | Util 35 | Pop Size 10000
+
+Utilization 34.5849075947
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 3.69789082111 on cpu 1 on freq 1.596
+Allocate total 0.0 on cpu 2 on freq 1.197
+Allocate total 1.30978521416 on cpu 3 on freq 1.197
+Allocate total 3.91886254621 on cpu 4 on freq 1.33
+Allocate total 3.60776272571 on cpu 5 on freq 1.33
+Allocate total 3.72318403854 on cpu 6 on freq 1.729
+Allocate total 3.89138932567 on cpu 7 on freq 1.197
+Allocate total 2.82256704289 on cpu 8 on freq 1.197
+Allocate total 3.63178149229 on cpu 9 on freq 1.33
+Allocate total 3.3250755002 on cpu 10 on freq 1.197
+Allocate total 0.0 on cpu 11 on freq 1.197
+Allocate total 2.71565198989 on cpu 12 on freq 1.197
+Allocate total 3.99748112505 on cpu 13 on freq 1.197
+Allocate total 3.36945064241 on cpu 14 on freq 1.197
+Allocate total 3.77609264706 on cpu 15 on freq 1.33
+Allocate total 2.01881361896 on cpu 16 on freq 1.197
+Allocate total 3.75717712052 on cpu 17 on freq 1.463
+Allocate total 1.08904585513 on cpu 18 on freq 1.197
+Allocate total 3.96319344001 on cpu 19 on freq 1.729
+Allocate total 3.94351134597 on cpu 20 on freq 1.596
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.63680834737 on cpu 1 on freq 1.197
+Allocate total 3.24465476058 on cpu 2 on freq 1.197
+Allocate total 3.23038700272 on cpu 3 on freq 1.197
+Allocate total 3.36924190508 on cpu 4 on freq 1.197
+Allocate total 3.18452977302 on cpu 5 on freq 1.197
+Allocate total 3.19342793371 on cpu 6 on freq 1.197
+Allocate total 3.48550317448 on cpu 7 on freq 1.197
+Allocate total 3.22637023998 on cpu 8 on freq 1.197
+Allocate total 3.6109758719 on cpu 9 on freq 1.33
+Allocate total 3.0844374416 on cpu 10 on freq 1.197
+Allocate total 3.12590341651 on cpu 11 on freq 1.197
+Allocate total 3.83851919726 on cpu 12 on freq 1.197
+Allocate total 3.56282421391 on cpu 13 on freq 1.197
+Allocate total 3.84963959907 on cpu 14 on freq 1.33
+Allocate total 3.3728254699 on cpu 15 on freq 1.197
+Allocate total 3.15314158217 on cpu 16 on freq 1.197
+Allocate total 3.13170541722 on cpu 17 on freq 1.197
+Allocate total 3.25143563721 on cpu 18 on freq 1.197
+Allocate total 3.68270862749 on cpu 19 on freq 1.197
+Allocate total 3.69523647326 on cpu 20 on freq 1.33
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 17
+Allocation stategy
+Allocate total 3.93599183775 on cpu 1 on freq 1.995
+Allocate total 2.88642021831 on cpu 2 on freq 1.197
+Allocate total 1.97770594642 on cpu 3 on freq 1.197
+Allocate total 0.0 on cpu 4 on freq 1.197
+Allocate total 3.95957307957 on cpu 5 on freq 1.463
+Allocate total 3.77608334681 on cpu 6 on freq 1.596
+Allocate total 1.91908674452 on cpu 7 on freq 1.197
+Allocate total 3.26306647144 on cpu 8 on freq 1.197
+Allocate total 2.70600596452 on cpu 9 on freq 1.197
+Allocate total 3.75290024613 on cpu 10 on freq 1.995
+Allocate total 3.52025704095 on cpu 11 on freq 1.197
+Allocate total 3.66446762884 on cpu 12 on freq 1.197
+Allocate total 3.73207109882 on cpu 13 on freq 1.596
+Allocate total 2.67634718778 on cpu 14 on freq 1.197
+Allocate total 3.92911292824 on cpu 15 on freq 1.33
+Allocate total 0.0 on cpu 16 on freq 1.197
+Allocate total 2.51216631966 on cpu 17 on freq 1.197
+Allocate total 3.92951937212 on cpu 18 on freq 1.862
+Allocate total 3.98205318257 on cpu 19 on freq 1.197
+Allocate total 0.0 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 100 | Util 45 | Pop Size 2000
+
+Utilization 45.1722957647
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 2.54396567736 on cpu 1 on freq 1.197
+Allocate total 3.763312021 on cpu 2 on freq 1.197
+Allocate total 3.69363384559 on cpu 3 on freq 1.729
+Allocate total 3.92843458902 on cpu 4 on freq 1.596
+Allocate total 3.77091326799 on cpu 5 on freq 1.862
+Allocate total 3.85405960617 on cpu 6 on freq 1.596
+Allocate total 3.88287806897 on cpu 7 on freq 1.862
+Allocate total 3.97220031433 on cpu 8 on freq 1.463
+Allocate total 3.78637011287 on cpu 9 on freq 1.463
+Allocate total 3.63057287251 on cpu 10 on freq 1.197
+Allocate total 3.70472166213 on cpu 11 on freq 1.197
+Allocate total 3.91230620127 on cpu 12 on freq 1.463
+Allocate total 2.32546326837 on cpu 13 on freq 1.197
+Allocate total 3.73402133919 on cpu 14 on freq 1.995
+Allocate total 3.96862088555 on cpu 15 on freq 2.128
+Allocate total 0.0 on cpu 16 on freq 1.197
+Allocate total 3.91979556951 on cpu 17 on freq 1.862
+Allocate total 3.80028973319 on cpu 18 on freq 1.729
+Allocate total 3.5790024907 on cpu 19 on freq 1.197
+Allocate total 2.17313528004 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.73869714722 on cpu 1 on freq 1.463
+Allocate total 3.78147546825 on cpu 2 on freq 1.33
+Allocate total 3.74211092974 on cpu 3 on freq 1.463
+Allocate total 3.77422871813 on cpu 4 on freq 1.463
+Allocate total 3.81462061991 on cpu 5 on freq 1.596
+Allocate total 3.65284676658 on cpu 6 on freq 1.33
+Allocate total 3.72737580271 on cpu 7 on freq 1.596
+Allocate total 3.67409887798 on cpu 8 on freq 1.463
+Allocate total 3.70469640945 on cpu 9 on freq 1.33
+Allocate total 3.72951229621 on cpu 10 on freq 1.33
+Allocate total 3.66712533106 on cpu 11 on freq 1.463
+Allocate total 3.80569594748 on cpu 12 on freq 1.729
+Allocate total 3.63719269289 on cpu 13 on freq 1.463
+Allocate total 3.77813417533 on cpu 14 on freq 1.463
+Allocate total 3.77687696891 on cpu 15 on freq 1.33
+Allocate total 3.78629820509 on cpu 16 on freq 1.463
+Allocate total 3.66277044167 on cpu 17 on freq 1.33
+Allocate total 3.88007499231 on cpu 18 on freq 1.33
+Allocate total 3.74675579322 on cpu 19 on freq 1.33
+Allocate total 3.83304009652 on cpu 20 on freq 1.596
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.98464429404 on cpu 1 on freq 1.729
+Allocate total 3.93990784706 on cpu 2 on freq 1.995
+Allocate total 3.51795591108 on cpu 3 on freq 1.197
+Allocate total 3.82011835001 on cpu 4 on freq 1.729
+Allocate total 3.73953234581 on cpu 5 on freq 1.729
+Allocate total 2.98167506474 on cpu 6 on freq 1.197
+Allocate total 3.76326302201 on cpu 7 on freq 1.463
+Allocate total 3.90005146733 on cpu 8 on freq 1.33
+Allocate total 2.5028539103 on cpu 9 on freq 1.197
+Allocate total 3.8905493848 on cpu 10 on freq 1.729
+Allocate total 2.06394582594 on cpu 11 on freq 1.197
+Allocate total 3.92948198407 on cpu 12 on freq 2.128
+Allocate total 3.1499571062 on cpu 13 on freq 1.197
+Allocate total 3.96423106773 on cpu 14 on freq 1.33
+Allocate total 0.0 on cpu 15 on freq 1.197
+Allocate total 3.7979646148 on cpu 16 on freq 1.862
+Allocate total 3.96165528794 on cpu 17 on freq 1.463
+Allocate total 3.86252594898 on cpu 18 on freq 1.596
+Allocate total 3.95384317148 on cpu 19 on freq 1.463
+Allocate total 3.16635357601 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 100 | Util 45 | Pop Size 10000
+
+Utilization 44.3821040538
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.81783701037 on cpu 1 on freq 1.197
+Allocate total 3.91476629287 on cpu 2 on freq 1.862
+Allocate total 3.31550839273 on cpu 3 on freq 1.197
+Allocate total 2.10986309572 on cpu 4 on freq 1.197
+Allocate total 3.58035603467 on cpu 5 on freq 1.197
+Allocate total 3.96179076324 on cpu 6 on freq 2.128
+Allocate total 3.93370878351 on cpu 7 on freq 1.197
+Allocate total 2.20724238318 on cpu 8 on freq 1.197
+Allocate total 3.90968377791 on cpu 9 on freq 1.463
+Allocate total 3.95278390529 on cpu 10 on freq 1.33
+Allocate total 3.49881726198 on cpu 11 on freq 1.197
+Allocate total 0.0 on cpu 12 on freq 1.197
+Allocate total 3.85582352468 on cpu 13 on freq 1.197
+Allocate total 3.6710753988 on cpu 14 on freq 1.596
+Allocate total 3.99070145998 on cpu 15 on freq 1.862
+Allocate total 3.72629392404 on cpu 16 on freq 1.729
+Allocate total 3.24353016731 on cpu 17 on freq 1.197
+Allocate total 3.65248499865 on cpu 18 on freq 1.197
+Allocate total 3.88347153911 on cpu 19 on freq 1.995
+Allocate total 3.90099112812 on cpu 20 on freq 1.463
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.75329826448 on cpu 1 on freq 1.463
+Allocate total 3.69971907938 on cpu 2 on freq 1.33
+Allocate total 3.64578871339 on cpu 3 on freq 1.463
+Allocate total 3.94639937761 on cpu 4 on freq 1.197
+Allocate total 3.98382125117 on cpu 5 on freq 1.463
+Allocate total 3.7532534182 on cpu 6 on freq 1.463
+Allocate total 3.74011631545 on cpu 7 on freq 1.463
+Allocate total 3.90914112096 on cpu 8 on freq 1.33
+Allocate total 3.78888029577 on cpu 9 on freq 1.463
+Allocate total 3.6075729322 on cpu 10 on freq 1.33
+Allocate total 3.96529915224 on cpu 11 on freq 1.463
+Allocate total 3.81794415262 on cpu 12 on freq 1.33
+Allocate total 3.74539786448 on cpu 13 on freq 1.33
+Allocate total 3.9938808763 on cpu 14 on freq 1.197
+Allocate total 3.85300868629 on cpu 15 on freq 1.596
+Allocate total 3.97108224349 on cpu 16 on freq 1.197
+Allocate total 3.8788179568 on cpu 17 on freq 1.463
+Allocate total 3.68488276471 on cpu 18 on freq 1.33
+Allocate total 3.70077791264 on cpu 19 on freq 1.463
+Allocate total 3.70686175263 on cpu 20 on freq 1.596
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 3.72672784145 on cpu 1 on freq 1.463
+Allocate total 3.98193064989 on cpu 2 on freq 2.128
+Allocate total 3.72800214082 on cpu 3 on freq 1.197
+Allocate total 3.74063594608 on cpu 4 on freq 1.862
+Allocate total 3.96384678686 on cpu 5 on freq 1.197
+Allocate total 3.99123304079 on cpu 6 on freq 1.33
+Allocate total 0.0 on cpu 7 on freq 1.197
+Allocate total 3.89469174043 on cpu 8 on freq 1.729
+Allocate total 3.82709892395 on cpu 9 on freq 1.197
+Allocate total 3.89210113591 on cpu 10 on freq 1.995
+Allocate total 1.67832646849 on cpu 11 on freq 1.197
+Allocate total 3.96000847687 on cpu 12 on freq 2.128
+Allocate total 3.83462692068 on cpu 13 on freq 1.33
+Allocate total 3.78858521141 on cpu 14 on freq 1.463
+Allocate total 3.79309979182 on cpu 15 on freq 1.862
+Allocate total 3.9308506184 on cpu 16 on freq 1.995
+Allocate total 0.0 on cpu 17 on freq 1.197
+Allocate total 3.94044828451 on cpu 18 on freq 1.33
+Allocate total 3.83076555884 on cpu 19 on freq 1.463
+Allocate total 3.46795217648 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 150 | Util 20 | Pop Size 2000
+
+Utilization 19.6590042703
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 2.26198391179 on cpu 2 on freq 1.197
+Allocate total 0.0899611786642 on cpu 3 on freq 1.197
+Allocate total 2.25927257981 on cpu 4 on freq 1.197
+Allocate total 1.47077914217 on cpu 5 on freq 1.197
+Allocate total 1.4900125104 on cpu 6 on freq 1.197
+Allocate total 2.47224495209 on cpu 7 on freq 1.197
+Allocate total 2.03316351733 on cpu 8 on freq 1.197
+Allocate total 2.48264680058 on cpu 9 on freq 1.197
+Allocate total 2.4884183493 on cpu 10 on freq 1.197
+Allocate total 2.73081224439 on cpu 11 on freq 1.197
+Allocate total 3.12456021049 on cpu 12 on freq 1.197
+Allocate total 0.939556094937 on cpu 13 on freq 1.197
+Allocate total 3.47023203835 on cpu 14 on freq 1.197
+Allocate total 2.5105952835 on cpu 15 on freq 1.197
+Allocate total 1.01743608633 on cpu 16 on freq 1.197
+Allocate total 1.59331148691 on cpu 17 on freq 1.197
+Allocate total 2.99332999754 on cpu 18 on freq 1.197
+Allocate total 2.40132738314 on cpu 19 on freq 1.197
+Allocate total 0.88023579491 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.04917555284 on cpu 1 on freq 1.197
+Allocate total 1.82994925958 on cpu 2 on freq 1.197
+Allocate total 1.85410407942 on cpu 3 on freq 1.197
+Allocate total 1.96330417703 on cpu 4 on freq 1.197
+Allocate total 1.99551297455 on cpu 5 on freq 1.197
+Allocate total 1.87443240761 on cpu 6 on freq 1.197
+Allocate total 2.02775105795 on cpu 7 on freq 1.197
+Allocate total 2.1186433111 on cpu 8 on freq 1.197
+Allocate total 1.9440722659 on cpu 9 on freq 1.197
+Allocate total 1.83884685932 on cpu 10 on freq 1.197
+Allocate total 2.15065903817 on cpu 11 on freq 1.197
+Allocate total 2.11677172093 on cpu 12 on freq 1.197
+Allocate total 1.94481964982 on cpu 13 on freq 1.197
+Allocate total 1.94520284947 on cpu 14 on freq 1.197
+Allocate total 1.8861830753 on cpu 15 on freq 1.197
+Allocate total 1.81456986231 on cpu 16 on freq 1.197
+Allocate total 2.09470421222 on cpu 17 on freq 1.197
+Allocate total 1.9824366358 on cpu 18 on freq 1.197
+Allocate total 1.80030151844 on cpu 19 on freq 1.197
+Allocate total 2.08656803283 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 1.12762258748 on cpu 2 on freq 1.197
+Allocate total 1.59901989357 on cpu 3 on freq 1.197
+Allocate total 2.17130180457 on cpu 4 on freq 1.197
+Allocate total 2.16595703939 on cpu 5 on freq 1.197
+Allocate total 2.63533466834 on cpu 6 on freq 1.197
+Allocate total 1.82732343988 on cpu 7 on freq 1.197
+Allocate total 0.820427443693 on cpu 8 on freq 1.197
+Allocate total 2.11207468817 on cpu 9 on freq 1.197
+Allocate total 0.806541694293 on cpu 10 on freq 1.197
+Allocate total 2.54278071166 on cpu 11 on freq 1.197
+Allocate total 3.32422338411 on cpu 12 on freq 1.197
+Allocate total 2.30229443745 on cpu 13 on freq 1.197
+Allocate total 1.62465119683 on cpu 14 on freq 1.197
+Allocate total 2.21746711237 on cpu 15 on freq 1.197
+Allocate total 1.54918501226 on cpu 16 on freq 1.197
+Allocate total 3.78881230064 on cpu 17 on freq 1.197
+Allocate total 2.93335040351 on cpu 18 on freq 1.197
+Allocate total 2.63560197305 on cpu 19 on freq 1.197
+Allocate total 1.46484782061 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 150 | Util 20 | Pop Size 10000
+
+Utilization 20.634877457
+Genetic Algorithm
+The number of CPU's used is 18
+Allocation stategy
+Allocate total 3.37715631834 on cpu 1 on freq 1.197
+Allocate total 1.11533614206 on cpu 2 on freq 1.197
+Allocate total 0.0 on cpu 3 on freq 1.197
+Allocate total 2.5008782757 on cpu 4 on freq 1.197
+Allocate total 1.04741165782 on cpu 5 on freq 1.197
+Allocate total 2.22452498106 on cpu 6 on freq 1.197
+Allocate total 0.0 on cpu 7 on freq 1.197
+Allocate total 3.0293740745 on cpu 8 on freq 1.197
+Allocate total 1.46666911673 on cpu 9 on freq 1.197
+Allocate total 2.64549402528 on cpu 10 on freq 1.197
+Allocate total 3.62370944518 on cpu 11 on freq 1.197
+Allocate total 2.08074957716 on cpu 12 on freq 1.197
+Allocate total 2.36672358511 on cpu 13 on freq 1.197
+Allocate total 2.24289416218 on cpu 14 on freq 1.197
+Allocate total 2.05930779617 on cpu 15 on freq 1.197
+Allocate total 2.22989495023 on cpu 16 on freq 1.197
+Allocate total 2.35682599614 on cpu 17 on freq 1.197
+Allocate total 2.0630671113 on cpu 18 on freq 1.197
+Allocate total 3.72753020168 on cpu 19 on freq 1.197
+Allocate total 1.69253056089 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.24807300772 on cpu 1 on freq 1.197
+Allocate total 2.04006287862 on cpu 2 on freq 1.197
+Allocate total 1.96849585931 on cpu 3 on freq 1.197
+Allocate total 1.94757411312 on cpu 4 on freq 1.197
+Allocate total 1.98830201439 on cpu 5 on freq 1.197
+Allocate total 2.25823198743 on cpu 6 on freq 1.197
+Allocate total 1.95870733139 on cpu 7 on freq 1.197
+Allocate total 1.98160534921 on cpu 8 on freq 1.197
+Allocate total 2.38513785066 on cpu 9 on freq 1.197
+Allocate total 2.13535592224 on cpu 10 on freq 1.197
+Allocate total 2.19882776817 on cpu 11 on freq 1.197
+Allocate total 2.07957394912 on cpu 12 on freq 1.197
+Allocate total 1.99778803264 on cpu 13 on freq 1.197
+Allocate total 1.91360002772 on cpu 14 on freq 1.197
+Allocate total 2.04062507346 on cpu 15 on freq 1.197
+Allocate total 2.22661439189 on cpu 16 on freq 1.197
+Allocate total 1.91504082702 on cpu 17 on freq 1.197
+Allocate total 2.04711389354 on cpu 18 on freq 1.197
+Allocate total 1.99149622166 on cpu 19 on freq 1.197
+Allocate total 1.94752841466 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 1.33838273625 on cpu 2 on freq 1.197
+Allocate total 2.33980923648 on cpu 3 on freq 1.197
+Allocate total 1.03592773467 on cpu 4 on freq 1.197
+Allocate total 2.50294284022 on cpu 5 on freq 1.197
+Allocate total 0.93485712658 on cpu 6 on freq 1.197
+Allocate total 2.3006092025 on cpu 7 on freq 1.197
+Allocate total 2.67492055923 on cpu 8 on freq 1.197
+Allocate total 2.07139959348 on cpu 9 on freq 1.197
+Allocate total 1.92121160643 on cpu 10 on freq 1.197
+Allocate total 3.03254776107 on cpu 11 on freq 1.197
+Allocate total 3.74024073141 on cpu 12 on freq 1.197
+Allocate total 1.44170665253 on cpu 13 on freq 1.197
+Allocate total 2.63541344377 on cpu 14 on freq 1.197
+Allocate total 1.94713424444 on cpu 15 on freq 1.197
+Allocate total 1.34074973971 on cpu 16 on freq 1.197
+Allocate total 1.91949615391 on cpu 17 on freq 1.197
+Allocate total 1.96525318872 on cpu 18 on freq 1.197
+Allocate total 2.69403244235 on cpu 19 on freq 1.197
+Allocate total 2.46090937972 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 150 | Util 35 | Pop Size 2000
+
+Utilization 33.9757201004
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 3.99883310635 on cpu 2 on freq 1.33
+Allocate total 3.89172939758 on cpu 3 on freq 1.862
+Allocate total 3.50631191562 on cpu 4 on freq 1.197
+Allocate total 2.2798177029 on cpu 5 on freq 1.197
+Allocate total 3.99721546917 on cpu 6 on freq 1.463
+Allocate total 3.29966891506 on cpu 7 on freq 1.197
+Allocate total 2.3498867643 on cpu 8 on freq 1.197
+Allocate total 2.30547554707 on cpu 9 on freq 1.197
+Allocate total 3.16584843103 on cpu 10 on freq 1.197
+Allocate total 3.33283634541 on cpu 11 on freq 1.197
+Allocate total 3.49523316381 on cpu 12 on freq 1.197
+Allocate total 3.51278367275 on cpu 13 on freq 1.197
+Allocate total 3.10735406725 on cpu 14 on freq 1.197
+Allocate total 3.87455412458 on cpu 15 on freq 1.197
+Allocate total 3.49329567436 on cpu 16 on freq 1.197
+Allocate total 3.61195226444 on cpu 17 on freq 1.197
+Allocate total 3.99102021799 on cpu 18 on freq 1.33
+Allocate total 3.00127992778 on cpu 19 on freq 1.197
+Allocate total 3.76849806137 on cpu 20 on freq 1.33
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.3245898917 on cpu 1 on freq 1.197
+Allocate total 3.72536639733 on cpu 2 on freq 1.197
+Allocate total 3.38926555505 on cpu 3 on freq 1.197
+Allocate total 3.73890901661 on cpu 4 on freq 1.197
+Allocate total 3.79716566963 on cpu 5 on freq 1.197
+Allocate total 3.52898115264 on cpu 6 on freq 1.197
+Allocate total 3.1936421409 on cpu 7 on freq 1.197
+Allocate total 3.27611674719 on cpu 8 on freq 1.197
+Allocate total 3.15490619419 on cpu 9 on freq 1.197
+Allocate total 3.38528896576 on cpu 10 on freq 1.197
+Allocate total 3.42300660293 on cpu 11 on freq 1.197
+Allocate total 3.47557001067 on cpu 12 on freq 1.197
+Allocate total 3.43396278079 on cpu 13 on freq 1.197
+Allocate total 3.40844129829 on cpu 14 on freq 1.197
+Allocate total 3.195488863 on cpu 15 on freq 1.197
+Allocate total 3.21831359484 on cpu 16 on freq 1.197
+Allocate total 3.32348170491 on cpu 17 on freq 1.197
+Allocate total 3.16957439196 on cpu 18 on freq 1.197
+Allocate total 3.25041464473 on cpu 19 on freq 1.197
+Allocate total 3.53895457768 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.98555834444 on cpu 1 on freq 1.197
+Allocate total 0.0 on cpu 2 on freq 1.197
+Allocate total 1.5163630333 on cpu 3 on freq 1.197
+Allocate total 3.60340519615 on cpu 4 on freq 1.33
+Allocate total 3.89716861612 on cpu 5 on freq 1.463
+Allocate total 3.60278059426 on cpu 6 on freq 1.197
+Allocate total 3.6612069689 on cpu 7 on freq 1.463
+Allocate total 3.65109424204 on cpu 8 on freq 1.197
+Allocate total 3.76175147609 on cpu 9 on freq 1.463
+Allocate total 2.86490553441 on cpu 10 on freq 1.197
+Allocate total 3.88479713192 on cpu 11 on freq 1.197
+Allocate total 2.46460996472 on cpu 12 on freq 1.197
+Allocate total 3.36527875358 on cpu 13 on freq 1.197
+Allocate total 2.65433986514 on cpu 14 on freq 1.197
+Allocate total 3.74530863023 on cpu 15 on freq 1.463
+Allocate total 3.04388546323 on cpu 16 on freq 1.197
+Allocate total 3.87773460957 on cpu 17 on freq 1.197
+Allocate total 3.26038524961 on cpu 18 on freq 1.197
+Allocate total 3.88263795196 on cpu 19 on freq 1.197
+Allocate total 3.47365363129 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 150 | Util 35 | Pop Size 10000
+
+Utilization 35.6963331338
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.72465068453 on cpu 1 on freq 1.596
+Allocate total 3.89294068287 on cpu 2 on freq 1.33
+Allocate total 3.7598168352 on cpu 3 on freq 1.197
+Allocate total 3.62434941901 on cpu 4 on freq 1.33
+Allocate total 3.98966343074 on cpu 5 on freq 1.197
+Allocate total 3.29631160809 on cpu 6 on freq 1.197
+Allocate total 2.53410949629 on cpu 7 on freq 1.197
+Allocate total 3.04935105555 on cpu 8 on freq 1.197
+Allocate total 2.71059581934 on cpu 9 on freq 1.197
+Allocate total 0.0 on cpu 10 on freq 1.197
+Allocate total 3.87094891365 on cpu 11 on freq 1.197
+Allocate total 3.18120033402 on cpu 12 on freq 1.197
+Allocate total 3.72301602953 on cpu 13 on freq 1.729
+Allocate total 3.96376681313 on cpu 14 on freq 1.197
+Allocate total 3.78371043958 on cpu 15 on freq 1.197
+Allocate total 3.72307531326 on cpu 16 on freq 1.596
+Allocate total 3.77467911796 on cpu 17 on freq 1.197
+Allocate total 3.26104320234 on cpu 18 on freq 1.197
+Allocate total 2.83795871401 on cpu 19 on freq 1.197
+Allocate total 2.65615769494 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.41590299769 on cpu 1 on freq 1.197
+Allocate total 3.7125679386 on cpu 2 on freq 1.197
+Allocate total 3.60493754627 on cpu 3 on freq 1.197
+Allocate total 3.56073404515 on cpu 4 on freq 1.197
+Allocate total 3.65913403302 on cpu 5 on freq 1.197
+Allocate total 3.30103423179 on cpu 6 on freq 1.197
+Allocate total 3.79276668015 on cpu 7 on freq 1.197
+Allocate total 3.61368479102 on cpu 8 on freq 1.197
+Allocate total 3.55311006319 on cpu 9 on freq 1.197
+Allocate total 3.44328670549 on cpu 10 on freq 1.197
+Allocate total 3.68459437172 on cpu 11 on freq 1.197
+Allocate total 3.4439722288 on cpu 12 on freq 1.197
+Allocate total 3.45934447931 on cpu 13 on freq 1.197
+Allocate total 3.59902450436 on cpu 14 on freq 1.197
+Allocate total 3.484871579 on cpu 15 on freq 1.197
+Allocate total 3.85837682241 on cpu 16 on freq 1.197
+Allocate total 3.6446484519 on cpu 17 on freq 1.197
+Allocate total 3.72138727928 on cpu 18 on freq 1.197
+Allocate total 3.34392352905 on cpu 19 on freq 1.197
+Allocate total 3.4953639895 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.68018158333 on cpu 1 on freq 1.596
+Allocate total 3.38348376032 on cpu 2 on freq 1.197
+Allocate total 3.50326798358 on cpu 3 on freq 1.197
+Allocate total 3.99824913907 on cpu 4 on freq 1.729
+Allocate total 2.56306743413 on cpu 5 on freq 1.197
+Allocate total 3.47164141236 on cpu 6 on freq 1.197
+Allocate total 3.79669610187 on cpu 7 on freq 1.33
+Allocate total 3.9211891789 on cpu 8 on freq 1.463
+Allocate total 1.79454744931 on cpu 9 on freq 1.197
+Allocate total 3.39277293636 on cpu 10 on freq 1.197
+Allocate total 3.03435528008 on cpu 11 on freq 1.197
+Allocate total 2.33434169104 on cpu 12 on freq 1.197
+Allocate total 3.77449652932 on cpu 13 on freq 1.33
+Allocate total 3.93999584042 on cpu 14 on freq 1.197
+Allocate total 0.0 on cpu 15 on freq 1.197
+Allocate total 2.94484120793 on cpu 16 on freq 1.197
+Allocate total 3.88323772011 on cpu 17 on freq 1.463
+Allocate total 3.85327385992 on cpu 18 on freq 1.33
+Allocate total 2.94131464326 on cpu 19 on freq 1.197
+Allocate total 3.67175279481 on cpu 20 on freq 1.463
+
+Task set: Num Tasks 150 | Util 45 | Pop Size 2000
+
+Utilization 43.8570804664
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.72933352875 on cpu 1 on freq 1.33
+Allocate total 3.84062372128 on cpu 2 on freq 1.596
+Allocate total 3.77620844453 on cpu 3 on freq 1.596
+Allocate total 3.76529683146 on cpu 4 on freq 1.862
+Allocate total 3.83913873013 on cpu 5 on freq 1.33
+Allocate total 3.49790056242 on cpu 6 on freq 1.197
+Allocate total 3.63601597378 on cpu 7 on freq 1.33
+Allocate total 3.90729176587 on cpu 8 on freq 1.596
+Allocate total 3.6810404943 on cpu 9 on freq 1.33
+Allocate total 3.75707385918 on cpu 10 on freq 1.862
+Allocate total 3.76004532478 on cpu 11 on freq 1.197
+Allocate total 3.5362130959 on cpu 12 on freq 1.197
+Allocate total 3.86334213912 on cpu 13 on freq 1.33
+Allocate total 3.83584666357 on cpu 14 on freq 1.33
+Allocate total 2.10616568301 on cpu 15 on freq 1.197
+Allocate total 3.40749666907 on cpu 16 on freq 1.197
+Allocate total 3.0317214395 on cpu 17 on freq 1.197
+Allocate total 3.99293369686 on cpu 18 on freq 1.33
+Allocate total 3.92098314253 on cpu 19 on freq 1.197
+Allocate total 3.87714924091 on cpu 20 on freq 1.463
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.8034167075 on cpu 1 on freq 1.33
+Allocate total 3.65966107468 on cpu 2 on freq 1.33
+Allocate total 3.81173984825 on cpu 3 on freq 1.463
+Allocate total 3.92576865438 on cpu 4 on freq 1.463
+Allocate total 3.63039920122 on cpu 5 on freq 1.33
+Allocate total 3.91207010176 on cpu 6 on freq 1.33
+Allocate total 3.86630857724 on cpu 7 on freq 1.33
+Allocate total 3.61735234019 on cpu 8 on freq 1.33
+Allocate total 3.73614553858 on cpu 9 on freq 1.463
+Allocate total 3.96574888384 on cpu 10 on freq 1.33
+Allocate total 3.63216087974 on cpu 11 on freq 1.33
+Allocate total 3.65715637796 on cpu 12 on freq 1.463
+Allocate total 3.74811442575 on cpu 13 on freq 1.463
+Allocate total 3.8782453591 on cpu 14 on freq 1.33
+Allocate total 3.93396125524 on cpu 15 on freq 1.463
+Allocate total 3.77574704551 on cpu 16 on freq 1.463
+Allocate total 3.66584306014 on cpu 17 on freq 1.33
+Allocate total 3.91148255304 on cpu 18 on freq 1.463
+Allocate total 3.90333004106 on cpu 19 on freq 1.33
+Allocate total 3.85808134446 on cpu 20 on freq 1.33
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.70668638245 on cpu 1 on freq 1.197
+Allocate total 3.03448109058 on cpu 2 on freq 1.197
+Allocate total 3.79228454404 on cpu 3 on freq 1.862
+Allocate total 3.93402955861 on cpu 4 on freq 1.463
+Allocate total 3.76922365097 on cpu 5 on freq 1.596
+Allocate total 0.0 on cpu 6 on freq 1.197
+Allocate total 3.74695906311 on cpu 7 on freq 1.463
+Allocate total 3.25848318084 on cpu 8 on freq 1.197
+Allocate total 3.85439014558 on cpu 9 on freq 1.729
+Allocate total 3.95949864902 on cpu 10 on freq 1.197
+Allocate total 2.34398042338 on cpu 11 on freq 1.197
+Allocate total 3.74547962865 on cpu 12 on freq 1.729
+Allocate total 3.71149765532 on cpu 13 on freq 1.729
+Allocate total 3.95534442659 on cpu 14 on freq 1.596
+Allocate total 3.85882668322 on cpu 15 on freq 1.197
+Allocate total 3.72417812513 on cpu 16 on freq 1.729
+Allocate total 3.74211856691 on cpu 17 on freq 1.729
+Allocate total 2.92498194108 on cpu 18 on freq 1.197
+Allocate total 3.56380239291 on cpu 19 on freq 1.197
+Allocate total 3.8744772681 on cpu 20 on freq 2.128
+
+Task set: Num Tasks 150 | Util 45 | Pop Size 10000
+
+Utilization 47.1731385443
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.89100204392 on cpu 1 on freq 1.463
+Allocate total 3.84926877476 on cpu 2 on freq 1.862
+Allocate total 3.28916393828 on cpu 3 on freq 1.197
+Allocate total 3.96312324067 on cpu 4 on freq 2.128
+Allocate total 1.71712419812 on cpu 5 on freq 1.197
+Allocate total 3.90081012562 on cpu 6 on freq 1.729
+Allocate total 3.93451606072 on cpu 7 on freq 1.596
+Allocate total 3.87171549392 on cpu 8 on freq 1.596
+Allocate total 3.97890267556 on cpu 9 on freq 1.729
+Allocate total 2.42663520226 on cpu 10 on freq 1.197
+Allocate total 3.77485678175 on cpu 11 on freq 1.995
+Allocate total 3.79264962002 on cpu 12 on freq 1.463
+Allocate total 3.74256460265 on cpu 13 on freq 1.862
+Allocate total 3.92352282057 on cpu 14 on freq 1.729
+Allocate total 0.0 on cpu 15 on freq 1.197
+Allocate total 3.99729966037 on cpu 16 on freq 1.729
+Allocate total 3.82311799666 on cpu 17 on freq 1.463
+Allocate total 3.54172448317 on cpu 18 on freq 1.197
+Allocate total 3.91092981892 on cpu 19 on freq 1.463
+Allocate total 3.7642466404 on cpu 20 on freq 1.729
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.81792321174 on cpu 1 on freq 1.463
+Allocate total 3.94755270361 on cpu 2 on freq 1.463
+Allocate total 3.97829369262 on cpu 3 on freq 1.33
+Allocate total 3.90164877206 on cpu 4 on freq 1.463
+Allocate total 3.67219494344 on cpu 5 on freq 1.463
+Allocate total 3.94010548155 on cpu 6 on freq 1.596
+Allocate total 3.86916994506 on cpu 7 on freq 1.463
+Allocate total 3.92584891684 on cpu 8 on freq 1.596
+Allocate total 3.93978435773 on cpu 9 on freq 1.463
+Allocate total 3.83048692877 on cpu 10 on freq 1.463
+Allocate total 3.93110842663 on cpu 11 on freq 1.463
+Allocate total 3.73450845458 on cpu 12 on freq 1.463
+Allocate total 3.92597776197 on cpu 13 on freq 1.463
+Allocate total 3.69185898471 on cpu 14 on freq 1.463
+Allocate total 3.64244279619 on cpu 15 on freq 1.463
+Allocate total 3.89587218671 on cpu 16 on freq 1.463
+Allocate total 3.98653715457 on cpu 17 on freq 1.463
+Allocate total 3.81905402737 on cpu 18 on freq 1.463
+Allocate total 3.70202641003 on cpu 19 on freq 1.463
+Allocate total 3.68658967041 on cpu 20 on freq 1.463
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.53147989644 on cpu 1 on freq 1.197
+Allocate total 3.90788971133 on cpu 2 on freq 2.128
+Allocate total 3.61455300814 on cpu 3 on freq 1.33
+Allocate total 3.82051387001 on cpu 4 on freq 1.596
+Allocate total 0.0 on cpu 5 on freq 1.197
+Allocate total 3.15391580814 on cpu 6 on freq 1.197
+Allocate total 3.92103996646 on cpu 7 on freq 1.729
+Allocate total 3.75825152584 on cpu 8 on freq 1.995
+Allocate total 3.75625922325 on cpu 9 on freq 1.197
+Allocate total 3.66722366016 on cpu 10 on freq 1.197
+Allocate total 3.35036484034 on cpu 11 on freq 1.197
+Allocate total 3.89072196578 on cpu 12 on freq 1.995
+Allocate total 3.55396477022 on cpu 13 on freq 1.197
+Allocate total 3.74748218552 on cpu 14 on freq 1.596
+Allocate total 3.9993800063 on cpu 15 on freq 1.463
+Allocate total 3.77898075631 on cpu 16 on freq 1.33
+Allocate total 3.89113330816 on cpu 17 on freq 1.463
+Allocate total 3.97892113591 on cpu 18 on freq 2.128
+Allocate total 3.94367041485 on cpu 19 on freq 1.729
+Allocate total 3.83687731713 on cpu 20 on freq 1.862
+
+Task set: Num Tasks 200 | Util 20 | Pop Size 2000
+
+Utilization 20.0344904245
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 1.86670470647 on cpu 2 on freq 1.197
+Allocate total 2.36534324297 on cpu 3 on freq 1.197
+Allocate total 1.988167748 on cpu 4 on freq 1.197
+Allocate total 2.22215701838 on cpu 5 on freq 1.197
+Allocate total 2.19100153167 on cpu 6 on freq 1.197
+Allocate total 2.26394690809 on cpu 7 on freq 1.197
+Allocate total 1.28902888838 on cpu 8 on freq 1.197
+Allocate total 2.208703697 on cpu 9 on freq 1.197
+Allocate total 1.99780187836 on cpu 10 on freq 1.197
+Allocate total 1.42999453435 on cpu 11 on freq 1.197
+Allocate total 1.44173920942 on cpu 12 on freq 1.197
+Allocate total 1.65153013585 on cpu 13 on freq 1.197
+Allocate total 2.30774771981 on cpu 14 on freq 1.197
+Allocate total 3.85115906321 on cpu 15 on freq 1.197
+Allocate total 2.53632661479 on cpu 16 on freq 1.197
+Allocate total 2.78350057984 on cpu 17 on freq 1.197
+Allocate total 2.33481991083 on cpu 18 on freq 1.197
+Allocate total 2.47769342897 on cpu 19 on freq 1.197
+Allocate total 1.26346853226 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.16728138291 on cpu 1 on freq 1.197
+Allocate total 1.93826871845 on cpu 2 on freq 1.197
+Allocate total 2.11034549437 on cpu 3 on freq 1.197
+Allocate total 1.96177807259 on cpu 4 on freq 1.197
+Allocate total 1.9691449784 on cpu 5 on freq 1.197
+Allocate total 1.97030345861 on cpu 6 on freq 1.197
+Allocate total 1.92378977529 on cpu 7 on freq 1.197
+Allocate total 1.95464244575 on cpu 8 on freq 1.197
+Allocate total 2.12261492808 on cpu 9 on freq 1.197
+Allocate total 2.0064158087 on cpu 10 on freq 1.197
+Allocate total 1.98642873961 on cpu 11 on freq 1.197
+Allocate total 2.02796813919 on cpu 12 on freq 1.197
+Allocate total 1.93241864688 on cpu 13 on freq 1.197
+Allocate total 2.07081045004 on cpu 14 on freq 1.197
+Allocate total 1.89673123885 on cpu 15 on freq 1.197
+Allocate total 2.01730562972 on cpu 16 on freq 1.197
+Allocate total 1.95107556302 on cpu 17 on freq 1.197
+Allocate total 1.96829356573 on cpu 18 on freq 1.197
+Allocate total 2.03586374493 on cpu 19 on freq 1.197
+Allocate total 2.05750006785 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 1.90737201919 on cpu 1 on freq 1.197
+Allocate total 3.47769823352 on cpu 2 on freq 1.197
+Allocate total 2.83594847465 on cpu 3 on freq 1.197
+Allocate total 0.0 on cpu 4 on freq 1.197
+Allocate total 2.28907074333 on cpu 5 on freq 1.197
+Allocate total 2.41900036459 on cpu 6 on freq 1.197
+Allocate total 2.82013242306 on cpu 7 on freq 1.197
+Allocate total 2.29479801332 on cpu 8 on freq 1.197
+Allocate total 1.09519320759 on cpu 9 on freq 1.197
+Allocate total 2.58546816789 on cpu 10 on freq 1.197
+Allocate total 2.60865108155 on cpu 11 on freq 1.197
+Allocate total 2.15472001838 on cpu 12 on freq 1.197
+Allocate total 2.56839743617 on cpu 13 on freq 1.197
+Allocate total 1.04852881521 on cpu 14 on freq 1.197
+Allocate total 1.30960930481 on cpu 15 on freq 1.197
+Allocate total 1.81060651358 on cpu 16 on freq 1.197
+Allocate total 1.34208840017 on cpu 17 on freq 1.197
+Allocate total 2.4544207103 on cpu 18 on freq 1.197
+Allocate total 1.32782562209 on cpu 19 on freq 1.197
+Allocate total 1.98378577985 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 200 | Util 20 | Pop Size 10000
+
+Utilization 20.2165807528
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 2.92188696956 on cpu 1 on freq 1.197
+Allocate total 0.0 on cpu 2 on freq 1.197
+Allocate total 2.80180233811 on cpu 3 on freq 1.197
+Allocate total 1.56465857953 on cpu 4 on freq 1.197
+Allocate total 1.03786984787 on cpu 5 on freq 1.197
+Allocate total 2.98666025639 on cpu 6 on freq 1.197
+Allocate total 0.797901720577 on cpu 7 on freq 1.197
+Allocate total 3.02631431785 on cpu 8 on freq 1.197
+Allocate total 3.47719113902 on cpu 9 on freq 1.197
+Allocate total 2.85932723591 on cpu 10 on freq 1.197
+Allocate total 2.4152878834 on cpu 11 on freq 1.197
+Allocate total 1.77564207096 on cpu 12 on freq 1.197
+Allocate total 0.94060507647 on cpu 13 on freq 1.197
+Allocate total 2.06840138235 on cpu 14 on freq 1.197
+Allocate total 0.99622470565 on cpu 15 on freq 1.197
+Allocate total 1.99367609304 on cpu 16 on freq 1.197
+Allocate total 1.87021111391 on cpu 17 on freq 1.197
+Allocate total 3.23530713294 on cpu 18 on freq 1.197
+Allocate total 2.47001992466 on cpu 19 on freq 1.197
+Allocate total 1.18413542704 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 1.93299626964 on cpu 1 on freq 1.197
+Allocate total 2.00942585963 on cpu 2 on freq 1.197
+Allocate total 2.00349821459 on cpu 3 on freq 1.197
+Allocate total 1.91942179906 on cpu 4 on freq 1.197
+Allocate total 2.07404719467 on cpu 5 on freq 1.197
+Allocate total 1.93707561164 on cpu 6 on freq 1.197
+Allocate total 1.91765183104 on cpu 7 on freq 1.197
+Allocate total 2.15252448222 on cpu 8 on freq 1.197
+Allocate total 1.94660260688 on cpu 9 on freq 1.197
+Allocate total 2.01503814274 on cpu 10 on freq 1.197
+Allocate total 1.94899129193 on cpu 11 on freq 1.197
+Allocate total 2.09572016626 on cpu 12 on freq 1.197
+Allocate total 2.06176051275 on cpu 13 on freq 1.197
+Allocate total 2.05025119392 on cpu 14 on freq 1.197
+Allocate total 2.04854654387 on cpu 15 on freq 1.197
+Allocate total 1.96535904149 on cpu 16 on freq 1.197
+Allocate total 2.00706870588 on cpu 17 on freq 1.197
+Allocate total 2.13723988154 on cpu 18 on freq 1.197
+Allocate total 2.03832316131 on cpu 19 on freq 1.197
+Allocate total 2.1716189946 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 1.66456804513 on cpu 2 on freq 1.197
+Allocate total 3.59569530664 on cpu 3 on freq 1.197
+Allocate total 2.25880516798 on cpu 4 on freq 1.197
+Allocate total 1.17364670939 on cpu 5 on freq 1.197
+Allocate total 1.34167384613 on cpu 6 on freq 1.197
+Allocate total 2.00401815992 on cpu 7 on freq 1.197
+Allocate total 3.30236602806 on cpu 8 on freq 1.197
+Allocate total 2.03289589185 on cpu 9 on freq 1.197
+Allocate total 2.36621304154 on cpu 10 on freq 1.197
+Allocate total 1.46107271083 on cpu 11 on freq 1.197
+Allocate total 2.2916195685 on cpu 12 on freq 1.197
+Allocate total 1.6746614012 on cpu 13 on freq 1.197
+Allocate total 2.43672910129 on cpu 14 on freq 1.197
+Allocate total 1.21877117904 on cpu 15 on freq 1.197
+Allocate total 3.11158901683 on cpu 16 on freq 1.197
+Allocate total 2.26188318625 on cpu 17 on freq 1.197
+Allocate total 2.97894126383 on cpu 18 on freq 1.197
+Allocate total 1.9755902723 on cpu 19 on freq 1.197
+Allocate total 1.33046648134 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 200 | Util 35 | Pop Size 2000
+
+Utilization 34.7619057426
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.25782985628 on cpu 1 on freq 1.197
+Allocate total 0.0 on cpu 2 on freq 1.197
+Allocate total 3.99292321589 on cpu 3 on freq 1.33
+Allocate total 3.1594694524 on cpu 4 on freq 1.197
+Allocate total 2.41689908447 on cpu 5 on freq 1.197
+Allocate total 3.6158646554 on cpu 6 on freq 1.33
+Allocate total 3.46810720604 on cpu 7 on freq 1.197
+Allocate total 3.34888630279 on cpu 8 on freq 1.197
+Allocate total 3.68483076228 on cpu 9 on freq 1.596
+Allocate total 3.90062782278 on cpu 10 on freq 1.862
+Allocate total 3.97674895545 on cpu 11 on freq 1.596
+Allocate total 3.1594420077 on cpu 12 on freq 1.197
+Allocate total 2.82718774871 on cpu 13 on freq 1.197
+Allocate total 1.89823343674 on cpu 14 on freq 1.197
+Allocate total 3.40843212581 on cpu 15 on freq 1.197
+Allocate total 3.86846386507 on cpu 16 on freq 1.33
+Allocate total 2.32239837365 on cpu 17 on freq 1.197
+Allocate total 3.44062450689 on cpu 18 on freq 1.197
+Allocate total 2.56024254195 on cpu 19 on freq 1.197
+Allocate total 3.85283604885 on cpu 20 on freq 1.729
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.43445356948 on cpu 1 on freq 1.197
+Allocate total 3.39421202251 on cpu 2 on freq 1.197
+Allocate total 3.38140801302 on cpu 3 on freq 1.197
+Allocate total 3.59115176649 on cpu 4 on freq 1.197
+Allocate total 3.83607505111 on cpu 5 on freq 1.197
+Allocate total 3.61165927323 on cpu 6 on freq 1.197
+Allocate total 3.39106600745 on cpu 7 on freq 1.197
+Allocate total 3.35030707211 on cpu 8 on freq 1.197
+Allocate total 3.54532242314 on cpu 9 on freq 1.197
+Allocate total 3.44369565455 on cpu 10 on freq 1.197
+Allocate total 3.69877740073 on cpu 11 on freq 1.197
+Allocate total 3.29798627846 on cpu 12 on freq 1.197
+Allocate total 3.44787167898 on cpu 13 on freq 1.197
+Allocate total 3.58082964515 on cpu 14 on freq 1.197
+Allocate total 3.5135992621 on cpu 15 on freq 1.197
+Allocate total 3.36502305898 on cpu 16 on freq 1.197
+Allocate total 3.3582757061 on cpu 17 on freq 1.197
+Allocate total 3.40256366472 on cpu 18 on freq 1.197
+Allocate total 3.43189048905 on cpu 19 on freq 1.197
+Allocate total 3.44764344789 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 0.0 on cpu 1 on freq 1.197
+Allocate total 3.61635980302 on cpu 2 on freq 1.197
+Allocate total 3.83561512885 on cpu 3 on freq 1.197
+Allocate total 3.83175473128 on cpu 4 on freq 1.197
+Allocate total 3.75313903221 on cpu 5 on freq 1.995
+Allocate total 2.97945776166 on cpu 6 on freq 1.197
+Allocate total 3.14290654461 on cpu 7 on freq 1.197
+Allocate total 2.90699822033 on cpu 8 on freq 1.197
+Allocate total 3.84605739017 on cpu 9 on freq 1.33
+Allocate total 2.66936066084 on cpu 10 on freq 1.197
+Allocate total 3.02714454799 on cpu 11 on freq 1.197
+Allocate total 3.26847703526 on cpu 12 on freq 1.197
+Allocate total 2.96228232658 on cpu 13 on freq 1.197
+Allocate total 3.74717152493 on cpu 14 on freq 1.463
+Allocate total 3.86441783031 on cpu 15 on freq 1.197
+Allocate total 2.95116448176 on cpu 16 on freq 1.197
+Allocate total 3.76818502636 on cpu 17 on freq 1.197
+Allocate total 2.96492321603 on cpu 18 on freq 1.197
+Allocate total 3.96360284005 on cpu 19 on freq 1.33
+Allocate total 3.6450863096 on cpu 20 on freq 1.33
+
+Task set: Num Tasks 200 | Util 35 | Pop Size 10000
+
+Utilization 34.645545796
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.03380549323 on cpu 1 on freq 1.197
+Allocate total 2.66918113793 on cpu 2 on freq 1.197
+Allocate total 3.64997500246 on cpu 3 on freq 1.33
+Allocate total 0.0 on cpu 4 on freq 1.197
+Allocate total 1.5398522182 on cpu 5 on freq 1.197
+Allocate total 3.84144307266 on cpu 6 on freq 1.33
+Allocate total 3.81571723568 on cpu 7 on freq 1.33
+Allocate total 3.85367140416 on cpu 8 on freq 1.596
+Allocate total 1.41371922656 on cpu 9 on freq 1.197
+Allocate total 3.90438850883 on cpu 10 on freq 1.33
+Allocate total 3.83648184662 on cpu 11 on freq 1.596
+Allocate total 3.7977271752 on cpu 12 on freq 1.33
+Allocate total 3.78712513424 on cpu 13 on freq 1.33
+Allocate total 3.18242573221 on cpu 14 on freq 1.197
+Allocate total 3.86923087359 on cpu 15 on freq 1.197
+Allocate total 2.31967011682 on cpu 16 on freq 1.197
+Allocate total 3.59525886118 on cpu 17 on freq 1.197
+Allocate total 3.67284390533 on cpu 18 on freq 1.33
+Allocate total 3.7612270503 on cpu 19 on freq 1.463
+Allocate total 3.01941861812 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.54248271659 on cpu 1 on freq 1.197
+Allocate total 3.65622419542 on cpu 2 on freq 1.197
+Allocate total 3.33779274252 on cpu 3 on freq 1.197
+Allocate total 3.30041366945 on cpu 4 on freq 1.197
+Allocate total 3.23892348115 on cpu 5 on freq 1.197
+Allocate total 3.4603838351 on cpu 6 on freq 1.197
+Allocate total 3.52536108442 on cpu 7 on freq 1.197
+Allocate total 3.6229669734 on cpu 8 on freq 1.197
+Allocate total 3.54518322201 on cpu 9 on freq 1.197
+Allocate total 3.44434266321 on cpu 10 on freq 1.197
+Allocate total 3.61079955677 on cpu 11 on freq 1.197
+Allocate total 3.63355259389 on cpu 12 on freq 1.197
+Allocate total 3.25422143336 on cpu 13 on freq 1.197
+Allocate total 3.42515034188 on cpu 14 on freq 1.197
+Allocate total 3.59736558902 on cpu 15 on freq 1.197
+Allocate total 3.26040460398 on cpu 16 on freq 1.197
+Allocate total 3.43736625586 on cpu 17 on freq 1.197
+Allocate total 3.28445737779 on cpu 18 on freq 1.197
+Allocate total 3.50621401374 on cpu 19 on freq 1.197
+Allocate total 3.60748524235 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 2.97590696662 on cpu 1 on freq 1.197
+Allocate total 3.50953539755 on cpu 2 on freq 1.197
+Allocate total 3.84764056301 on cpu 3 on freq 1.197
+Allocate total 3.80209006342 on cpu 4 on freq 1.33
+Allocate total 3.78247934684 on cpu 5 on freq 1.33
+Allocate total 2.90655454542 on cpu 6 on freq 1.197
+Allocate total 2.40283013382 on cpu 7 on freq 1.197
+Allocate total 0.0 on cpu 8 on freq 1.197
+Allocate total 3.8023637248 on cpu 9 on freq 1.33
+Allocate total 3.55503936348 on cpu 10 on freq 1.197
+Allocate total 3.72196324393 on cpu 11 on freq 1.596
+Allocate total 2.14984946675 on cpu 12 on freq 1.197
+Allocate total 3.64463743562 on cpu 13 on freq 1.33
+Allocate total 3.59717342045 on cpu 14 on freq 1.197
+Allocate total 3.84981162026 on cpu 15 on freq 1.33
+Allocate total 3.9867299448 on cpu 16 on freq 1.463
+Allocate total 1.90171864602 on cpu 17 on freq 1.197
+Allocate total 3.38083677859 on cpu 18 on freq 1.197
+Allocate total 3.88402163544 on cpu 19 on freq 1.463
+Allocate total 3.64047111294 on cpu 20 on freq 1.33
+
+Task set: Num Tasks 200 | Util 45 | Pop Size 2000
+
+Utilization 44.2162483174
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.13573977383 on cpu 1 on freq 1.197
+Allocate total 3.25622261535 on cpu 2 on freq 1.197
+Allocate total 3.88680758455 on cpu 3 on freq 1.463
+Allocate total 3.97226884067 on cpu 4 on freq 1.596
+Allocate total 3.51818597438 on cpu 5 on freq 1.197
+Allocate total 3.86346030104 on cpu 6 on freq 1.729
+Allocate total 3.92070056895 on cpu 7 on freq 1.33
+Allocate total 3.94012123881 on cpu 8 on freq 1.197
+Allocate total 3.63024923699 on cpu 9 on freq 1.197
+Allocate total 3.97653670176 on cpu 10 on freq 1.463
+Allocate total 3.72075554823 on cpu 11 on freq 1.33
+Allocate total 3.83105915857 on cpu 12 on freq 1.596
+Allocate total 3.85057017652 on cpu 13 on freq 1.862
+Allocate total 3.79817206787 on cpu 14 on freq 1.33
+Allocate total 3.01315645416 on cpu 15 on freq 1.197
+Allocate total 3.73123846213 on cpu 16 on freq 1.596
+Allocate total 3.89467023098 on cpu 17 on freq 1.197
+Allocate total 3.77304984948 on cpu 18 on freq 1.197
+Allocate total 3.67227692768 on cpu 19 on freq 1.197
+Allocate total 3.96897405559 on cpu 20 on freq 1.596
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.7549169587 on cpu 1 on freq 1.33
+Allocate total 3.81016501339 on cpu 2 on freq 1.463
+Allocate total 3.77095737166 on cpu 3 on freq 1.463
+Allocate total 3.73394939697 on cpu 4 on freq 1.33
+Allocate total 3.92115393465 on cpu 5 on freq 1.33
+Allocate total 3.67224699593 on cpu 6 on freq 1.463
+Allocate total 3.77923410935 on cpu 7 on freq 1.33
+Allocate total 3.93788621242 on cpu 8 on freq 1.33
+Allocate total 3.74265898497 on cpu 9 on freq 1.33
+Allocate total 3.74256681242 on cpu 10 on freq 1.33
+Allocate total 3.87725555753 on cpu 11 on freq 1.33
+Allocate total 3.72303363161 on cpu 12 on freq 1.463
+Allocate total 3.68622024362 on cpu 13 on freq 1.463
+Allocate total 3.96525839763 on cpu 14 on freq 1.33
+Allocate total 3.73934702523 on cpu 15 on freq 1.463
+Allocate total 3.83439347436 on cpu 16 on freq 1.33
+Allocate total 3.90160681454 on cpu 17 on freq 1.463
+Allocate total 3.81406351042 on cpu 18 on freq 1.463
+Allocate total 3.74852029609 on cpu 19 on freq 1.463
+Allocate total 3.67926921776 on cpu 20 on freq 1.463
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.96458738935 on cpu 1 on freq 1.33
+Allocate total 3.79826502917 on cpu 2 on freq 1.463
+Allocate total 3.61215810451 on cpu 3 on freq 1.33
+Allocate total 3.71482832707 on cpu 4 on freq 1.729
+Allocate total 3.90338524453 on cpu 5 on freq 1.596
+Allocate total 3.93129452696 on cpu 6 on freq 1.33
+Allocate total 3.69739866413 on cpu 7 on freq 1.729
+Allocate total 3.75879683687 on cpu 8 on freq 1.596
+Allocate total 3.91478036531 on cpu 9 on freq 1.729
+Allocate total 3.791153437 on cpu 10 on freq 1.197
+Allocate total 3.68750646171 on cpu 11 on freq 1.33
+Allocate total 3.77927934859 on cpu 12 on freq 1.995
+Allocate total 0.0 on cpu 13 on freq 1.197
+Allocate total 3.9353906775 on cpu 14 on freq 1.995
+Allocate total 3.87800089187 on cpu 15 on freq 1.995
+Allocate total 2.94782772353 on cpu 16 on freq 1.197
+Allocate total 1.66516134887 on cpu 17 on freq 1.197
+Allocate total 3.8374013981 on cpu 18 on freq 1.197
+Allocate total 3.80307115889 on cpu 19 on freq 1.596
+Allocate total 3.91728056223 on cpu 20 on freq 1.596
+
+Task set: Num Tasks 200 | Util 45 | Pop Size 10000
+
+Utilization 41.9685911774
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.62634564459 on cpu 1 on freq 1.33
+Allocate total 3.63563699152 on cpu 2 on freq 1.33
+Allocate total 3.70709661929 on cpu 3 on freq 1.33
+Allocate total 3.67070363835 on cpu 4 on freq 1.33
+Allocate total 3.65934746093 on cpu 5 on freq 1.197
+Allocate total 2.87851964974 on cpu 6 on freq 1.197
+Allocate total 3.36970884282 on cpu 7 on freq 1.197
+Allocate total 3.99009419801 on cpu 8 on freq 1.596
+Allocate total 3.73317355304 on cpu 9 on freq 1.596
+Allocate total 3.72606797656 on cpu 10 on freq 1.862
+Allocate total 3.6847869473 on cpu 11 on freq 1.197
+Allocate total 3.81251519777 on cpu 12 on freq 1.596
+Allocate total 0.0 on cpu 13 on freq 1.197
+Allocate total 3.7683288572 on cpu 14 on freq 1.995
+Allocate total 3.83090475783 on cpu 15 on freq 2.128
+Allocate total 3.37690384437 on cpu 16 on freq 1.197
+Allocate total 3.93260574262 on cpu 17 on freq 1.33
+Allocate total 3.67617774928 on cpu 18 on freq 1.463
+Allocate total 3.9040921954 on cpu 19 on freq 1.197
+Allocate total 3.86918488895 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.95022498251 on cpu 1 on freq 1.33
+Allocate total 3.97205391146 on cpu 2 on freq 1.33
+Allocate total 3.87094310223 on cpu 3 on freq 1.33
+Allocate total 3.88074021495 on cpu 4 on freq 1.33
+Allocate total 3.72422988078 on cpu 5 on freq 1.33
+Allocate total 3.81551051804 on cpu 6 on freq 1.33
+Allocate total 3.96459661304 on cpu 7 on freq 1.197
+Allocate total 3.94753250075 on cpu 8 on freq 1.33
+Allocate total 3.82652316946 on cpu 9 on freq 1.33
+Allocate total 3.96835699208 on cpu 10 on freq 1.197
+Allocate total 3.84199520462 on cpu 11 on freq 1.33
+Allocate total 3.8835675738 on cpu 12 on freq 1.33
+Allocate total 3.87684615749 on cpu 13 on freq 1.33
+Allocate total 3.91935676651 on cpu 14 on freq 1.197
+Allocate total 3.74181711633 on cpu 15 on freq 1.33
+Allocate total 3.72786616633 on cpu 16 on freq 1.33
+Allocate total 3.66021110869 on cpu 17 on freq 1.33
+Allocate total 3.85150068878 on cpu 18 on freq 1.33
+Allocate total 3.69863679109 on cpu 19 on freq 1.33
+Allocate total 3.60618569757 on cpu 20 on freq 1.33
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 19
+Allocation stategy
+Allocate total 3.84434887937 on cpu 1 on freq 1.729
+Allocate total 3.8045035452 on cpu 2 on freq 1.33
+Allocate total 3.96195418652 on cpu 3 on freq 1.729
+Allocate total 3.68929404048 on cpu 4 on freq 1.33
+Allocate total 3.31615639578 on cpu 5 on freq 1.197
+Allocate total 3.91575041456 on cpu 6 on freq 1.197
+Allocate total 3.4461724061 on cpu 7 on freq 1.197
+Allocate total 3.73917437425 on cpu 8 on freq 1.995
+Allocate total 2.40916253063 on cpu 9 on freq 1.197
+Allocate total 3.79487273452 on cpu 10 on freq 1.729
+Allocate total 3.94643401996 on cpu 11 on freq 1.463
+Allocate total 3.74763735244 on cpu 12 on freq 1.463
+Allocate total 3.8935600944 on cpu 13 on freq 1.197
+Allocate total 3.71745258441 on cpu 14 on freq 1.596
+Allocate total 3.87547400108 on cpu 15 on freq 1.33
+Allocate total 2.22383554263 on cpu 16 on freq 1.197
+Allocate total 3.71227240235 on cpu 17 on freq 1.596
+Allocate total 0.0 on cpu 18 on freq 1.197
+Allocate total 3.83779681285 on cpu 19 on freq 1.596
+Allocate total 3.84563008349 on cpu 20 on freq 1.596
+
+Task set: Num Tasks 300 | Util 20 | Pop Size 2000
+
+Utilization 20.8620768637
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.50868258314 on cpu 1 on freq 1.197
+Allocate total 2.89787672568 on cpu 2 on freq 1.197
+Allocate total 1.03318099972 on cpu 3 on freq 1.197
+Allocate total 1.84693949985 on cpu 4 on freq 1.197
+Allocate total 2.34662569611 on cpu 5 on freq 1.197
+Allocate total 1.4440927472 on cpu 6 on freq 1.197
+Allocate total 2.41000099766 on cpu 7 on freq 1.197
+Allocate total 2.18968165244 on cpu 8 on freq 1.197
+Allocate total 2.86109189279 on cpu 9 on freq 1.197
+Allocate total 1.54627816565 on cpu 10 on freq 1.197
+Allocate total 1.49222130111 on cpu 11 on freq 1.197
+Allocate total 2.26908894366 on cpu 12 on freq 1.197
+Allocate total 3.01579594525 on cpu 13 on freq 1.197
+Allocate total 1.34988124619 on cpu 14 on freq 1.197
+Allocate total 2.2259185419 on cpu 15 on freq 1.197
+Allocate total 2.46282563367 on cpu 16 on freq 1.197
+Allocate total 1.73252008731 on cpu 17 on freq 1.197
+Allocate total 1.73664971536 on cpu 18 on freq 1.197
+Allocate total 2.91434047517 on cpu 19 on freq 1.197
+Allocate total 1.39417271757 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.0508076618 on cpu 1 on freq 1.197
+Allocate total 2.13450017563 on cpu 2 on freq 1.197
+Allocate total 2.15172669002 on cpu 3 on freq 1.197
+Allocate total 2.11690569775 on cpu 4 on freq 1.197
+Allocate total 2.07144436702 on cpu 5 on freq 1.197
+Allocate total 2.03621625048 on cpu 6 on freq 1.197
+Allocate total 2.07891205093 on cpu 7 on freq 1.197
+Allocate total 2.13364184715 on cpu 8 on freq 1.197
+Allocate total 2.08590999144 on cpu 9 on freq 1.197
+Allocate total 2.11116895684 on cpu 10 on freq 1.197
+Allocate total 2.04038545524 on cpu 11 on freq 1.197
+Allocate total 2.03761539389 on cpu 12 on freq 1.197
+Allocate total 2.07260070418 on cpu 13 on freq 1.197
+Allocate total 2.13720508364 on cpu 14 on freq 1.197
+Allocate total 2.06287927256 on cpu 15 on freq 1.197
+Allocate total 2.07129499269 on cpu 16 on freq 1.197
+Allocate total 2.12413695219 on cpu 17 on freq 1.197
+Allocate total 2.07544260456 on cpu 18 on freq 1.197
+Allocate total 2.0756105731 on cpu 19 on freq 1.197
+Allocate total 2.05574900635 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.12407380383 on cpu 1 on freq 1.197
+Allocate total 1.89519891639 on cpu 2 on freq 1.197
+Allocate total 3.26673326594 on cpu 3 on freq 1.197
+Allocate total 2.9840974641 on cpu 4 on freq 1.197
+Allocate total 2.48355226996 on cpu 5 on freq 1.197
+Allocate total 1.23708120074 on cpu 6 on freq 1.197
+Allocate total 2.93180982147 on cpu 7 on freq 1.197
+Allocate total 2.3288556334 on cpu 8 on freq 1.197
+Allocate total 1.68660133995 on cpu 9 on freq 1.197
+Allocate total 2.90478044399 on cpu 10 on freq 1.197
+Allocate total 1.30133524903 on cpu 11 on freq 1.197
+Allocate total 1.76434155335 on cpu 12 on freq 1.197
+Allocate total 0.766583330641 on cpu 13 on freq 1.197
+Allocate total 1.16317758869 on cpu 14 on freq 1.197
+Allocate total 2.13956970475 on cpu 15 on freq 1.197
+Allocate total 2.55853014611 on cpu 16 on freq 1.197
+Allocate total 2.11997364591 on cpu 17 on freq 1.197
+Allocate total 2.15635956183 on cpu 18 on freq 1.197
+Allocate total 2.76088940347 on cpu 19 on freq 1.197
+Allocate total 1.80967278495 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 300 | Util 20 | Pop Size 10000
+
+Utilization 19.9192843005
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 2.56287535392 on cpu 1 on freq 1.197
+Allocate total 1.57717698221 on cpu 2 on freq 1.197
+Allocate total 1.55666032788 on cpu 3 on freq 1.197
+Allocate total 1.68713467329 on cpu 4 on freq 1.197
+Allocate total 2.25825398582 on cpu 5 on freq 1.197
+Allocate total 1.69762958283 on cpu 6 on freq 1.197
+Allocate total 2.8398409819 on cpu 7 on freq 1.197
+Allocate total 2.48274005214 on cpu 8 on freq 1.197
+Allocate total 1.56753824618 on cpu 9 on freq 1.197
+Allocate total 2.31709477133 on cpu 10 on freq 1.197
+Allocate total 2.49821116063 on cpu 11 on freq 1.197
+Allocate total 1.65683243483 on cpu 12 on freq 1.197
+Allocate total 3.25002416386 on cpu 13 on freq 1.197
+Allocate total 1.71952863642 on cpu 14 on freq 1.197
+Allocate total 1.97920247746 on cpu 15 on freq 1.197
+Allocate total 1.03273459451 on cpu 16 on freq 1.197
+Allocate total 1.26948298499 on cpu 17 on freq 1.197
+Allocate total 1.14314429606 on cpu 18 on freq 1.197
+Allocate total 2.45924101091 on cpu 19 on freq 1.197
+Allocate total 2.59745928653 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 1.95463654221 on cpu 1 on freq 1.197
+Allocate total 1.95453729697 on cpu 2 on freq 1.197
+Allocate total 2.00744370446 on cpu 3 on freq 1.197
+Allocate total 1.9491839439 on cpu 4 on freq 1.197
+Allocate total 2.01287657207 on cpu 5 on freq 1.197
+Allocate total 2.00028858683 on cpu 6 on freq 1.197
+Allocate total 1.9496427674 on cpu 7 on freq 1.197
+Allocate total 1.95409359043 on cpu 8 on freq 1.197
+Allocate total 1.98906541161 on cpu 9 on freq 1.197
+Allocate total 1.96283736709 on cpu 10 on freq 1.197
+Allocate total 1.93426617637 on cpu 11 on freq 1.197
+Allocate total 1.95775030366 on cpu 12 on freq 1.197
+Allocate total 2.07404061828 on cpu 13 on freq 1.197
+Allocate total 1.92422057274 on cpu 14 on freq 1.197
+Allocate total 1.92568612453 on cpu 15 on freq 1.197
+Allocate total 2.01936696582 on cpu 16 on freq 1.197
+Allocate total 2.04812398939 on cpu 17 on freq 1.197
+Allocate total 2.15736939833 on cpu 18 on freq 1.197
+Allocate total 2.02741323065 on cpu 19 on freq 1.197
+Allocate total 2.0357254383 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 1.8735106829 on cpu 1 on freq 1.197
+Allocate total 2.2881125788 on cpu 2 on freq 1.197
+Allocate total 2.28352809886 on cpu 3 on freq 1.197
+Allocate total 1.03093129032 on cpu 4 on freq 1.197
+Allocate total 1.90004095318 on cpu 5 on freq 1.197
+Allocate total 1.97928929527 on cpu 6 on freq 1.197
+Allocate total 1.87433684637 on cpu 7 on freq 1.197
+Allocate total 1.89589326248 on cpu 8 on freq 1.197
+Allocate total 1.9786690699 on cpu 9 on freq 1.197
+Allocate total 2.94093368017 on cpu 10 on freq 1.197
+Allocate total 1.5287708479 on cpu 11 on freq 1.197
+Allocate total 1.50215884364 on cpu 12 on freq 1.197
+Allocate total 1.55000156645 on cpu 13 on freq 1.197
+Allocate total 1.22624756659 on cpu 14 on freq 1.197
+Allocate total 2.94641929173 on cpu 15 on freq 1.197
+Allocate total 1.23100392262 on cpu 16 on freq 1.197
+Allocate total 1.91751813041 on cpu 17 on freq 1.197
+Allocate total 2.04474111892 on cpu 18 on freq 1.197
+Allocate total 3.7517947835 on cpu 19 on freq 1.197
+Allocate total 2.33940325474 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 300 | Util 35 | Pop Size 2000
+
+Utilization 35.1596407421
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.9537100208 on cpu 1 on freq 1.197
+Allocate total 3.16623122872 on cpu 2 on freq 1.197
+Allocate total 3.52556486281 on cpu 3 on freq 1.197
+Allocate total 3.02657302459 on cpu 4 on freq 1.197
+Allocate total 2.55416988468 on cpu 5 on freq 1.197
+Allocate total 3.92981987997 on cpu 6 on freq 1.33
+Allocate total 3.79428487819 on cpu 7 on freq 1.197
+Allocate total 2.87986214788 on cpu 8 on freq 1.197
+Allocate total 2.54520591996 on cpu 9 on freq 1.197
+Allocate total 3.41227910112 on cpu 10 on freq 1.197
+Allocate total 3.54841628475 on cpu 11 on freq 1.197
+Allocate total 3.76525936336 on cpu 12 on freq 1.197
+Allocate total 3.85368029964 on cpu 13 on freq 1.197
+Allocate total 3.72181029469 on cpu 14 on freq 1.197
+Allocate total 3.9732432985 on cpu 15 on freq 1.33
+Allocate total 3.73174039307 on cpu 16 on freq 1.33
+Allocate total 3.4673637899 on cpu 17 on freq 1.197
+Allocate total 3.632893749 on cpu 18 on freq 1.197
+Allocate total 3.45265512105 on cpu 19 on freq 1.197
+Allocate total 2.79422071825 on cpu 20 on freq 1.197
+
+MW Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.49285135694 on cpu 1 on freq 1.197
+Allocate total 3.48592562165 on cpu 2 on freq 1.197
+Allocate total 3.58973161955 on cpu 3 on freq 1.197
+Allocate total 3.68046914724 on cpu 4 on freq 1.197
+Allocate total 3.41939226965 on cpu 5 on freq 1.197
+Allocate total 3.61617591222 on cpu 6 on freq 1.197
+Allocate total 3.42755165426 on cpu 7 on freq 1.197
+Allocate total 3.51662833446 on cpu 8 on freq 1.197
+Allocate total 3.50737620589 on cpu 9 on freq 1.197
+Allocate total 3.52603080363 on cpu 10 on freq 1.197
+Allocate total 3.56004056892 on cpu 11 on freq 1.197
+Allocate total 3.46837432581 on cpu 12 on freq 1.197
+Allocate total 3.37462208223 on cpu 13 on freq 1.197
+Allocate total 3.66253711142 on cpu 14 on freq 1.197
+Allocate total 3.50694061862 on cpu 15 on freq 1.197
+Allocate total 3.40952035937 on cpu 16 on freq 1.197
+Allocate total 3.48530770928 on cpu 17 on freq 1.197
+Allocate total 3.62814719947 on cpu 18 on freq 1.197
+Allocate total 3.37676978276 on cpu 19 on freq 1.197
+Allocate total 3.58488880077 on cpu 20 on freq 1.197
+
+HybridWGA algorithm
+Genetic Algorithm
+The number of CPU's used is 20
+Allocation stategy
+Allocate total 3.40170338066 on cpu 1 on freq 1.197
+Allocate total 2.85956068444 on cpu 2 on freq 1.197
+Allocate total 3.99158875844 on cpu 3 on freq 1.197
+Allocate total 3.02959354809 on cpu 4 on freq 1.197
+Allocate total 3.91182399944 on cpu 5 on freq 1.197
+Allocate total 2.6324964855 on cpu 6 on freq 1.197
+Allocate total 3.82146797437 on cpu 7 on freq 1.33
+Allocate total 3.41355259185 on cpu 8 on freq 1.197
+Allocate total 3.96853413407 on cpu 9 on freq 1.197
+Allocate total 3.40114608445 on cpu 10 on freq 1.197
+Allocate total 3.76857564922 on cpu 11 on freq 1.197
+Allocate total 3.81855108796 on cpu 12 on freq 1.197
+Allocate total 3.18455867248 on cpu 13 on freq 1.197
+Allocate total 3.87845951751 on cpu 14 on freq 1.197
+Allocate total 3.67956849287 on cpu 15 on freq 1.197
+Allocate total 3.86205232359 on cpu 16 on freq 1.197
+Allocate total 2.87308727298 on cpu 17 on freq 1.197
+Allocate total 3.78521693145 on cpu 18 on freq 1.463
+Allocate total 2.79238432198 on cpu 19 on freq 1.197
+Allocate total 3.42020190336 on cpu 20 on freq 1.197
+
+Task set: Num Tasks 300 | Util 35 | Pop Size 10000
+
+Utilization 35.3550431091
+Genetic Algorithm
