@@ -236,7 +236,7 @@ def minWF():
             if j == 9:
                 break
             j += 1
-        fs.write("Allocate total " + str(cpu/(kFreq[j]/kFreq[9])) + " on cpu " + str(i) + " on freq " + str(kFreq[j]) + "\n")
+        fs.write("%s\t%s\t%s\n" % (str(i), str(cpu/(kFreq[j]/kFreq[9])), str(kFreq[j]))
         i += 1
     fs.write("\n")
     fs.close()
@@ -325,7 +325,7 @@ def genetic():
             if j == 9:
                 break
             j += 1
-        fs.write("Allocate total " + str(cpu/(kFreq[j]/kFreq[9])) + " on cpu " + str(i) + " on freq " + str(kFreq[j]) + "\n")
+        fs.write("%s\t%s\t%s\n" % (str(i), str(cpu/(kFreq[j]/kFreq[9])), str(kFreq[j]))
         i += 1
     fs.write("\n")
     fs.close()
