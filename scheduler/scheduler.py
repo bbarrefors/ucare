@@ -8,6 +8,7 @@
 
 __author__ =  'Bjorn Barrefors'
 
+import sys
 import numpy
 import math
 import heapq
