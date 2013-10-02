@@ -14,7 +14,10 @@ University of Nebraska-Lincoln
 
 
 import timeit
-from bjornAPI import set_freq, get_cpu_util
+from multiprocessing import Process
+from time import sleep
+
+from bjornAPI import set_freq, get_cpu_util, get_power
 
 ################################################################################
 #                                                                              #
@@ -175,13 +178,20 @@ def l2261(loops):
             while (k < 17500):
                 k += 1
 
-def l2394(loops):
-    """
-    _loop_
+def measure():
+    p = 0
+    power = 0
+    while (p <= 200):
+        sleep(0.5)
+        power += int(get_power())
+        p += 1
+    avg_power = power / p
+    fs = open('sim', 'a')
+    fs.write("%d\n" % (avg_power,))
+    fs.close()
+    return 0
 
-    
-    """
-    set_freq(2394000)
+def loop(loops):
     i = 0
     while (i < loops):
         i += 1
@@ -191,10 +201,29 @@ def l2394(loops):
             k = 0
             while (k < 18500):
                 k += 1
+    return 0
 
+def task(loops):
+    """
+    _loop_
+
+    
+    """
+    set_freq(2394000)
+    p1 = Process(target=measure, args=())
+    p1.start()
+    sleep(25)
+    p = 0
+    while (p <= 10):
+        p2 = Process(target=loop, args=(loops,))
+        p2.start()
+        sleep(10)
+        p2.join()
+        p += 1
+    p1.join()
 
 if __name__ == '__main__':
     #print(get_cpu_util())
-    t = timeit.Timer("l1463(200)", setup="from __main__ import l1463")
-    print t.timeit(number=1)
+    #t = timeit.Timer("l1463(200)", setup="from __main__ import l1463")
+    #print t.timeit(number=1)
     #l1463(10)

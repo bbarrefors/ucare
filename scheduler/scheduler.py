@@ -227,16 +227,8 @@ def minWF():
         util = gene[0]
         tot_util[cpu] += util
     i = 1
-    for cpu in tot_util:
-        j = 0
-        while (j <= 9):
-            f = kFreq[j]/kFreq[9]
-            if (cpu/f <= 4):
-                break
-            if j == 9:
-                break
-            j += 1
-        fs.write("%s\t%s\t%s\n" % (str(i), str(cpu/(kFreq[j]/kFreq[9])), str(kFreq[j]))
+    for util in tot_util:
+        fs.write("%s\t%s\n" % (str(i), str(util)))
         i += 1
     fs.write("\n")
     fs.close()
@@ -316,16 +308,8 @@ def genetic():
         util = gene[0]
         tot_util[cpu] += util
     i = 1
-    for cpu in tot_util:
-        j = 0
-        while (j <= 9):
-            f = kFreq[j]/kFreq[9]
-            if (cpu/f <= 4):
-                break
-            if j == 9:
-                break
-            j += 1
-        fs.write("%s\t%s\t%s\n" % (str(i), str(cpu/(kFreq[j]/kFreq[9])), str(kFreq[j]))
+    for util in tot_util:
+        fs.write("%s\t%s\n" % (str(i), str(util)))
         i += 1
     fs.write("\n")
     fs.close()
@@ -362,29 +346,33 @@ def algorithms(num_tasks, tot_util, pop_size):
     genetic()
     # Run MinWF, print results
     # Feed MinWF into Genetic, print results
-    if minWF() == 1:
-        return 0
+    test = minWF()
+    if test == 1:
+        fs = open('Schedule', 'a')
+        fs.write("ERROR: NOT A VALID SCHEDULE\n")
+        fs.close()        
+        return 1
     hybridGAWF()
-    return 1
+    return 0
 
 ##### This is the start of the program #####
 
-num_tasks = [100, 150, 200, 300];
-tot_util = [20, 35, 45];
-pop_size = [2000, 10000];
+def main():
+    num_tasks = [100, 150, 200, 300]
+    tot_util = [20, 35, 45]
+    pop_size = [2000, 10000]
 
-#num_tasks = [100];
-#tot_util = [30];
-#pop_size = [2000];
+    fs = open('Schedule', 'w')
+    fs.write("Start scheduler\n\n")
+    fs.close()
+    
+    for tmp_num in num_tasks:
+        for tmp_util in tot_util:
+            for tmp_pop in pop_size:
+                fs = open('Schedule', 'a')
+                fs.write("Task set: Num Tasks " + str(tmp_num) + " | Util " + str(tmp_util) + " | Pop Size " + str(tmp_pop) + "\n\n")
+                fs.close()
+                algorithms(tmp_num, tmp_util, tmp_pop)
 
-fs = open('Schedule', 'w')
-fs.write("Start scheduler\n\n")
-fs.close()
-
-for tmp_num in num_tasks:
-    for tmp_util in tot_util:
-        for tmp_pop in pop_size:
-            fs = open('Schedule', 'a')
-            fs.write("Task set: Num Tasks " + str(tmp_num) + " | Util " + str(tmp_util) + " | Pop Size " + str(tmp_pop) + "\n\n")
-            fs.close()
-            algorithms(tmp_num, tmp_util, tmp_pop)
+if __name__ == '__main__':
+    sys.exit(main())

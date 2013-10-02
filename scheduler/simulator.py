@@ -12,7 +12,10 @@ University of Nebraska-Lincoln
 #                                                                             #
 ###############################################################################
 
-from subprocess import call
+import sys
+from multiprocessing import Process
+
+#from task import task
 
 ################################################################################
 #                                                                              #
@@ -26,20 +29,38 @@ def main():
 
     
     """
+    tasks = [100, 150, 200, 300]
+    util = [20, 35, 45]
+    pop = [2000, 10000]
+    alg = ['G', 'WF', 'HWG']
+    file_names = []
+    for task in tasks:
+        for u in util:
+            for p in pop:
+                for a in alg:
+                    file_names.append('t%du%dp%da%s' % (task, u, p, a))
+
+    print len(file_names)
     fs = open('Schedule', 'r')
-    lines = f.readlines()
+    lines = fs.readlines()
+    j = 0
     i = 1
     for line in lines:
-        l = line.strip("\t")
+        l = line.partition("\t")
         cpu = l[0]
-        if cpu == i:
-            l = line.strip("\t")
-            u = l[0]
-            u = u/4
-            time = 10*u
-            loops = time * 100 
-            l = line.strip("\t")
-            call(""
-            # Spawn measuring 
-            # Run loop
+        if cpu == str(i):
+            j += 1
+#            l = line.strip("\t")
+#            u = l[0]
+#            u = u/4
+#            time = 10*u
+#            loops = time * 100
+#            process = Process(target=task, args=(loops, file_name))
+#            process.start()
+#            process.join()
     fs.close()
+    print j
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
