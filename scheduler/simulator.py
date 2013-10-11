@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python26 -B
 """
 _simulator_
 
