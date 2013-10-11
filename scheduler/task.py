@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python26
 """
 _task_
 
@@ -14,171 +14,13 @@ University of Nebraska-Lincoln
 
 
 import timeit
+import datetime
 from multiprocessing import Process
 from time import sleep
 
 from bjornAPI import set_freq, get_cpu_util, get_power
 
-################################################################################
-#                                                                              #
-#                                 M A I N                                      #
-#                                                                              #
-################################################################################
-        
-def l1197(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(1197000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 8900):
-                k += 1
-
-def l1330(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(1330000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 10000):
-                k += 1
-
-def l1463(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(1463000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 10900):
-                k += 1
-
-def l1596(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(1596000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 11900):
-                k += 1
-
-def l1729(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(1729000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 12900):
-                k += 1
-
-def l1862(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(1862000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 13900):
-                k += 1
-
-def l1995(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(1995000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 14900):
-                k += 1
-
-def l2128(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(2128000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 16900):
-                k += 1
-
-def l2261(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(2261000)
-    i = 0
-    while (i < loops):
-        i += 1
-        j = 0
-        while (j < 6):
-            j += 1
-            k = 0
-            while (k < 17500):
-                k += 1
-
-def measure():
+def measure(file_n):
     p = 0
     power = 0
     while (p <= 200):
@@ -186,12 +28,12 @@ def measure():
         power += int(get_power())
         p += 1
     avg_power = power / p
-    fs = open('sim', 'a')
+    fs = open(file_n, 'a')
     fs.write("%d\n" % (avg_power,))
     fs.close()
     return 0
 
-def loop(loops):
+def run(loops):
     i = 0
     while (i < loops):
         i += 1
@@ -201,28 +43,55 @@ def loop(loops):
             k = 0
             while (k < 18500):
                 k += 1
-    return 0
 
-def task(loops):
-    """
-    _loop_
-
-    
-    """
-    set_freq(2394000)
-    p1 = Process(target=measure, args=())
-    p1.start()
-    sleep(25)
+def period(loops):
     p = 0
-    while (p <= 10):
-        p2 = Process(target=loop, args=(loops,))
+    while (p <= 5):
+        p2 = Process(target=run, args=(loops,))
         p2.start()
         sleep(10)
         p2.join()
         p += 1
+    return 0
+
+def task(loops, util, file_name):
+    """
+    _task_
+
+    
+    """
+    freq = [ 1197000, 1330000, 1463000, 1596000, 1729000, 1862000, 1995000, 2128000, 2261000, 2394000 ]
+    for f in freq:
+        if (f/2394000.0) >= (util):
+            set_freq(f)
+            break
+    p1 = Process(target=measure, args=(file_name,))
+    p2 = Process(target=period, args=(loops,))
+    p2.start()
+    sleep(25)
+    p1.start()
+    p2.join()
     p1.join()
 
+################################################################################
+#                                                                              #
+#                                 M A I N                                      #
+#                                                                              #
+################################################################################        
+
 if __name__ == '__main__':
+    #util = 0.5
+    #loops = 500
+    #set_freq(1197000)
+    #freq = [ 0.50, 0.56, 0.61, 0.67, 0.72, 0.78, 0.83, 0.89, 0.94, 1 ]
+    #for f in freq:
+    #    if f >= util:
+    #        set_freq(f * 2394000)
+    #        break
+    #t = timeit.Timer("run(%d)" % (loops, ), setup="from __main__ import run")
+    #print t.timeit(number=1)
+    
+    #loop(200)
     #print(get_cpu_util())
     #t = timeit.Timer("l1463(200)", setup="from __main__ import l1463")
     #print t.timeit(number=1)

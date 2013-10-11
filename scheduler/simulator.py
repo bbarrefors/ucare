@@ -40,7 +40,6 @@ def main():
                 for a in alg:
                     file_names.append('t%du%dp%da%s' % (task, u, p, a))
 
-    print len(file_names)
     fs = open('Schedule', 'r')
     lines = fs.readlines()
     j = 0
@@ -49,15 +48,14 @@ def main():
         l = line.partition("\t")
         cpu = l[0]
         if cpu == str(i):
+            u = float(l[2])
+            u = u/4
+            time = 10*u
+            loops = time * 100
+            process = Process(target=task, args=(loops, u, file_names[j]))
+            process.start()
+            process.join()
             j += 1
-#            l = line.strip("\t")
-#            u = l[0]
-#            u = u/4
-#            time = 10*u
-#            loops = time * 100
-#            process = Process(target=task, args=(loops, file_name))
-#            process.start()
-#            process.join()
     fs.close()
     print j
     return 0
