@@ -38,7 +38,7 @@ def main():
         for u in util:
             for p in pop:
                 for a in alg:
-                    file_names.append('t%du%dp%da%s' % (task, u, p, a))
+                    file_names.append('output/t%du%dp%da%s' % (task, u, p, a))
 
     fs = open('Schedule', 'r')
     lines = fs.readlines()
