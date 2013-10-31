@@ -13,9 +13,10 @@ University of Nebraska-Lincoln
 ###############################################################################
 
 import sys
+from time import sleep
 from multiprocessing import Process
 
-#from task import task
+from task import task
 
 ################################################################################
 #                                                                              #
@@ -26,38 +27,35 @@ from multiprocessing import Process
 def main():
     """
     __main__
-
+    
     
     """
-    tasks = [100, 150, 200, 300]
-    util = [20, 35, 45]
-    pop = [2000, 10000]
-    alg = ['G', 'WF', 'HWG']
-    file_names = []
-    for task in tasks:
-        for u in util:
-            for p in pop:
-                for a in alg:
-                    file_names.append('output/t%du%dp%da%s' % (task, u, p, a))
-
-    fs = open('Schedule', 'r')
-    lines = fs.readlines()
+    file_names = ['output/t100u20p10000aG', 'output/t100u20p10000aWF', 'output/t100u20p10000aHWG', 'output/t150u35p10000aG',
+                  'output/t150u35p10000aWF', 'output/t150u35p10000aHWG', 'output/t200u45p10000aG', 'output/t200u45p10000aWF',
+                  'output/t200u45p10000aHWG', 'output/t300u45p10000aG', 'output/t300u45p10000aWF', 'output/t300u45p10000aHWG']
+    
+    fd = open('Schedule', 'r')
+    lines = fd.readlines()
     j = 0
-    i = 1
+    i = 20
     for line in lines:
         l = line.partition("\t")
         cpu = l[0]
         if cpu == str(i):
-            u = float(l[2])
-            u = u/4
-            time = 10*u
-            loops = time * 100
+            sleep(60)
+            if l[2] == 0:
+                u = 0
+                loops = 0
+            else:
+                u = float(l[2])
+                u = u/4
+                time = 10*u
+                loops = time * 100
             process = Process(target=task, args=(loops, u, file_names[j]))
             process.start()
             process.join()
             j += 1
-    fs.close()
-    print j
+    fd.close()
     return 0
 
 if __name__ == '__main__':
