@@ -1,0 +1,8 @@
+
+Call:
+lm(formula = p ~ u + u2)
+
+Coefficients:
+(Intercept)            u           u2  
+      402.9        276.6       -114.0  
+

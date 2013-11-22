@@ -15,26 +15,26 @@ import heapq
 from random import randint
 from operator import itemgetter
 
-cluster = ({'t_amb' : -8.3, 'r': 0.646, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4}, 
-           {'t_amb' : -9.0, 'r': 0.653, 'a1': 0.0248, 'a2': 8.1349, 'a3': -0.2863, 'a4': -1.3203, 'a5': 2.6106, 'a6': 75.4638, 'util': 4}, 
-           {'t_amb' : -10.0, 'r': 0.731, 'a1': -0.0040, 'a2': 5.5272, 'a3': 0.2977, 'a4': 0.0713, 'a5': -13.2765, 'a6': 56.4242, 'util': 4}, 
-           {'t_amb' : -6.9, 'r': 0.615, 'a1': 0.0338, 'a2': 7.4625, 'a3': -0.4637, 'a4': -1.7374, 'a5': 10.1535, 'a6': 78.6566, 'util': 4}, 
-           {'t_amb' : -8.6, 'r': 0.656, 'a1': 0.0335, 'a2': 13.8525, 'a3': -0.6544, 'a4': -1.4578, 'a5': 1.1880, 'a6': 75.7025, 'util': 4},
-           {'t_amb' : -8.6, 'r': 0.659, 'a1': 0.0550, 'a2': 18.9665, 'a3': -1.4357, 'a4': -1.7860, 'a5': 15.1805, 'a6': 68.1403, 'util': 4}, 
-           {'t_amb' : -6.6, 'r': 0.621, 'a1': 0.0075, 'a2': 8.9752, 'a3': 0.0611, 'a4': -0.4664, 'a5': -12.0162, 'a6': 64.0839, 'util': 4}, 
-           {'t_amb' : -7.5, 'r': 0.625, 'a1': 0.0133, 'a2': 8.0939, 'a3': -0.2100, 'a4': -0.2619, 'a5': -4.4860, 'a6': 56.6180, 'util': 4},
-           {'t_amb' : -4.2, 'r': 0.602, 'a1': 0.0115, 'a2': 8.4222, 'a3': -0.1817, 'a4': -0.2186, 'a5': -5.9063, 'a6': 56.8729, 'util': 4},
-           {'t_amb' : -6.0, 'r': 0.630, 'a1': 0.0100, 'a2': 9.7111, 'a3': -0.2385, 'a4': 0.0409, 'a5': -9.6745, 'a6': 55.7293, 'util': 4}, 
-           {'t_amb' : -8.6, 'r': 0.696, 'a1': -0.0089, 'a2': 6.9449, 'a3': 0.2484, 'a4': 0.5398, 'a5': -17.5449, 'a6': 53.9967, 'util': 4}, 
-           {'t_amb' : -10.5, 'r': 0.721, 'a1': -0.1410, 'a2': -28.4890, 'a3': 4.5790, 'a4': 2.3820, 'a5': -47.7470, 'a6': 46.7540, 'util': 4}, 
-           {'t_amb' : -6.6, 'r': 0.683, 'a1': 0.0121, 'a2': 9.1581, 'a3': -0.3218, 'a4': 0.0691, 'a5': -6.5838, 'a6': 52.4583, 'util': 4}, 
-           {'t_amb' : -4.1, 'r': 0.620, 'a1': 0.0261, 'a2': 8.0382, 'a3': -0.4493, 'a4': -0.7162, 'a5': 2.1208, 'a6': 59.1880, 'util': 4}, 
-           {'t_amb' : -9.1, 'r': 0.673, 'a1': 0.0011, 'a2': 4.7734, 'a3': 0.0952, 'a4': 0.1748, 'a5': -6.1500, 'a6': 52.0493, 'util': 4}, 
-           {'t_amb' : -6.5, 'r': 0.670, 'a1': 0.0055, 'a2': 4.3663, 'a3': 0.0723, 'a4': -0.1552, 'a5': -3.9533, 'a6': 55.0371, 'util': 4}, 
-           {'t_amb' : -5.5, 'r': 0.675, 'a1': -0.0314, 'a2': 1.6113, 'a3': 1.0633, 'a4': 0.8576, 'a5': -29.7808, 'a6': 56.0095, 'util': 4}, 
-           {'t_amb' : -5.5, 'r': 0.644, 'a1': -0.0210, 'a2': 3.9259, 'a3': 0.4893, 'a4': 1.0868, 'a5': -18.1464, 'a6': 45.0253, 'util': 4}, 
-           {'t_amb' : -6.4, 'r': 0.676, 'a1': 0.0114, 'a2': 6.3760, 'a3': -0.1265, 'a4': -0.2402, 'a5': -2.7039, 'a6': 52.7532, 'util': 4}, 
-           {'t_amb' : -8.8, 'r': 0.704, 'a1': -0.0151, 'a2': 5.6876, 'a3': 0.4642, 'a4': 0.6182, 'a5': -21.2384, 'a6': 54.0389, 'util': 4})
+cluster = ({'t_amb' : -8.3, 'r': 0.646, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4, 'u1' : 247.01, 'u2' : 75.46, 'u0' : 429.51}, 
+           {'t_amb' : -9.0, 'r': 0.653, 'a1': 0.0248, 'a2': 8.1349, 'a3': -0.2863, 'a4': -1.3203, 'a5': 2.6106, 'a6': 75.4638, 'util': 4, 'u1' : 304.91, 'u2' : 123.8, 'u0' : 422.0},
+           {'t_amb' : -10.0, 'r': 0.731, 'a1': -0.0040, 'a2': 5.5272, 'a3': 0.2977, 'a4': 0.0713, 'a5': -13.2765, 'a6': 56.4242, 'util': 4, 'u1' : 276.60, 'u2' : 114.0, 'u0' : 402.9},
+           {'t_amb' : -6.9, 'r': 0.615, 'a1': 0.0338, 'a2': 7.4625, 'a3': -0.4637, 'a4': -1.7374, 'a5': 10.1535, 'a6': 78.6566, 'util': 4, 'u1' : 247.06, 'u2' : 81.28, 'u0' : 431.55},
+           {'t_amb' : -8.6, 'r': 0.656, 'a1': 0.0335, 'a2': 13.8525, 'a3': -0.6544, 'a4': -1.4578, 'a5': 1.1880, 'a6': 75.7025, 'util': 4, 'u1' : 202.57, 'u2' : 66.14, 'u0' : 432.98},
+           {'t_amb' : -8.6, 'r': 0.659, 'a1': 0.0550, 'a2': 18.9665, 'a3': -1.4357, 'a4': -1.7860, 'a5': 15.1805, 'a6': 68.1403, 'util': 4, 'u1' : 256.70, 'u2' : 106.2, 'u0' : 414.40},
+           {'t_amb' : -6.6, 'r': 0.621, 'a1': 0.0075, 'a2': 8.9752, 'a3': 0.0611, 'a4': -0.4664, 'a5': -12.0162, 'a6': 64.0839, 'util': 4, 'u1' : 301.30, 'u2' : 138.0, 'u0' : 403.70},
+           {'t_amb' : -7.5, 'r': 0.625, 'a1': 0.0133, 'a2': 8.0939, 'a3': -0.2100, 'a4': -0.2619, 'a5': -4.4860, 'a6': 56.6180, 'util': 4, 'u1' : 228.53, 'u2' : 78.39, 'u0' : 429.78},
+           {'t_amb' : -4.2, 'r': 0.602, 'a1': 0.0115, 'a2': 8.4222, 'a3': -0.1817, 'a4': -0.2186, 'a5': -5.9063, 'a6': 56.8729, 'util': 4, 'u1' : 268.20, 'u2' : 114.8, 'u0' : 423.9},
+           {'t_amb' : -6.0, 'r': 0.630, 'a1': 0.0100, 'a2': 9.7111, 'a3': -0.2385, 'a4': 0.0409, 'a5': -9.6745, 'a6': 55.7293, 'util': 4, 'u1' : 218.06, 'u2' : 71.53, 'u0' : 431.00},
+           {'t_amb' : -8.6, 'r': 0.696, 'a1': -0.0089, 'a2': 6.9449, 'a3': 0.2484, 'a4': 0.5398, 'a5': -17.5449, 'a6': 53.9967, 'util': 4, 'u1' : 297.50, 'u2' : 129.6, 'u0' : 417.6},
+           {'t_amb' : -10.5, 'r': 0.721, 'a1': -0.1410, 'a2': -28.4890, 'a3': 4.5790, 'a4': 2.3820, 'a5': -47.7470, 'a6': 46.7540, 'util': 4, 'u1' : 261.03, 'u2' : 96.15, 'u0' : 411.75},
+           {'t_amb' : -6.6, 'r': 0.683, 'a1': 0.0121, 'a2': 9.1581, 'a3': -0.3218, 'a4': 0.0691, 'a5': -6.5838, 'a6': 52.4583, 'util': 4, 'u1' : 238.30, 'u2' : 85.90, 'u0' : 424.2},
+           {'t_amb' : -4.1, 'r': 0.620, 'a1': 0.0261, 'a2': 8.0382, 'a3': -0.4493, 'a4': -0.7162, 'a5': 2.1208, 'a6': 59.1880, 'util': 4, 'u1' : 330.90, 'u2' : 152.6, 'u0' : 396.1},
+           {'t_amb' : -9.1, 'r': 0.673, 'a1': 0.0011, 'a2': 4.7734, 'a3': 0.0952, 'a4': 0.1748, 'a5': -6.1500, 'a6': 52.0493, 'util': 4, 'u1' : 229.23, 'u2' : 56.24, 'u0' : 433.38},
+           {'t_amb' : -6.5, 'r': 0.670, 'a1': 0.0055, 'a2': 4.3663, 'a3': 0.0723, 'a4': -0.1552, 'a5': -3.9533, 'a6': 55.0371, 'util': 4, 'u1' : 260.11, 'u2' : 83.78, 'u0' : 419.28},
+           {'t_amb' : -5.5, 'r': 0.675, 'a1': -0.0314, 'a2': 1.6113, 'a3': 1.0633, 'a4': 0.8576, 'a5': -29.7808, 'a6': 56.0095, 'util': 4, 'u1' : 405.20, 'u2' : 108.7, 'u0' : 405.2},
+           {'t_amb' : -5.5, 'r': 0.644, 'a1': -0.0210, 'a2': 3.9259, 'a3': 0.4893, 'a4': 1.0868, 'a5': -18.1464, 'a6': 45.0253, 'util': 4, 'u1' : 291.90, 'u2' : 125.1, 'u0' : 411.4},
+           {'t_amb' : -6.4, 'r': 0.676, 'a1': 0.0114, 'a2': 6.3760, 'a3': -0.1265, 'a4': -0.2402, 'a5': -2.7039, 'a6': 52.7532, 'util': 4, 'u1' : 200.27, 'u2' : 58.36, 'u0' : 418.78},
+           {'t_amb' : -8.8, 'r': 0.704, 'a1': -0.0151, 'a2': 5.6876, 'a3': 0.4642, 'a4': 0.6182, 'a5': -21.2384, 'a6': 54.0389, 'util': 4, 'u1' : 238.74, 'u2' : 87.32, 'u0' : 414.86})
 
 kFreq = (1.197000, 1.330000, 1.463000, 1.596000, 1.729000, 1.862000, 1.995000, 2.128000, 2.261000, 2.394000)
 
@@ -42,8 +42,8 @@ task_set = []
 pop = []
 kHyper_period = 1000
 kTot_util = 0
-kMax_gen = 1000
-kMax_converge = 10
+kMax_gen = 10000
+kMax_converge = 20
 kMax_temp = 45
 large_integer = 1000
 population_size = 0
@@ -107,10 +107,15 @@ def maxTemp(core, freq):
     max_temp = -B/(2*A) - math.sqrt(math.pow(B,2) - 4*A*C)/(2*A)
     return max_temp
 
-def power(core, freq):
+def power(core, freq, util):
     # Based on cpu properties and a frequency, return the power consumption at maximum temperature
-    # PENDING : Waiting for maxTemp function to work
     f = freq
+    if f == 1.197000:
+        u1 = cluster[core]['u1']
+        u2 = cluster[core]['u2']
+        u0 = cluster[core]['u0']
+        power1 = u1*util - u2*math.pow(util,2) + u0
+        return power1
     a1 = cluster[core]['a1']
     a2 = cluster[core]['a2']
     a3 = cluster[core]['a3']
@@ -125,10 +130,9 @@ def power(core, freq):
 
 def eMax(chromo):
     # power consumption added up assuming all cpu's ran on highest frequency
-    # PENDING : Waiting for maxTemp
     e_max = 0
     for cpu in range(20):
-        power2 = power(cpu, kFreq[9])
+        power2 = power(cpu, kFreq[9], 0)
         e_max += power2
     return e_max
  
@@ -158,7 +162,7 @@ def eChromo(chromo):
                 else:
                     j += 1
             if (j < 10):
-                e_chromo += power(cpu, kFreq[j])
+                e_chromo += power(cpu, kFreq[j], tot_util[cpu])
             else:
                 e_chromo += kFreq[9]*large_integer
     return e_chromo
@@ -180,35 +184,11 @@ def minWF():
     fs.close()
     global pop
     pop = []
-    chromo = [0]
-    util = []
-    i = 0
-    for cpu in cluster:
-        heapq.heappush(util, (0, i))
-        i += 1
-    for task_util in task_set:
-        while util:
-            cpu = heapq.heappop(util)
-            cpu_num = cpu[1]
-            j = 0
-            f = 0
-            while (j <= 9):
-                f = kFreq[j]/kFreq[9]
-                if (cpu[0]/f <= 4):
-                    if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
-                        chromo.append([task_util, cpu_num])
-                        j = 11
-                    else:
-                        j = 10
-                else:
-                    j += 1
-            if (j == 11):
-                cpu = (cpu[0]+task_util, cpu[1])
-                heapq.heappush(util, cpu)
-                break
-        if not util:
-            return 1
-    pop.append(chromo)
+    i = 20
+    while i > 0:
+        if(minWFPrime(i)):
+            break
+        i -= 1
     total_cores = 0
     s = set()
     for gene_i in range(len(pop[0][1:])):
@@ -233,6 +213,40 @@ def minWF():
         i += 1
     fs.write("\n")
     fs.close()
+    return 0
+
+def minWFPrime(numCores):
+    global pop
+    chromo = [0]
+    util = []
+    i = 0
+    for cpu in cluster[:numCores-1]:
+        heapq.heappush(util, (0, i))
+        i += 1
+    for task_util in task_set:
+        while util:
+            cpu = heapq.heappop(util)
+            cpu_num = cpu[1]
+            j = 0
+            f = 0
+            while (j <= 9):
+                f = kFreq[j]/kFreq[9]
+                if (cpu[0]/f <= 4):
+                    if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
+                        chromo.append([task_util, cpu_num])
+                        j = 11
+                    else:
+                        j = 10
+                else:
+                    j += 1
+            if (j == 11):
+                cpu = (cpu[0]+task_util, cpu[1])
+                heapq.heappush(util, cpu)
+                break
+        if not util:
+            return 1
+    pop = []
+    pop.append(chromo)
     return 0
 
 def genetic():
@@ -347,12 +361,7 @@ def algorithms(num_tasks, tot_util, pop_size):
     genetic()
     # Run MinWF, print results
     # Feed MinWF into Genetic, print results
-    test = minWF()
-    if test == 1:
-        fs = open('Schedule', 'a')
-        fs.write("ERROR: NOT A VALID SCHEDULE\n")
-        fs.close()        
-        return 1
+    minWF()
     hybridGAWF()
     return 0
 
@@ -361,7 +370,9 @@ def algorithms(num_tasks, tot_util, pop_size):
 def main():
     num_tasks = [100, 150, 200, 300]
     tot_util = [20, 35, 45]
-    pop_size = [2000, 10000]
+    #num_tasks = [100]
+    #tot_util = [20]
+    pop_size = [2000]
 
     fs = open('Schedule', 'w')
     fs.write("Start scheduler\n\n")

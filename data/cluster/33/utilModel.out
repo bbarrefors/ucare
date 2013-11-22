@@ -1,0 +1,8 @@
+
+Call:
+lm(formula = p ~ u + u2)
+
+Coefficients:
+(Intercept)            u           u2  
+     414.86       238.74       -87.32  
+
