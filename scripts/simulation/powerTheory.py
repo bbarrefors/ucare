@@ -62,7 +62,7 @@ def power(core, freq, util):
         u1 = cluster[core]['u1']
         u2 = cluster[core]['u2']
         u0 = cluster[core]['u0']
-        power1 = u1*util - u2*math.pow(util,2) + u0
+        power1 = 0.1*(u1*util - u2*math.pow(util,2) + u0)
         return power1
     a1 = cluster[core]['a1']
     a2 = cluster[core]['a2']
@@ -102,26 +102,28 @@ def main():
     fd = open('Schedule', 'r')
     lines = fd.readlines()
     j = 0
+    i = 1
     for line in lines:
+        line = line.strip()
         l = line.partition("\t")
         cpu = l[0]
-        i = 1
-        while i <= 20:
-            if cpu == str(i):
-                if l[2] == 0:
-                    p = 0
-                else:
-                    u = float(l[2])
-                    u = u/4
-                    for f in kFreq:
-                        if (f/2394000.0) >= (u):
-                            p = power(i - 1, f, u)
-                            break
-                fw = open(files[j], 'a')
-                fw.write(str(p) + '\n')
-                fw.close()
+        if (i == 21):
+            i = 1
+            j += 1
+        if (cpu == str(i)):
+            if l[2] == str(0):
+                p = 0
+            else:
+                u = float(l[2])
+                u = u/4
+                for f in kFreq:
+                    if (f/2.394000) >= (u):
+                        p = power(i - 1, f, u)
+                        break
+            fw = open(files[j], 'a')
+            fw.write(str(p) + '\n')
+            fw.close()
             i += 1
-        j += 1
     fd.close()
     return 0
 

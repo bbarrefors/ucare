@@ -12,6 +12,7 @@ import sys
 import numpy
 import math
 import heapq
+import copy
 from random import randint
 from operator import itemgetter
 
@@ -45,7 +46,7 @@ kTot_util = 0
 kMax_gen = 10000
 kMax_converge = 20
 kMax_temp = 45
-large_integer = 1000
+large_integer = 10000
 population_size = 0
 max_elite = 0
 crossover_size = 0
@@ -114,7 +115,7 @@ def power(core, freq, util):
         u1 = cluster[core]['u1']
         u2 = cluster[core]['u2']
         u0 = cluster[core]['u0']
-        power1 = u1*util - u2*math.pow(util,2) + u0
+        power1 = 0.1*(u1*util - u2*math.pow(util,2) + u0)
         return power1
     a1 = cluster[core]['a1']
     a2 = cluster[core]['a2']
@@ -140,21 +141,21 @@ def eChromo(chromo):
     # Actual power consumption for task allocation. 
     # If allocation doesn't comply w temperature restrictions it gets penalised
     # PENDING : Waiting for maxTemp
+    global pop
     e_chromo = 0
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for gene_i in range(len(pop[chromo][1:])):
-        gene_i += 1
-        gene = pop[chromo][gene_i]
+    for gene in pop[chromo][1:]:
         util = gene[0]
-        core = gene[1]
-        tot_util[core] += util
-    for cpu in range(20):
-        if not (tot_util[cpu] == 0):
+        cpu = gene[1]
+        tot_util[cpu] += util
+    cpu = 0
+    for util in tot_util:
+        if not (util == 0):
             j = 0
             f = 0
             while (j <= 9):
                 f = kFreq[j]/kFreq[9]
-                if (tot_util[cpu]/f <= 4):
+                if (util/f <= 4):
                     if (kMax_temp < maxTemp(cpu, kFreq[j])):
                         j = 11
                     else:
@@ -162,9 +163,10 @@ def eChromo(chromo):
                 else:
                     j += 1
             if (j < 10):
-                e_chromo += power(cpu, kFreq[j], tot_util[cpu])
+                e_chromo += power(cpu, kFreq[j], util)
             else:
                 e_chromo += kFreq[9]*large_integer
+        cpu += 1
     return e_chromo
 
 def fitnessValue(chromo):
@@ -172,8 +174,43 @@ def fitnessValue(chromo):
     # PENDING : Waiting for maxTemp and power formula to work
     e_max = eMax(chromo)
     e_chromo = eChromo(chromo)
+    #print e_max
+    #print e_chromo
     fitness_value = e_max - e_chromo
     return (-fitness_value)
+
+def minWFPrime(numCores):
+    global pop
+    chromo = [0]
+    util = []
+    for i in range(numCores):
+        heapq.heappush(util, (0, i))
+    for task_util in task_set:
+        while util:
+            cpu = heapq.heappop(util)
+            cpu_num = cpu[1]
+            cpu_util = cpu[0] + task_util
+            j = 0
+            f = 0
+            while (j <= 9):
+                f = kFreq[j]/kFreq[9]
+                if (cpu_util/f <= 4):
+                    if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
+                        chromo.append([task_util, cpu_num])
+                        heapq.heappush(util,(cpu_util, cpu_num))
+                        j = 11
+                    else:
+                        j = 10
+                else:
+                    j += 1
+            if j == 11:
+                break
+        if not util:
+            return False
+    pop = []
+    pop.append(chromo)
+    pop[0][0] =  fitnessValue(0)
+    return True
 
 def minWF():
     # Select the core with least available util left that can satisfy the conditions
@@ -182,11 +219,9 @@ def minWF():
     fs = open('Schedule', 'a')
     fs.write("MW Algorithm\n")
     fs.close()
-    global pop
-    pop = []
     i = 20
     while i > 0:
-        if(minWFPrime(i)):
+        if not (minWFPrime(i)):
             break
         i -= 1
     total_cores = 0
@@ -201,11 +236,9 @@ def minWF():
     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for gene_i in range(len(pop[0][1:])):
-        gene_i += 1
-        gene = pop[0][gene_i]
-        cpu = gene[1]
+    for gene in pop[0][1:]:
         util = gene[0]
+        cpu = gene[1]
         tot_util[cpu] += util
     i = 1
     for util in tot_util:
@@ -213,40 +246,7 @@ def minWF():
         i += 1
     fs.write("\n")
     fs.close()
-    return 0
-
-def minWFPrime(numCores):
-    global pop
-    chromo = [0]
-    util = []
-    i = 0
-    for cpu in cluster[:numCores-1]:
-        heapq.heappush(util, (0, i))
-        i += 1
-    for task_util in task_set:
-        while util:
-            cpu = heapq.heappop(util)
-            cpu_num = cpu[1]
-            j = 0
-            f = 0
-            while (j <= 9):
-                f = kFreq[j]/kFreq[9]
-                if (cpu[0]/f <= 4):
-                    if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
-                        chromo.append([task_util, cpu_num])
-                        j = 11
-                    else:
-                        j = 10
-                else:
-                    j += 1
-            if (j == 11):
-                cpu = (cpu[0]+task_util, cpu[1])
-                heapq.heappush(util, cpu)
-                break
-        if not util:
-            return 1
-    pop = []
-    pop.append(chromo)
+    print fitnessValue(0)
     return 0
 
 def genetic():
@@ -254,56 +254,63 @@ def genetic():
     fs.write("Genetic Algorithm\n")
     fs.close()
     global pop
-    generation = 1
-    converge = 1
+    generation = 0
+    converge = 0
     best_fit = 0
+    elite_pop = []
+    for chromo in range(len(pop)):
+        fitness_value = fitnessValue(chromo)
+        pop[chromo][0] = fitness_value
+    pop = sorted(pop, key=itemgetter(0))
     while ((generation < kMax_gen) and (converge < kMax_converge)):
-        for chromo in range(len(pop)):
-            fitness_value = fitnessValue(chromo)
-            pop[chromo][0] = fitness_value
-        pop = sorted(pop, key=itemgetter(0))
         generation += 1
-        if (pop[0][0] == best_fit):
+        if (int(pop[0][0]) == best_fit):
             converge += 1
         else:
             besf_fit = pop[0][0]
             converge = 1
-        
+        elite_pop = copy.deepcopy(pop[:max_elite])
         # Crossover
-        for i in range(max_elite, max_elite + crossover_size):
+        for i in range(crossover_size):
             rand = randint(0,population_size-1)
             chromo_1 = pop[i]
             chromo_2 = pop[rand]
-            point_1 = randint(0, number_tasks-1)
-            point_2 = randint(0, number_tasks-1)
+            point_1 = randint(1, number_tasks-1)
+            point_2 = randint(1, number_tasks-1)
             if (point_1 > point_2):
                 tmp = point_1
                 point_1 = point_2
                 point_2 = tmp
-            for j in range(point_1, point_2):
+            for j in range(point_2 - point_1):
                 tmp = chromo_1[j]
                 chromo_1[j] = chromo_2[j]
                 chromo_2[j] = tmp
-            pop[i] = chromo_1
-            pop[rand] = chromo_2
+            pop[i] = copy.deepcopy(chromo_1)
+            pop[rand] = copy.deepcopy(chromo_2)
 
         # Mutate
         for i in range(mutation_size):
-            rand = randint(max_elite, population_size-1)
+            rand = randint(0, population_size-1)
             chromo = pop[rand]
-            point_1 = randint(0, number_tasks-1)
-            point_2 = randint(0, number_tasks-1)
+            point_1 = randint(1, number_tasks-1)
+            point_2 = randint(1, number_tasks-1)
             if (point_1 > point_2):
                 tmp = point_1
                 point_1 = point_2
                 point_2 = tmp
             for j in range(point_1, point_2):
                 chromo[j] = [task_set[j], randint(0,19)]
-            pop[rand] = chromo
-    for chromo in range(len(pop)):
-        fitness_value = fitnessValue(chromo)
-        pop[chromo][0] = fitness_value
-    pop = sorted(pop, key=itemgetter(0))
+
+        # Copy back elite population
+        for chromo in range(len(pop)):
+            pop[chromo][0] = -fitnessValue(chromo)
+        pop = sorted(pop, key=itemgetter(0))
+
+        for chromo in range(len(pop)):
+            pop[chromo][0] = -pop[chromo][0]
+        i = 0
+        pop[:max_elite] = elite_pop[:]
+        pop = sorted(pop, key=itemgetter(0))
     total_cores = 0
     s = set()
     for gene_i in range(len(pop[0][1:])):
@@ -312,15 +319,14 @@ def genetic():
         cpu = gene[1]
         s.add(cpu)
     total_cores = len(s)
+    print fitnessValue(0)
     fs = open('Schedule', 'a')
     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for gene_i in range(len(pop[0][1:])):
-        gene_i += 1
-        gene = pop[0][gene_i]
-        cpu = gene[1]
+    for gene in pop[0][1:]:
         util = gene[0]
+        cpu = gene[1]
         tot_util[cpu] += util
     i = 1
     for util in tot_util:
@@ -337,7 +343,7 @@ def hybridGAWF():
     global pop
     wf_chromo = pop[0]
     buildPop(number_tasks, population_size)
-    pop[0] = wf_chromo
+    pop[0] = copy.deepcopy(wf_chromo)
     genetic()
     return 1
 
@@ -355,10 +361,10 @@ def algorithms(num_tasks, tot_util, pop_size):
     # Create a random task set
     buildTaskSet(number_tasks, tot_util)
     # Create random population for genetic alg
-    buildPop(number_tasks, population_size)
+    #buildPop(number_tasks, population_size)
     # Call algorithms
     # Run genetic w random population, print results
-    genetic()
+    #genetic()
     # Run MinWF, print results
     # Feed MinWF into Genetic, print results
     minWF()

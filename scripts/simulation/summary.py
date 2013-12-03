@@ -43,7 +43,7 @@ def main():
         totPower = 0
         for line in lines:
             totPower += float(line.strip())
-        fd.write(str(totPower))
+        fd.write("%s\n" % (str(totPower),))
         fd.close()
     return 0
 
