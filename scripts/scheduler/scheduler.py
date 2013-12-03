@@ -361,10 +361,10 @@ def algorithms(num_tasks, tot_util, pop_size):
     # Create a random task set
     buildTaskSet(number_tasks, tot_util)
     # Create random population for genetic alg
-    #buildPop(number_tasks, population_size)
+    buildPop(number_tasks, population_size)
     # Call algorithms
     # Run genetic w random population, print results
-    #genetic()
+    genetic()
     # Run MinWF, print results
     # Feed MinWF into Genetic, print results
     minWF()
