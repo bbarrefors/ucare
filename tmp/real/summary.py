@@ -1,8 +1,8 @@
 #!/usr/bin/python26 -B
 """
-_simulator_
+_summary_
 
-Created by Bjorn Barrefors on 26/9/2013
+Created by Bjorn Barrefors on 31/10/2013
 
 University of Nebraska-Lincoln
 """
@@ -13,23 +13,21 @@ University of Nebraska-Lincoln
 ###############################################################################
 
 import sys
-from multiprocessing import Process
 
-from task import task
 ################################################################################
 #                                                                              #
 #                                 M A I N                                      #
 #                                                                              #
 ################################################################################
 
-def main(node):
+def main():
     """
     __main__
     
     
     """
-    tasks = [100, 150, 200, 300]
-    util = [20, 35, 45]
+    tasks = [100]
+    util = [20, 35]
     alg = ['G', 'MW', 'HWF']
 
     files = []
@@ -37,28 +35,18 @@ def main(node):
     for t in tasks:
         for u in util:
             for a in alg:
-                files.append('real/t%du%da%s' % (t, u, a))
-
-    fd = open('Schedule', 'r')
-    lines = fd.readlines()
-    j = 0
-    for line in lines:
-        l = line.partition("\t")
-        cpu = l[0]
-        if cpu == str(node):
-            if l[2] == 0:
-                p = 0
-            else:
-                u = float(l[2])
-                u = u/4
-                time = 10*u
-                loops = time * 100
-                process = Process(target=task, args=(loops, u, files[j]))
-                process.start()
-                process.join()
-        j += 1
-    fd.close()
+                files.append('t%du%da%s' % (t, u, a))
+    
+    for filen in files:
+        fd = open(filen, 'a+')
+        lines = fd.readlines()
+        totPower = 0
+        for line in lines:
+            totPower += float(line.strip())
+        fd.write("%s\n" % (str(totPower),))
+        fd.close()
     return 0
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1]))
+    sys.exit(main())
+

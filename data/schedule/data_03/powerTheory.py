@@ -88,9 +88,9 @@ def main():
     
     
     """
-    tasks = [100]
-    util = [35]
-    alg = ['G', 'MW', 'HWF']
+    tasks = [300]
+    util = [45]
+    alg = ['MW', 'HWF']
 
     files = []
 
@@ -99,7 +99,7 @@ def main():
             for a in alg:
                 files.append('theoretical/t%du%da%s' % (t, u, a))
     
-    fd = open('Schedule', 'r')
+    fd = open('Schedule1', 'r')
     lines = fd.readlines()
     j = 0
     i = 1

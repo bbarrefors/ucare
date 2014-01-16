@@ -89,7 +89,7 @@ def main():
     
     """
     tasks = [100]
-    util = [35]
+    util = [20, 35]
     alg = ['G', 'MW', 'HWF']
 
     files = []

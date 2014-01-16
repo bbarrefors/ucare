@@ -13,6 +13,7 @@ import numpy
 import math
 import heapq
 import copy
+import timeit
 from random import randint
 from operator import itemgetter
 
@@ -43,7 +44,7 @@ task_set = []
 pop = []
 kHyper_period = 1000
 kTot_util = 0
-kMax_gen = 10000
+kMax_gen = 2
 kMax_converge = 20
 kMax_temp = 45
 large_integer = 10000
@@ -86,7 +87,7 @@ def buildPop(num_tasks, pop_size):
     for i in range(pop_size):
         chromo = [0]
         for j in range(num_tasks):
-            gene = [task_set[j], randint(0,19)]
+            gene = randint(0,19)
             chromo.append(gene)
         pop.append(chromo)
     return 1
@@ -129,7 +130,7 @@ def power(core, freq, util):
     power1 = a1*math.pow(t,2) + a2*math.pow(f,2) + a3*f*t + a4*t + a5*f + a6
     return power1
 
-def eMax(chromo):
+def eMax():
     # power consumption added up assuming all cpu's ran on highest frequency
     e_max = 0
     for cpu in range(20):
@@ -139,15 +140,13 @@ def eMax(chromo):
  
 def eChromo(chromo):
     # Actual power consumption for task allocation. 
-    # If allocation doesn't comply w temperature restrictions it gets penalised
-    # PENDING : Waiting for maxTemp
+    # If allocation doesn't comply w temperature restrictions it gets penalized
     global pop
     e_chromo = 0
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for gene in pop[chromo][1:]:
-        util = gene[0]
-        cpu = gene[1]
-        tot_util[cpu] += util
+    for gene in range(number_tasks):
+        cpu = pop[chromo][gene+1]
+        tot_util[cpu] += task_set[gene]
     cpu = 0
     for util in tot_util:
         if not (util == 0):
@@ -172,7 +171,7 @@ def eChromo(chromo):
 def fitnessValue(chromo):
     # e_max - e_chromo, the higher value the better
     # PENDING : Waiting for maxTemp and power formula to work
-    e_max = eMax(chromo)
+    e_max = eMax()
     e_chromo = eChromo(chromo)
     #print e_max
     #print e_chromo
@@ -196,7 +195,7 @@ def minWFPrime(numCores):
                 f = kFreq[j]/kFreq[9]
                 if (cpu_util/f <= 4):
                     if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
-                        chromo.append([task_util, cpu_num])
+                        chromo.append(cpu_num)
                         heapq.heappush(util,(cpu_util, cpu_num))
                         j = 11
                     else:
@@ -227,18 +226,16 @@ def minWF():
     total_cores = 0
     s = set()
     for gene_i in range(len(pop[0][1:])):
-        gene_i += 1
-        gene = pop[0][gene_i]
-        cpu = gene[1]
+        cpu = pop[0][gene_i+1]
         s.add(cpu)
     total_cores = len(s)
     fs = open('Schedule', 'a')
     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for gene in pop[0][1:]:
-        util = gene[0]
-        cpu = gene[1]
+    for gene in range(number_tasks):
+        util = task_set[gene]
+        cpu = pop[0][gene+1]
         tot_util[cpu] += util
     i = 1
     for util in tot_util:
@@ -246,7 +243,6 @@ def minWF():
         i += 1
     fs.write("\n")
     fs.close()
-    print fitnessValue(0)
     return 0
 
 def genetic():
@@ -281,7 +277,7 @@ def genetic():
                 tmp = point_1
                 point_1 = point_2
                 point_2 = tmp
-            for j in range(point_2 - point_1):
+            for j in range(point_1, point_2):
                 tmp = chromo_1[j]
                 chromo_1[j] = chromo_2[j]
                 chromo_2[j] = tmp
@@ -299,7 +295,7 @@ def genetic():
                 point_1 = point_2
                 point_2 = tmp
             for j in range(point_1, point_2):
-                chromo[j] = [task_set[j], randint(0,19)]
+                chromo[j] = randint(0,19)
 
         # Copy back elite population
         for chromo in range(len(pop)):
@@ -314,19 +310,16 @@ def genetic():
     total_cores = 0
     s = set()
     for gene_i in range(len(pop[0][1:])):
-        gene_i += 1
-        gene = pop[0][gene_i]
-        cpu = gene[1]
+        cpu = pop[0][gene_i+1]
         s.add(cpu)
     total_cores = len(s)
-    print fitnessValue(0)
     fs = open('Schedule', 'a')
     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
     fs.write("Allocation stategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for gene in pop[0][1:]:
-        util = gene[0]
-        cpu = gene[1]
+    for gene in range(number_tasks):
+        util = task_set[gene]
+        cpu = pop[0][gene+1]
         tot_util[cpu] += util
     i = 1
     for util in tot_util:
@@ -372,25 +365,36 @@ def algorithms(num_tasks, tot_util, pop_size):
     return 0
 
 ##### This is the start of the program #####
-
 def main():
-    num_tasks = [100, 150, 200, 300]
-    tot_util = [20, 35, 45]
+    #num_tasks = [100, 150, 200, 300]
+    #tot_util = [20, 35, 45]
     #num_tasks = [100]
     #tot_util = [20]
-    pop_size = [2000]
+    #pop_size = [2000]
+
+    num_tasks = int(sys.argv[1])
+    tot_util = int(sys.argv[2])
+    pop_size = int(sys.argv[3])
 
     fs = open('Schedule', 'w')
     fs.write("Start scheduler\n\n")
     fs.close()
     
-    for tmp_num in num_tasks:
-        for tmp_util in tot_util:
-            for tmp_pop in pop_size:
-                fs = open('Schedule', 'a')
-                fs.write("Task set: Num Tasks " + str(tmp_num) + " | Util " + str(tmp_util) + " | Pop Size " + str(tmp_pop) + "\n\n")
-                fs.close()
-                algorithms(tmp_num, tmp_util, tmp_pop)
+    tmp_num = num_tasks
+    tmp_util = tot_util
+    tmp_pop = pop_size
+
+    fs = open('Schedule', 'a')
+    fs.write("Task set: Num Tasks " + str(tmp_num) + " | Util " + str(tmp_util) + " | Pop Size " + str(tmp_pop) + "\n\n")
+    fs.close()
+    algorithms(tmp_num, tmp_util, tmp_pop)
 
 if __name__ == '__main__':
-    sys.exit(main())
+    if not len(sys.argv) == 4:
+        sys.exit(1)
+    t = timeit.Timer("main()", setup="from __main__ import main")
+    fs1 = open('Timer', 'w')
+    fs1.write(str(t.timeit(number=1)) + "\n")
+    fs1.close()
+    print "Done"
+    sys.exit(0)
