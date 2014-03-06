@@ -1,0 +1,12 @@
+Where are we now?
+The genetic algorithm is not powerful enough to change node, if some node is not selected at all it will not become available.
+Is genetic algorithm really the best algorithm then?
+If yes, then we need a better initial algorithm.
+The current system is too homogeneous.
+Can we make it more heterogenous?
+Maybe by varying the maximum temperature (significantly).
+Should consider what solution would be the optimal and see how we can come up with a stochastic algorithm to approximate this.
+
+Suggestion:
+Find all permutations for minimum number of nodes to satisfy temperature constraint and schedule all tasks.
+Evenly distribute all tasks on each of these permutations, place these as the top chromosomes in the population.
