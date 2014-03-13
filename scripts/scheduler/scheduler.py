@@ -16,8 +16,9 @@ import copy
 import timeit
 from random import randint
 from operator import itemgetter
+from itertools import combinations
 
-cluster = ({'t_amb' : -8.3, 'r': 0.646, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4, 'u1' : 247.01, 'u2' : 75.46, 'u0' : 429.51}, 
+cluster = ({'t_amb' : -8.3, 'r': 0.646, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4, 'u1' : 247.01, 'u2' : 75.46, 'u0' : 429.51},
            {'t_amb' : -9.0, 'r': 0.653, 'a1': 0.0248, 'a2': 8.1349, 'a3': -0.2863, 'a4': -1.3203, 'a5': 2.6106, 'a6': 75.4638, 'util': 4, 'u1' : 304.91, 'u2' : 123.8, 'u0' : 422.0},
            {'t_amb' : -10.0, 'r': 0.731, 'a1': -0.0040, 'a2': 5.5272, 'a3': 0.2977, 'a4': 0.0713, 'a5': -13.2765, 'a6': 56.4242, 'util': 4, 'u1' : 276.60, 'u2' : 114.0, 'u0' : 402.9},
            {'t_amb' : -6.9, 'r': 0.615, 'a1': 0.0338, 'a2': 7.4625, 'a3': -0.4637, 'a4': -1.7374, 'a5': 10.1535, 'a6': 78.6566, 'util': 4, 'u1' : 247.06, 'u2' : 81.28, 'u0' : 431.55},
@@ -44,7 +45,7 @@ task_set = []
 pop = []
 kHyper_period = 1000
 kTot_util = 0
-kMax_gen = 2
+kMax_gen = 10000
 kMax_converge = 20
 kMax_temp = 45
 large_integer = 10000
@@ -77,7 +78,7 @@ def buildTaskSet(num_tasks, tot_util):
 
 def buildPop(num_tasks, pop_size):
     # Randomly generate a population/allocation strategy
-    # pop is a list of chromosomes which is turn is a list of genes, 
+    # pop is a list of chromosomes which is turn is a list of genes,
     # though first value in each chromosome is a float representing the fitness value of the chromosome,
     # each gene represents the allocation of a task and contains task utilization, cpu number, and frequency of cpu.
     # [ [ fitness_value, [ task_util, cpu_num, freq ], [ task_util, cpu_num, freq ], ... ], ...]
@@ -137,9 +138,9 @@ def eMax():
         power2 = power(cpu, kFreq[9], 0)
         e_max += power2
     return e_max
- 
+
 def eChromo(chromo):
-    # Actual power consumption for task allocation. 
+    # Actual power consumption for task allocation.
     # If allocation doesn't comply w temperature restrictions it gets penalized
     global pop
     e_chromo = 0
@@ -170,7 +171,6 @@ def eChromo(chromo):
 
 def fitnessValue(chromo):
     # e_max - e_chromo, the higher value the better
-    # PENDING : Waiting for maxTemp and power formula to work
     e_max = eMax()
     e_chromo = eChromo(chromo)
     #print e_max
@@ -178,72 +178,89 @@ def fitnessValue(chromo):
     fitness_value = e_max - e_chromo
     return (-fitness_value)
 
+def findMin():
+    # Here we will find the theoretical minimum number of cores
+    # needed to schedule all tasks
+    totUtil = kTotUtil
+    global cluster
+    cores = 0
+    for machine in cluster:
+        cores += 1
+        totUtil -= machine['util']
+        if totUtil <= 0:
+            break
+    else:
+        # Not enough cores to schedule all tasks
+        return 0
+    return cores
+
 def minWFPrime(numCores):
-    global pop
-    chromo = [0]
-    util = []
-    for i in range(numCores):
-        heapq.heappush(util, (0, i))
-    for task_util in task_set:
-        while util:
-            cpu = heapq.heappop(util)
-            cpu_num = cpu[1]
-            cpu_util = cpu[0] + task_util
-            j = 0
-            f = 0
-            while (j <= 9):
-                f = kFreq[j]/kFreq[9]
-                if (cpu_util/f <= 4):
-                    if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
-                        chromo.append(cpu_num)
-                        heapq.heappush(util,(cpu_util, cpu_num))
-                        j = 11
-                    else:
-                        j = 10
-                else:
-                    j += 1
-            if j == 11:
-                break
-        if not util:
-            return False
-    pop = []
-    pop.append(chromo)
-    pop[0][0] =  fitnessValue(0)
-    return True
+     global pop
+     chromo = [0]
+     util = []
+     for i in range(numCores):
+         heapq.heappush(util, (0, i))
+     for task_util in task_set:
+         while util:
+             cpu = heapq.heappop(util)
+             cpu_num = cpu[1]
+             cpu_util = cpu[0] + task_util
+             j = 0
+             f = 0
+             while (j <= 9):
+                 f = kFreq[j]/kFreq[9]
+                 if (cpu_util/f <= 4):
+                     if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
+                         chromo.append(cpu_num)
+                         heapq.heappush(util,(cpu_util, cpu_num))
+                         j = 11
+                     else:
+                         j = 10
+                 else:
+                     j += 1
+             if j == 11:
+                 break
+         if not util:
+             return False
+     pop = []
+     pop.append(chromo)
+     pop[0][0] =  fitnessValue(0)
+     return True
 
 def minWF():
-    # Select the core with least available util left that can satisfy the conditions
-    # to schedule tasks on.
-    # Create one chromosome based on that scheduling philosophy
-    fs = open('Schedule', 'a')
-    fs.write("MW Algorithm\n")
-    fs.close()
-    i = 20
-    while i > 0:
-        if not (minWFPrime(i)):
-            break
-        i -= 1
-    total_cores = 0
-    s = set()
-    for gene_i in range(len(pop[0][1:])):
-        cpu = pop[0][gene_i+1]
-        s.add(cpu)
-    total_cores = len(s)
-    fs = open('Schedule', 'a')
-    fs.write("The number of CPU's used is " + str(total_cores) + "\n")
-    fs.write("Allocation stategy\n")
-    tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for gene in range(number_tasks):
-        util = task_set[gene]
-        cpu = pop[0][gene+1]
-        tot_util[cpu] += util
-    i = 1
-    for util in tot_util:
-        fs.write("%s\t%s\n" % (str(i), str(util)))
-        i += 1
-    fs.write("\n")
-    fs.close()
-    return 0
+     # Select the core with least available util left that can satisfy the conditions
+     # to schedule tasks on.
+     # Create one chromosome based on that scheduling philosophy
+     fs = open('Schedule', 'a')
+     fs.write("MW Algorithm\n")
+     fs.close()
+     i = 20
+     while i > 0:
+         if not (minWFPrime(i)):
+             break
+         i -= 1
+     total_cores = 0
+     s = set()
+     for gene_i in range(len(pop[0][1:])):
+         cpu = pop[0][gene_i+1]
+         s.add(cpu)
+     total_cores = len(s)
+
+     fs = open('Schedule', 'a')
+     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
+     fs.write("Allocation stategy\n")
+     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+     for gene in range(number_tasks):
+         util = task_set[gene]
+         cpu = pop[0][gene+1]
+         tot_util[cpu] += util
+     i = 1
+     for util in tot_util:
+         fs.write("%s\t%s\n" % (str(i), str(util)))
+         i += 1
+     fs.write("\n")
+     fs.close()
+     return 0
 
 def genetic():
     fs = open('Schedule', 'a')
@@ -329,14 +346,71 @@ def genetic():
     fs.close()
     return 1
 
+def buildChromo(cores):
+    # @TODO : Build an evenly distributed chromosome on cores in cores
+    # Use max-core worst fit
+    chromo = [0]
+    util = []
+    for i in cores:
+        heapq.heappush(util, (0, i))
+    for task_util in task_set:
+        while util:
+            cpu = heapq.heappop(util)
+            cpu_num = cpu[1]
+            cpu_util = cpu[0] + task_util
+            j = 0
+            f = 0
+            while (j <= 9):
+                f = kFreq[j]/kFreq[9]
+                if (cpu_util/f <= 4):
+                    if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
+                        chromo.append(cpu_num)
+                        heapq.heappush(util,(cpu_util, cpu_num))
+                        j = 11
+                    else:
+                        j = 10
+                else:
+                    j += 1
+            if j == 11:
+                break
+        if not util:
+            return False
+    chromo[0] = fitnessValue(0)
+    return chromo
+
 def hybridGAWF():
     fs = open('Schedule', 'a')
     fs.write("HybridWGA algorithm\n")
     fs.close()
     global pop
-    wf_chromo = pop[0]
+    global population_size
     buildPop(number_tasks, population_size)
-    pop[0] = copy.deepcopy(wf_chromo)
+    cores = int(math.ceil(float(kTot_util) / 4))
+    comb_set = range(20)
+    chromosomes = combinations(comb_set, cores)
+    wf = []
+    for i in chromosomes:
+        chromo = buildChromo(i)
+        if chromo:
+            wf.append(chromo)
+    chromosomes = combinations(comb_set, cores+1)
+    for i in chromosomes:
+        chromo = buildChromo(i)
+        if chromo:
+            wf.append(chromo)
+    buildPop(number_tasks, population_size)
+    if len(pop) >= len(wf):
+        for i in range(len(wf)):
+            pop[i] = copy.deepcopy(wf[i])
+    else:
+        pop = copy.deepcopy(wf)
+        global max_elite
+        global crossover_size
+        global mutation_size
+        population_size = len(pop)
+        max_elite = int(population_size*0.01)
+        crossover_size = int(population_size*0.85)
+        mutation_size = int(population_size*0.005)
     genetic()
     return 1
 
@@ -368,18 +442,18 @@ def algorithms(num_tasks, tot_util, pop_size):
 def main():
     #num_tasks = [100, 150, 200, 300]
     #tot_util = [20, 35, 45]
-    #num_tasks = [100]
-    #tot_util = [20]
-    #pop_size = [2000]
+    num_tasks = 100
+    tot_util = 20
+    pop_size = 2000
 
-    num_tasks = int(sys.argv[1])
-    tot_util = int(sys.argv[2])
-    pop_size = int(sys.argv[3])
+    #num_tasks = int(sys.argv[1])
+    #tot_util = int(sys.argv[2])
+    #pop_size = int(sys.argv[3])
 
     fs = open('Schedule', 'w')
     fs.write("Start scheduler\n\n")
     fs.close()
-    
+
     tmp_num = num_tasks
     tmp_util = tot_util
     tmp_pop = pop_size
@@ -390,11 +464,12 @@ def main():
     algorithms(tmp_num, tmp_util, tmp_pop)
 
 if __name__ == '__main__':
-    if not len(sys.argv) == 4:
-        sys.exit(1)
-    t = timeit.Timer("main()", setup="from __main__ import main")
-    fs1 = open('Timer', 'w')
-    fs1.write(str(t.timeit(number=1)) + "\n")
-    fs1.close()
-    print "Done"
+    #if not len(sys.argv) == 4:
+    #    sys.exit(1)
+    #t = timeit.Timer("main()", setup="from __main__ import main")
+    #fs1 = open('Timer', 'w')
+    #fs1.write(str(t.timeit(number=1)) + "\n")
+    #fs1.close()
+    #print "Done"
+    main()
     sys.exit(0)
