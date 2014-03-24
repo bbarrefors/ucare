@@ -26,23 +26,17 @@ def main():
     
     
     """
-    tasks = [100]
-    util = [35]
-    alg = ['G', 'MW', 'HWF']
-
-    files = []
-
-    for t in tasks:
-        for u in util:
-            for a in alg:
-                files.append('t%du%da%s' % (t, u, a))
+    files = ['theoreticalPowerG', 'theoreticalPowerM', 'theoreticalPowerH']
     
     for filen in files:
-        fd = open(filen, 'a+')
+        fd = open(filen, 'r')
         lines = fd.readlines()
         totPower = 0
         for line in lines:
             totPower += float(line.strip())
+            totPower
+        fd.close()
+        fd = open(filen, 'a+')
         fd.write("%s\n" % (str(totPower),))
         fd.close()
     return 0

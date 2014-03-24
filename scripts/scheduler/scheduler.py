@@ -14,6 +14,8 @@ import math
 import heapq
 import copy
 import timeit
+import random
+
 from random import randint
 from operator import itemgetter
 from itertools import combinations
@@ -178,22 +180,6 @@ def fitnessValue(chromo):
     fitness_value = e_max - e_chromo
     return (-fitness_value)
 
-def findMin():
-    # Here we will find the theoretical minimum number of cores
-    # needed to schedule all tasks
-    totUtil = kTotUtil
-    global cluster
-    cores = 0
-    for machine in cluster:
-        cores += 1
-        totUtil -= machine['util']
-        if totUtil <= 0:
-            break
-    else:
-        # Not enough cores to schedule all tasks
-        return 0
-    return cores
-
 def minWFPrime(numCores):
      global pop
      chromo = [0]
@@ -346,6 +332,20 @@ def genetic():
     fs.close()
     return 1
 
+def weightedChoice(choices):
+    """
+    _weightedChoice_
+
+    Return a weighted randomly selected dataset
+    """
+    total = sum(w for c, w in choices)
+    r = random.uniform(0, total)
+    upto = 0
+    for c, w in choices:
+        if upto + w > r:
+            return c
+        upto += w
+
 def buildChromo(cores):
     # @TODO : Build an evenly distributed chromosome on cores in cores
     # Use max-core worst fit
@@ -375,7 +375,6 @@ def buildChromo(cores):
                 break
         if not util:
             return False
-    chromo[0] = fitnessValue(0)
     return chromo
 
 def hybridGAWF():
@@ -383,34 +382,63 @@ def hybridGAWF():
     fs.write("HybridWGA algorithm\n")
     fs.close()
     global pop
-    global population_size
-    buildPop(number_tasks, population_size)
-    cores = int(math.ceil(float(kTot_util) / 4))
-    comb_set = range(20)
-    chromosomes = combinations(comb_set, cores)
-    wf = []
-    for i in chromosomes:
-        chromo = buildChromo(i)
-        if chromo:
-            wf.append(chromo)
-    chromosomes = combinations(comb_set, cores+1)
-    for i in chromosomes:
-        chromo = buildChromo(i)
-        if chromo:
-            wf.append(chromo)
-    buildPop(number_tasks, population_size)
-    if len(pop) >= len(wf):
-        for i in range(len(wf)):
-            pop[i] = copy.deepcopy(wf[i])
-    else:
-        pop = copy.deepcopy(wf)
-        global max_elite
-        global crossover_size
-        global mutation_size
-        population_size = len(pop)
-        max_elite = int(population_size*0.01)
-        crossover_size = int(population_size*0.85)
-        mutation_size = int(population_size*0.005)
+    # Rank the nodes
+    # rank = utilization / power_consumption
+    nodes = []
+    max_util = []
+    for i in range(20):
+        j = 9
+        while(maxTemp(i, kFreq[j]) > kMax_temp):
+             j -= 1
+        max_utilization = 4*(kFreq[j]/kFreq[9])
+        max_util.append(max_utilization)
+        power_consumption = power(i, kFreq[9], 4)
+        rank = ((max_utilization*100)/power_consumption)
+        nodes.append((i, rank))
+    # Build population
+    max_util.sort()
+    max_util.reverse()
+    i = 0
+    tot_max = kTot_util
+    while(tot_max > 0):
+        tot_max -= max_util[i]
+        i += 1
+    minimum = i
+    pop = []
+    for i in range(population_size/2):
+        cores = []
+        for i in range(minimum):
+            core = weightedChoice(nodes)
+            while core in cores:
+                core = weightedChoice(nodes)
+            cores.append(core)
+        chromo = buildChromo(cores)
+        while (not chromo):
+            cores = []
+            for i in range(minimum+1):
+                core = weightedChoice(nodes)
+                while core in cores:
+                    core = weightedChoice(nodes)
+                cores.append(core)
+            chromo = buildChromo(cores)
+        pop.append(chromo)
+    for i in range(population_size/2):
+        cores = []
+        for i in range(minimum+1):
+            core = weightedChoice(nodes)
+            while core in cores:
+                core = weightedChoice(nodes)
+            cores.append(core)
+        chromo = buildChromo(cores)
+        while (not chromo):
+            cores = []
+            for i in range(minimum+1):
+                core = weightedChoice(nodes)
+                while core in cores:
+                    core = weightedChoice(nodes)
+                cores.append(core)
+            chromo = buildChromo(cores)
+        pop.append(chromo)
     genetic()
     return 1
 
@@ -444,7 +472,7 @@ def main():
     #tot_util = [20, 35, 45]
     num_tasks = 100
     tot_util = 20
-    pop_size = 2000
+    pop_size = 200
 
     #num_tasks = int(sys.argv[1])
     #tot_util = int(sys.argv[2])
