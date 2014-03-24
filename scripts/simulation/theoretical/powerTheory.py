@@ -88,7 +88,7 @@ def main():
 
 
     """
-    out_file = ['theoreticalPowerG', 'theoreticalPowerMW', 'theoreticalPowerHMWG']
+    out_file = ['theoreticalPowerG', 'theoreticalPowerMW', 'theoreticalPowerMMW', 'theoreticalPowerHMWG']
 
     fd = open('Schedule', 'r')
     lines = fd.readlines()

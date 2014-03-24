@@ -25,19 +25,10 @@ from task import task
 def main(node):
     """
     __main__
-    
-    
+
+
     """
-    tasks = [100, 150, 200, 300]
-    util = [20, 35, 45]
-    alg = ['G', 'MW', 'HWF']
-
-    files = []
-
-    for t in tasks:
-        for u in util:
-            for a in alg:
-                files.append('real/t%du%da%s' % (t, u, a))
+    files = ['theoreticalPowerG', 'theoreticalPowerMW', 'theoreticalPowerMMW', 'theoreticalPowerHMWG']
 
     fd = open('Schedule', 'r')
     lines = fd.readlines()

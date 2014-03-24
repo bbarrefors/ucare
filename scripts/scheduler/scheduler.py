@@ -49,8 +49,8 @@ kHyper_period = 1000
 kTot_util = 0
 kMax_gen = 10000
 kMax_converge = 20
-kMax_temp = [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
-#kMax_temp = [48, 45, 50, 43, 40, 54, 50, 49, 48, 46, 44, 45, 51, 47, 49, 42, 46, 45, 49, 50]
+#kMax_temp = [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
+kMax_temp = [48, 45, 50, 43, 40, 54, 50, 49, 48, 46, 44, 45, 51, 47, 49, 42, 46, 45, 49, 50]
 large_integer = 10000
 population_size = 0
 max_elite = 0
@@ -235,7 +235,7 @@ def minWF():
 
      fs = open('Schedule', 'a')
      fs.write("The number of CPU's used is " + str(total_cores) + "\n")
-     fs.write("Allocation stategy\n")
+     fs.write("Allocation strategy\n")
      tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
      for gene in range(number_tasks):
          util = task_set[gene]
@@ -267,7 +267,7 @@ def genetic():
     total_cores = len(s)
     fs = open('Schedule', 'a')
     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
-    fs.write("Allocation stategy\n")
+    fs.write("Allocation strategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for gene in range(number_tasks):
         util = task_set[gene]
@@ -337,7 +337,7 @@ def genetic():
     total_cores = len(s)
     fs = open('Schedule', 'a')
     fs.write("The number of CPU's used is " + str(total_cores) + "\n")
-    fs.write("Allocation stategy\n")
+    fs.write("Allocation strategy\n")
     tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for gene in range(number_tasks):
         util = task_set[gene]
