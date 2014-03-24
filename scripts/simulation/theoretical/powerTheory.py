@@ -15,7 +15,7 @@ University of Nebraska-Lincoln
 import sys
 import math
 
-cluster = ({'t_amb' : -8.3, 'r': 0.646, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4, 'u1' : 247.01, 'u2' : 75.46, 'u0' : 429.51}, 
+cluster = ({'t_amb' : -8.3, 'r': 0.646, 'a1': 0.0061, 'a2': 4.5036, 'a3': 0.0928, 'a4': -0.3536, 'a5': -4.660637, 'a6': 64.8758, 'util': 4, 'u1' : 247.01, 'u2' : 75.46, 'u0' : 429.51},
            {'t_amb' : -9.0, 'r': 0.653, 'a1': 0.0248, 'a2': 8.1349, 'a3': -0.2863, 'a4': -1.3203, 'a5': 2.6106, 'a6': 75.4638, 'util': 4, 'u1' : 304.91, 'u2' : 123.8, 'u0' : 422.0},
            {'t_amb' : -10.0, 'r': 0.731, 'a1': -0.0040, 'a2': 5.5272, 'a3': 0.2977, 'a4': 0.0713, 'a5': -13.2765, 'a6': 56.4242, 'util': 4, 'u1' : 276.60, 'u2' : 114.0, 'u0' : 402.9},
            {'t_amb' : -6.9, 'r': 0.615, 'a1': 0.0338, 'a2': 7.4625, 'a3': -0.4637, 'a4': -1.7374, 'a5': 10.1535, 'a6': 78.6566, 'util': 4, 'u1' : 247.06, 'u2' : 81.28, 'u0' : 431.55},
@@ -85,15 +85,11 @@ def power(core, freq, util):
 def main():
     """
     __main__
-    
-    
-    """
-    tasks = [100]
-    util = [35]
-    alg = ['G', 'MW', 'HWF']
 
-    out_file = 'theoreticalPower'
-    
+
+    """
+    out_file = ['theoreticalPowerG', 'theoreticalPowerMW', 'theoreticalPowerHMWG']
+
     fd = open('Schedule', 'r')
     lines = fd.readlines()
     j = 0
@@ -115,7 +111,7 @@ def main():
                     if (f/2.394000) >= (u):
                         p = power(i - 1, f, u)
                         break
-            fw = open(out_file, 'a')
+            fw = open(out_file[j], 'a')
             fw.write(str(p) + '\n')
             fw.close()
             i += 1

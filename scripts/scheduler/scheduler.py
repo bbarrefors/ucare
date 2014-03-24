@@ -49,7 +49,8 @@ kHyper_period = 1000
 kTot_util = 0
 kMax_gen = 10000
 kMax_converge = 20
-kMax_temp = [48, 45, 50, 43, 40, 54, 50, 49, 48, 46, 44, 45, 51, 47, 49, 42, 46, 45, 49, 50]
+kMax_temp = [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
+#kMax_temp = [48, 45, 50, 43, 40, 54, 50, 49, 48, 46, 44, 45, 51, 47, 49, 42, 46, 45, 49, 50]
 large_integer = 10000
 population_size = 0
 max_elite = 0
@@ -381,7 +382,7 @@ def buildChromo(cores):
             while (j <= 9):
                 f = kFreq[j]/kFreq[9]
                 if (cpu_util/f <= 4):
-                    if (kMax_temp[cpu] >= maxTemp(cpu_num, f*kFreq[9])):
+                    if (kMax_temp[cpu_num] >= maxTemp(cpu_num, f*kFreq[9])):
                         chromo.append(cpu_num)
                         heapq.heappush(util,(cpu_util, cpu_num))
                         j = 11

@@ -23,11 +23,11 @@ import sys
 def main():
     """
     __main__
-    
-    
+
+
     """
-    files = ['theoreticalPowerG', 'theoreticalPowerM', 'theoreticalPowerH']
-    
+    files = ['theoreticalPowerG', 'theoreticalPowerMW', 'theoreticalPowerHMWG']
+
     for filen in files:
         fd = open(filen, 'r')
         lines = fd.readlines()
