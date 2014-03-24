@@ -49,7 +49,7 @@ kHyper_period = 1000
 kTot_util = 0
 kMax_gen = 10000
 kMax_converge = 20
-kMax_temp = 45
+kMax_temp = [48, 45, 50, 43, 40, 54, 50, 49, 48, 46, 44, 45, 51, 47, 49, 42, 46, 45, 49, 50]
 large_integer = 10000
 population_size = 0
 max_elite = 0
@@ -158,7 +158,7 @@ def eChromo(chromo):
             while (j <= 9):
                 f = kFreq[j]/kFreq[9]
                 if (util/f <= 4):
-                    if (kMax_temp < maxTemp(cpu, kFreq[j])):
+                    if (kMax_temp[cpu] < maxTemp(cpu, kFreq[j])):
                         j = 11
                     else:
                         break
@@ -196,7 +196,7 @@ def minWFPrime(numCores):
              while (j <= 9):
                  f = kFreq[j]/kFreq[9]
                  if (cpu_util/f <= 4):
-                     if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
+                     if (kMax_temp[cpu_num] >= maxTemp(cpu_num, f*kFreq[9])):
                          chromo.append(cpu_num)
                          heapq.heappush(util,(cpu_util, cpu_num))
                          j = 11
@@ -249,9 +249,6 @@ def minWF():
      return 0
 
 def genetic():
-    fs = open('Schedule', 'a')
-    fs.write("Genetic Algorithm\n")
-    fs.close()
     global pop
     generation = 0
     converge = 0
@@ -261,6 +258,27 @@ def genetic():
         fitness_value = fitnessValue(chromo)
         pop[chromo][0] = fitness_value
     pop = sorted(pop, key=itemgetter(0))
+    total_cores = 0
+    s = set()
+    for gene_i in range(len(pop[0][1:])):
+        cpu = pop[0][gene_i+1]
+        s.add(cpu)
+    total_cores = len(s)
+    fs = open('Schedule', 'a')
+    fs.write("The number of CPU's used is " + str(total_cores) + "\n")
+    fs.write("Allocation stategy\n")
+    tot_util = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for gene in range(number_tasks):
+        util = task_set[gene]
+        cpu = pop[0][gene+1]
+        tot_util[cpu] += util
+    i = 1
+    for util in tot_util:
+        fs.write("%s\t%s\n" % (str(i), str(util)))
+        i += 1
+    fs.write("\n")
+    fs.write("Genetic Algorithm\n")
+    fs.close()
     while ((generation < kMax_gen) and (converge < kMax_converge)):
         generation += 1
         if (int(pop[0][0]) == best_fit):
@@ -347,7 +365,7 @@ def weightedChoice(choices):
         upto += w
 
 def buildChromo(cores):
-    # @TODO : Build an evenly distributed chromosome on cores in cores
+    # Build an evenly distributed chromosome on cores in cores
     # Use max-core worst fit
     chromo = [0]
     util = []
@@ -363,7 +381,7 @@ def buildChromo(cores):
             while (j <= 9):
                 f = kFreq[j]/kFreq[9]
                 if (cpu_util/f <= 4):
-                    if (kMax_temp >= maxTemp(cpu_num, f*kFreq[9])):
+                    if (kMax_temp[cpu] >= maxTemp(cpu_num, f*kFreq[9])):
                         chromo.append(cpu_num)
                         heapq.heappush(util,(cpu_util, cpu_num))
                         j = 11
@@ -388,7 +406,7 @@ def hybridGAWF():
     max_util = []
     for i in range(20):
         j = 9
-        while(maxTemp(i, kFreq[j]) > kMax_temp):
+        while(maxTemp(i, kFreq[j]) > kMax_temp[i]):
              j -= 1
         max_utilization = 4*(kFreq[j]/kFreq[9])
         max_util.append(max_utilization)
