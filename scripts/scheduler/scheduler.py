@@ -489,8 +489,8 @@ def algorithms(num_tasks, tot_util, pop_size):
 def main():
     #num_tasks = [100, 150, 200, 300]
     #tot_util = [20, 35, 45]
-    num_tasks = 100
-    tot_util = 20
+    num_tasks = 150
+    tot_util = 35
     pop_size = 200
 
     #num_tasks = int(sys.argv[1])
