@@ -28,9 +28,9 @@ def main(node):
 
 
     """
-    files = ['theoreticalPowerG', 'theoreticalPowerMW', 'theoreticalPowerMMW', 'theoreticalPowerHMWG']
+    files = ['/home/tarek/bjorn/bjorn/simulation/theoreticalPowerG', '/home/tarek/bjorn/bjorn/simulation/theoreticalPowerMW', '/home/tarek/bjorn/bjorn/simulation/theoreticalPowerMMW', '/home/tarek/bjorn/bjorn/simulation/theoreticalPowerHMWG']
 
-    fd = open('Schedule', 'r')
+    fd = open('/home/tarek/bjorn/bjorn/simulation/Schedule', 'r')
     lines = fd.readlines()
     j = 0
     for line in lines:
@@ -47,7 +47,7 @@ def main(node):
                 process = Process(target=task, args=(loops, u, files[j]))
                 process.start()
                 process.join()
-        j += 1
+            j += 1
     fd.close()
     return 0
 

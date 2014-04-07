@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for node in 08 09 10 12 15 16 17 18 23 24 25 26 27 28 29 30 31 32 33
+for node in 08 09 10 12 15 16 17 18 19 23 24 25 26 27 28 29 30 31 32 33
 do
     case "$node" in
 	08) num=1
@@ -45,5 +45,5 @@ do
 	    ;;
     esac
     args=''
-    ssh tarekc$node.cs.uiuc.edu "~/bjorn/simulation/powerReal.py ${num}"
+    ssh tarekc$node.cs.uiuc.edu "python26 ~/bjorn/simulation/powerReal.py ${num}"
 done
