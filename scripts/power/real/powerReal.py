@@ -13,6 +13,7 @@ University of Nebraska-Lincoln
 ###############################################################################
 
 import sys
+import time
 from multiprocessing import Process
 
 from task import task
@@ -28,7 +29,7 @@ def main(node):
 
 
     """
-    files = ['/home/tarek/bjorn/bjorn/simulation/theoreticalPowerG', '/home/tarek/bjorn/bjorn/simulation/theoreticalPowerMW', '/home/tarek/bjorn/bjorn/simulation/theoreticalPowerMMW', '/home/tarek/bjorn/bjorn/simulation/theoreticalPowerHMWG']
+    files = ['/home/tarek/bjorn/bjorn/simulation/realPowerG', '/home/tarek/bjorn/bjorn/simulation/realPowerMW', '/home/tarek/bjorn/bjorn/simulation/realPowerMMW', '/home/tarek/bjorn/bjorn/simulation/realPowerHMWG']
 
     fd = open('/home/tarek/bjorn/bjorn/simulation/Schedule', 'r')
     lines = fd.readlines()
@@ -42,11 +43,12 @@ def main(node):
             else:
                 u = float(l[2])
                 u = u/4
-                time = 10*u
-                loops = time * 100
+                time_e = 10*u
+                loops = time_e * 100
                 process = Process(target=task, args=(loops, u, files[j]))
                 process.start()
                 process.join()
+                time.sleep(300)
             j += 1
     fd.close()
     return 0

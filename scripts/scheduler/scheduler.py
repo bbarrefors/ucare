@@ -467,30 +467,34 @@ def algorithms(num_tasks, tot_util, pop_size):
     global number_tasks
     global crossover_size
     global mutation_size
-    population_size = pop_size
     number_tasks = num_tasks
-    max_elite = int(population_size*0.01)
-    crossover_size = int(population_size*0.85)
-    mutation_size = int(population_size*0.005)
-    # Create a random task set
     buildTaskSet(number_tasks, tot_util)
-    # Create random population for genetic alg
-    buildPop(number_tasks, population_size)
-    # Call algorithms
-    # Run genetic w random population, print results
-    genetic()
-    # Run MinWF, print results
-    # Feed MinWF into Genetic, print results
-    minWF()
-    hybridGAWF()
+    for i in range(2):
+        if i == 0:
+            population_size = 200
+        else:
+            population_size = 2000
+        max_elite = int(population_size*0.01)
+        crossover_size = int(population_size*0.85)
+        mutation_size = int(population_size*0.005)
+        # Create a random task set
+        # Create random population for genetic alg
+        buildPop(number_tasks, population_size)
+        # Call algorithms
+        # Run genetic w random population, print results
+        # genetic()
+        # Run MinWF, print results
+        # Feed MinWF into Genetic, print results
+        minWF()
+        hybridGAWF()
     return 0
 
 ##### This is the start of the program #####
 def main():
     #num_tasks = [100, 150, 200, 300]
     #tot_util = [20, 35, 45]
-    num_tasks = 150
-    tot_util = 35
+    num_tasks = 100
+    tot_util = 20
     pop_size = 200
 
     #num_tasks = int(sys.argv[1])

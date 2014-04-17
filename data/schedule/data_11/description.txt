@@ -1,0 +1,6 @@
+This is on a fairly heterogeneous cluster with initial population
+using my modified MW with two different population sizes.
+
+Task set: Num Tasks 200 | Util 35 | Pop Size 200
+
+Task set: Num Tasks 200 | Util 35 | Pop Size 2000

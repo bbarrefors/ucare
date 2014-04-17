@@ -1,0 +1,77 @@
+Start scheduler
+
+Task set: Num Tasks 100 | Util 20 | Pop Size 2000
+
+Utilization 19.6060118362
+
+MW Algorithm
+The number of CPU's used is 6
+Allocation strategy
+1	3.32034724299
+2	3.36081122122
+3	3.38069624109
+4	3.28626534044
+5	2.93396815379
+6	3.3239236367
+7	0
+8	0
+9	0
+10	0
+11	0
+12	0
+13	0
+14	0
+15	0
+16	0
+17	0
+18	0
+19	0
+20	0
+
+HybridWGA algorithm
+The number of CPU's used is 6
+Allocation strategy
+1	0
+2	0
+3	0
+4	0
+5	0
+6	0
+7	0
+8	0
+9	0
+10	0
+11	3.09657058808
+12	3.29800337263
+13	0
+14	0
+15	0
+16	0
+17	3.28884836921
+18	3.37136937882
+19	3.2586046642
+20	3.29261546328
+
+Genetic Algorithm
+The number of CPU's used is 6
+Allocation strategy
+1	0
+2	0
+3	0
+4	0
+5	0
+6	0
+7	3.09713067653
+8	3.54701184244
+9	0
+10	3.31233254406
+11	0
+12	0
+13	0
+14	0
+15	0
+16	3.09831664572
+17	0
+18	0
+19	3.2586046642
+20	3.29261546328

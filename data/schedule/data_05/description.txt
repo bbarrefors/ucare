@@ -1,4 +1,4 @@
 This run is with a heterogeneous maximum temperature using my modified MW
 initial population.
 
-Task set: Num Tasks 100 | Util 20 | Pop Size 200
+Task set: Num Tasks 150 | Util 35 | Pop Size 200

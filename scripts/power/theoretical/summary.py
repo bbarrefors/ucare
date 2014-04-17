@@ -26,7 +26,7 @@ def main():
 
 
     """
-    files = ['theoreticalPowerG', 'theoreticalPowerMW', 'theoreticalPowerMMW', 'theoreticalPowerHMWG']
+    files = ['theoreticalPowerMW', 'theoreticalPowerMMWG', 'theoreticalPowerHMMWG']
 
     for filen in files:
         fd = open(filen, 'r')
