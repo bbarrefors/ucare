@@ -29,8 +29,17 @@ def main(node):
 
 
     """
-    files = ['/home/tarek/bjorn/bjorn/simulation/realPowerG', '/home/tarek/bjorn/bjorn/simulation/realPowerMW', '/home/tarek/bjorn/bjorn/simulation/realPowerMMW', '/home/tarek/bjorn/bjorn/simulation/realPowerHMWG']
+    tasks = [150, 200, 300]
+    util = [20, 35]
+    alg = ['HMWG', 'HBaBG']
 
+    files = []
+
+    for u in util:
+        for t in tasks:
+            for a in alg:
+                files.append('/home/tarek/bjorn/bjorn/simulation/u%dt%da%s' % (u, t, a))
+                
     fd = open('/home/tarek/bjorn/bjorn/simulation/Schedule', 'r')
     lines = fd.readlines()
     j = 0

@@ -1,0 +1,11 @@
+Recap
+
+
+
+1. We used a testbed cluster at UIUC of 40 nodes. 20 of these nodes were selected for our testing. A general power model already existed but it was important for us to find the individual power model for each node. We collected data for each frequency at maximum utilization and used regression analysis to find model constants.
+
+2. Temperature model was taken from Feasibility Analysis for Temperature-Constraint Hard Real-Time Periodic Tasks. ambient temperature was not available in our testbed so we had to run a series of tests and determine a static ambient temperature.
+
+3. To measure the accuracy of our power model we ran the scheduler on our testbed using a Min-Core Worst-Fit algorithm. The schedule was simulated by running periodic tasks at full utilization with running time of utilization*period. Power consumptions was sampled at a rate of 0.5s for 5 periods and taking an average of the periods. This value was compared to the calculated theoretical power consumption.
+
+4. We used three other algorithms as comparison, Min-Core Worst-Fit, Genetic, and Hybrid Min-Core Worst-Fit Genetic. 

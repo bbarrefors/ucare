@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: rtcsa2.aux
+The style file: ieeetr.bst
+Database file #1: rtss2.bib
+You've used 27 entries,
+            1876 wiz_defined-function locations,
+            654 strings with 7992 characters,
+and the built_in function-call counts, 7696 in all, are:
+= -- 733
+> -- 296
+< -- 0
++ -- 109
+- -- 82
+* -- 525
+:= -- 1051
+add.period$ -- 30
+call.type$ -- 27
+change.case$ -- 24
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 426
+empty$ -- 773
+format.name$ -- 82
+if$ -- 1898
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 30
+newline$ -- 87
+num.names$ -- 27
+pop$ -- 131
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 274
+stack$ -- 0
+substring$ -- 519
+swap$ -- 163
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 74
+width$ -- 29
+write$ -- 251

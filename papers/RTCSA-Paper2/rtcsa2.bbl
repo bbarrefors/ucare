@@ -1,0 +1,133 @@
+\begin{thebibliography}{10}
+
+\bibitem{Chen09}
+J.-J. Chen, A.~Schranzhofer, and L.~Thiele, ``Energy minimization for periodic
+  real-time tasks on heterogeneous processing units,'' {\em Parallel and
+  Distributed Processing Symposium, International}, pp.~1--12, 2009.
+
+\bibitem{Kumar06}
+R.~Kumar and D.~M. Tullsen, ``Core architecture optimization for heterogeneous
+  chip multiprocessors,'' in {\em PACT}, pp.~23--32, 2006.
+
+\bibitem{Wang10}
+Z.~Wang and S.~Ranka, ``Thermal constrained workload distribution for
+  maximizing throughput on multi-core processors,'' in {\em GREENCOMP},
+  pp.~291--298, 2010.
+
+\bibitem{Aydin03}
+H.~Aydin and Q.~Yang, ``Energy-aware partitioning for multiprocessor real-time
+  systems,'' in {\em IPDPS}, 2003.
+
+\bibitem{Chen05}
+Y.~Chen, A.~Das, W.~Qin, A.~Sivasubramaniam, Q.~Wang, and N.~Gautam, ``Managing
+  server energy and operational costs in hosting centers,'' {\em ACM SIGMETRICS
+  PER}, vol.~33, no.~1, pp.~303--314, 2005.
+
+\bibitem{Hong98}
+I.~Hong, G.~Qu, M.~Potkonjak, and M.~B. Srivastava, ``Synthesis techniques for
+  low-power hard real-time systems on variable voltage processors,'' in {\em
+  RTSS}, pp.~178--187, 1998.
+
+\bibitem{Chen07}
+J.-J. Chen and C.-F. Kuo, ``Energy-efficient scheduling for real-time systems
+  on dynamic voltage scaling (dvs) platforms,'' in {\em RTCSA}, 2007.
+
+\bibitem{Langen06}
+P.~de~Langen and B.~Juurlink, ``Leakage-aware multiprocessor scheduling for low
+  power,'' in {\em IPDPS}, April 2006.
+
+\bibitem{Langen09}
+P.~Langen and B.~Juurlink, ``Leakage-aware multiprocessor scheduling,'' {\em J.
+  Signal Process. Syst.}, vol.~57, pp.~73--88, October 2009.
+
+\bibitem{Chantem10}
+T.~Chantem, X.~S. Hu, and R.~P. Dick, ``Temperature-aware scheduling and
+  assignment for hard real-time applications on mpsocs,'' {\em IEEE
+  Transactions on VLSI Systems}, no.~99, pp.~1 -- 14, 2010.
+
+\bibitem{Quan10}
+G.~Quan and V.~Chaturvedi, ``Feasibility analysis for temperature-constraint
+  hard real-time periodic tasks,'' {\em Industrial Informatics, IEEE
+  Transactions on}, vol.~6, pp.~329 --339, aug. 2010.
+
+\bibitem{Fisher09}
+N.~Fisher, J.-J. Chen, S.~Wang, and L.~Thiele, ``Thermal-aware global real-time
+  scheduling on multicore systems,'' in {\em RTAS}, 2009.
+
+\bibitem{Saha12}
+S.~Saha, Y.~Lu, and J.~Deogun, ``Thermal-constrained energy-aware partitioning
+  for heterogeneous multi-core multiprocessor real-time systems,'' {\em
+  Embedded and Real-Time Computing Systems and Applications (RTCSA), 2012 IEEE
+  18th International Conference on}, pp.~41--50, Aug 2012.
+
+\bibitem{Carpenter04}
+J.~Carpenter, S.~Funk, P.~Holman, A.~Srinivasan, J.~Anderson, and S.~Baruah,
+  ``A categorization of real-time multiprocessor scheduling problems and
+  algorithms,'' in {\em Handbook on Scheduling Algorithms, Methods, and
+  Models}, Chapman Hall/CRC, Boca, 2004.
+
+\bibitem{Baruah94}
+S.~K. Baruah, N.~K. Cohen, C.~G. Plaxton, and D.~Varvel, ``Proportionate
+  progress: A notion of fairness in resource allocation,'' {\em Algorithmica},
+  vol.~15, pp.~600--625, 1994.
+
+\bibitem{Baruah04}
+S.~Baruah, ``Task partitioning upon heterogeneous multiprocessor platforms,''
+  in {\em RTAS}, pp.~536--543, 2004.
+
+\bibitem{Goraczko08}
+M.~Goraczko, J.~Liu, D.~Lymberopoulos, S.~Matic, B.~Priyantha, and F.~Zhao,
+  ``Energy-optimal software partitioning in heterogeneous multiprocessor
+  embedded systems,'' in {\em DAC}, pp.~191--196, 2008.
+
+\bibitem{Schranzhofer10}
+A.~Schranzhofer, J.-J. Chen, and L.~Thiele, ``Dynamic power-aware mapping of
+  applications onto heterogeneous mpsoc platforms,'' {\em Industrial
+  Informatics, IEEE Transactions on}, vol.~6, nov. 2010.
+
+\bibitem{Liu07}
+Y.~Liu, R.~P. Dick, L.~Shang, and H.~Yang, ``Accurate temperature-dependent
+  integrated circuit leakage power estimation is easy,'' in {\em DATE},
+  pp.~1526--1531, 2007.
+
+\bibitem{Leping10}
+L.~Wang and Y.~Lu, ``An efficient threshold-based power management mechanism
+  for heterogeneous soft real-time clusters,'' {\em Industrial Informatics,
+  IEEE Transactions on}, vol.~6, pp.~352 --364, aug. 2010.
+
+\bibitem{Liu00}
+J.~W. S.~W. Liu, {\em Real-Time Systems}.
+\newblock Prentice Hall PTR, 2000.
+
+\bibitem{Li12}
+S.~Li, S.~Wang, T.~Abdelzaher, M.~Kihl, and A.~Robertsson, ``Temperature aware
+  power allocation: An optimization framework and case studies,'' {\em
+  Sustainable Computing: Informatics and Systems}, vol.~2, no.~3, pp.~117--127,
+  2012.
+
+\bibitem{Chaturvedi10}
+V.~Chaturvedi, H.~Huang, and G.~Quan, ``Leakage aware scheduling on maximum
+  temperature minimization for periodic hard real-time systems,'' in {\em
+  ICCIT}, pp.~1802--1809, 2010.
+
+\bibitem{Aydin01}
+H.~Aydin, R.~Melhem, D.~Moss, and P.~Mejla-Alvarez, ``Dynamic and aggressive
+  scheduling techniques for power-aware real-time systems,'' in {\em RTSS},
+  pp.~95--105, 2001.
+
+\bibitem{Stankovic95}
+J.~A. Stankovic, M.~Spuri, M.~D. Natale, and G.~C. Buttazzo, ``Implications of
+  classical scheduling results for real-time systems,'' {\em Computer},
+  vol.~28, pp.~16--25, 1995.
+
+\bibitem{Levitin06}
+A.~V. Levitin, {\em Introduction to the Design and Analysis of Algorithms (2Nd
+  Edition)}.
+\newblock Boston, MA, USA: Addison-Wesley Longman Publishing Co., Inc., 2006.
+
+\bibitem{Goldberg}
+D.~E. Goldberg, {\em Genetic Algorithms in Search Optimization and Machine
+  Learning}.
+\newblock Addison Wesley, 1989.
+
+\end{thebibliography}
