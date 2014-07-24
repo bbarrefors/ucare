@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subfigure}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{epstopdf,mathrsfs}
+\usepackage{hyperref}
+\usepackage{bold-extra}
+
+\title{\textbf{\fontfamily{\sfdefault}\selectfont Branch-and-Bound Algorithm}}
+\author{Bj\"{o}rn Barrefors}
+
+\begin{document}
+  \maketitle
+  \section{\textsc{Branch-and-Bound Algorithm}}
+
+  \subsection{Equations}
+    Below we introduce the equations used in our algorithm. \newline
+    Eq. \ref{eq:payoff} is the payoff of all processors ranked as stated in the equation. \newline
+    Eq. \ref{eq:constraint} is the capacity constraint which need to hold at a branch for it to be valid. \newline
+    Eq. \ref{eq:value} is the current total value. \newline
+    Eq. \ref{eq:rescap} is the residual capacity. \newline
+    Eq. \ref{eq:lb} is the lower bound equation.
+
+    \begin{equation}\label{eq:payoff}
+      \frac{p_{1}}{c_{1}} \leq \frac{p_{2}}{c_{2}} \leq \ldots \leq \frac{p_{n}}{c_{n}}
+    \end{equation}
+
+    \begin{equation}\label{eq:constraint}
+      \sum_{j=\hat{j}}^{n}c_{j}(1-\hat{x_{j}}) \geq \hat{c}
+    \end{equation}
+
+    \begin{equation}\label{eq:value}
+      \hat{z} = \sum_{j=1}^{n} p_{j}\hat{x_{j}}
+    \end{equation}
+
+    \begin{equation}\label{eq:rescap}
+      \hat{c} = U_{tot} - \sum_{j=1}^{n} c_{j}\hat{x_{j}}
+    \end{equation}
+
+    \begin{equation}\label{eq:lb}
+      \hat{b} = \hat{z} + \hat{c}\frac{p_{j+1}}{c_{j+1}}
+    \end{equation}
+
+    Variable definitions:
+    \begin{itemize}
+      \item $n$ : Number of processors
+      \item $p_{j}$ : Power consumption of processor $j$
+      \item $c_{j}$ : Capacity of processor $j$
+      \item $U_{tot}$ : Total utilization of all tasks
+      \item $\hat{z}$ : Total power consumption of current schedule
+      \item $\hat{c}$ : Total residual task utilization of current solution
+      \item $\hat{b}$ : Lower bound of current solution
+      \item $\hat{j}$ : Current processor of current solution
+      \item $[\hat{X_{j}}]$ : Current solution, a list of lenght $n$ where $x_{j} = 1$ if processor $j$ is selected and $x_{j} = 0$ if processor $j$ is not selected
+      \item $\mathcal{H}$ : Min heap of possible solutions with elements $s$ consisting of a tuple ($[\hat{X_{j}}]$, $\hat{b}$, $\hat{j}$)
+    \end{itemize}
+
+    We will build a tree of possible solutions. If a solution is not valid or inferior to another solution that branch will not be pursued. The tree is constructed as follows: The processor with best payoff (Eq. \ref{eq:payoff}) is selected as a new node, that node branches into two possible solutions, in one the processor is added to the solution, on the other it is not added to the solution. As long as a solution is valid that leaf of the tree will be kept to be compared to by future solutions. A lower bound (Eq. \ref{eq:lb}) estimate is used to calculate the possible performance of a branch. The branch with lowest bound is selected. We will use a min heap to keep track of solutions. The root node is popped, based on lowest lower bound, and two new nodes are created based on the above branching. Push valid schedules onto the heap. Repeat. Each node stores its lower bound $\hat{b}$, schedule $(\hat{X_{j}})$, and current node $\hat{j}$.
+
+    \begin{algorithm} 
+      \caption{Branch-and-Bound Algorithm} \label{alg:bab}
+      \footnotesize
+      \begin{algorithmic}[1]
+        \REQUIRE $n$, $U_{tot}$, $[p_{j}$, $[c_{j}]$; processors sorted based on payoff (Eq. \ref{eq:payoff})
+        \STATE Initialize:
+        \STATE $[\hat{X_{j}}] = [0, ..., 0]$
+        \STATE $\hat{j} = 1$
+        \STATE $\hat{z} = 0$
+        \STATE $\hat{c} = U_{tot}$
+        \STATE $\hat{b} =$ Eq. \ref{eq:lb}
+        \STATE $\mathcal{H}$.push($\hat{b}$, $\hat{j}$, $[\hat{X_{j}}]$)
+        \WHILE{$j < n$}
+          \STATE $s = \mathcal{H}$.pop()
+          \STATE $[\hat{X_j}] = s.[\hat{X_j}]$
+          \STATE $\hat{j} = s.\hat{j}$
+          \STATE Create branch node for processor not added to solution
+          \STATE $\hat{z} =$ Eq. \ref{eq:value}
+          \STATE $\hat{c} =$ Eq. \ref{eq:rescap}
+          \STATE $\hat{b} =$ Eq. \ref{eq:value}
+          \STATE $\hat{j} += 1$
+          \IF{Eq. \ref{eq:constraint} holds}
+            \STATE $\mathcal{H}$.push($\hat{b}$, $\hat{j}$, $[\hat{X_{j}}]$)
+          \ENDIF
+          \STATE $\hat{j} -= 1$
+          \STATE Create branch node for processor added to solution
+          \STATE $X_{\hat{j}} = 1$
+          \STATE $\hat{z} =$ Eq. \ref{eq:value}
+          \STATE $\hat{c} =$ Eq. \ref{eq:rescap}
+          \STATE $\hat{b} =$ Eq. \ref{eq:value}
+          \STATE $\hat{j} += 1$
+          \IF{Eq. \ref{eq:constraint} holds}
+            \STATE $\mathcal{H}$.push($\hat{b}$, $\hat{j}$, $[\hat{X_{j}}]$)
+          \ENDIF
+        \ENDWHILE
+        \STATE $s = \mathcal{H}$.pop()
+        \STATE $[\hat{X_j}] = s.[\hat{X_j}]$
+        \STATE $\hat{j} = s.\hat{j}$
+        \STATE Create branch node for processor not added to solution
+        \STATE $\hat{z_{0}} =$ Eq. \ref{eq:value}
+        \STATE $\hat{c_{0}} =$ Eq. \ref{eq:rescap}
+        \STATE Create branch node for processor added to solution
+        \STATE $X_{\hat{j}} = 1$
+        \STATE $\hat{z_{1}} =$ Eq. \ref{eq:value}
+        \STATE $\hat{c_{1}} =$ Eq. \ref{eq:rescap}
+        \IF{$\hat{c_{0}} > 0$ \OR $\hat{z_{0}} > \hat{z_{1}}$}
+          \STATE $\hat{z} = \hat{z_{1}}$
+        \ELSE
+          \STATE $X_{\hat{j}} = 0$
+          \STATE $\hat{z} = \hat{z_{0}}$
+        \ENDIF
+        \RETURN $\hat{z}$, $[\hat{X_{j}}]$
+      \end{algorithmic}
+    \end{algorithm}
+
+  \end{document}
