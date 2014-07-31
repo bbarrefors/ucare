@@ -34,19 +34,19 @@ def maxTemp(core, freq):
 	return maxTemp
 
 def power(core, freq, util):
-    # Based on cpu properties and a frequency, return the power consumption at maximum temperature
-    f = freq
-    a1 = cluster[core]['a1']
-    a2 = cluster[core]['a2']
-    a3 = cluster[core]['a3']
-    a4 = cluster[core]['a4']
-    a5 = cluster[core]['a5']
-    a6 = cluster[core]['a6']
-    r = cluster[core]['r']
-    tAmb = cluster[core]['t_amb']
-    t = maxTemp(core, f)
-    p = a1*math.pow(t,2) + a2*math.pow(f,2) + a3*f*t + a4*t + a5*f + a6
-    return p
+	# Based on cpu properties and a frequency, return the power consumption at maximum temperature
+	f = freq
+	a1 = cluster[core]['a1']
+	a2 = cluster[core]['a2']
+	a3 = cluster[core]['a3']
+	a4 = cluster[core]['a4']
+	a5 = cluster[core]['a5']
+	a6 = cluster[core]['a6']
+	r = cluster[core]['r']
+	tAmb = cluster[core]['t_amb']
+	t = maxTemp(core, f)
+	p = a1*math.pow(t,2) + a2*math.pow(f,2) + a3*f*t + a4*t + a5*f + a6
+	return p
 
 def getMaxFreq(core):
 	j = len(freqs[core]) - 1
@@ -60,20 +60,20 @@ def maxUtil(core, freq):
 	return maxUtil
 
 def generateChromo(cores):
-    tasks = sorted(taskSet, reverse=True)
-    U = dict()
-    chromo = [0]
-    for core in cores:
-        f = getMaxFreq(core)
-        u = maxUtil(core, f)
-        U[core] = u
-    for task in taskSet:
-        c = max(U, key=U.get)
-        if U[c] < task:
-            return 1, chromo
-        U[c] = U[c] - task
-        chromo.append(c)
-    return 0, chromo
+	tasks = sorted(taskSet, reverse=True)
+	U = dict()
+	chromo = [0]
+	for core in cores:
+		f = getMaxFreq(core)
+		u = maxUtil(core, f)
+		U[core] = u
+	for task in taskSet:
+		c = max(U, key=U.get)
+		if U[c] < task:
+			return 1, chromo
+		U[c] = U[c] - task
+		chromo.append(c)
+	return 0, chromo
 
 def lowerBound(n, z, c, j):
 	global processors

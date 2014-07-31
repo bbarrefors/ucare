@@ -29,15 +29,15 @@ def main(node):
 
 
     """
-    tasks = [150, 200, 300]
-    util = [20, 35]
-    alg = ['HMWG', 'HBaBG']
+    numTasks = [250, 350, 450]
+    totUtils = [25, 35, 45]
+    algs = ['HyMWGA', 'BaB']
 
     files = []
 
-    for u in util:
-        for t in tasks:
-            for a in alg:
+    for u in totUtils:
+        for t in numTasks:
+            for a in algs:
                 files.append('/home/tarek/bjorn/bjorn/simulation/u%dt%da%s' % (u, t, a))
                 
     fd = open('/home/tarek/bjorn/bjorn/simulation/Schedule', 'r')
