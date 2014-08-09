@@ -4,7 +4,7 @@
 #
 # Make assumption that total utilization of cluster is sufficient to schedule all tasks
 #---------------------------------------------------------------------------------------------------
-import sys, numpy, copy
+import sys, numpy, copy, random, math
 from email.mime.text import MIMEText
 from subprocess import Popen, PIPE
 
@@ -59,11 +59,58 @@ freqs = [[1.197000, 1.330000, 1.463000, 1.596000, 1.729000, 1.862000, 1.995000, 
 		 [1.197000, 1.330000, 1.463000, 1.596000, 1.729000, 1.862000, 1.995000, 2.128000, 2.261000, 2.394000],
 		 [1.197000, 1.330000, 1.463000, 1.596000, 1.729000, 1.862000, 1.995000, 2.128000, 2.261000, 2.394000]]
 
-maxTemps = [48, 45, 50, 43, 40, 54, 50, 49, 48, 46, 44, 45, 51, 47, 49, 42, 46, 45, 49, 50]
+maxTemps = []
 
 #===================================================================================================
 #  H E L P E R S
 #===================================================================================================
+def maxTemp(core, freq):
+	# Based on cpu properties and frequency, return the maximum possible temperature for core
+	f = freq
+	a1 = cluster[core]['a1']
+	a2 = cluster[core]['a2']
+	a3 = cluster[core]['a3']
+	a4 = cluster[core]['a4']
+	a5 = cluster[core]['a5']
+	a6 = cluster[core]['a6']
+	r = cluster[core]['r']
+	tAmb = cluster[core]['t_amb']
+	A = a1*r
+	B = a3*r*f + a4*r - 1
+	C = a2*r*math.pow(f,2) + a5*f*r + a6*r + tAmb
+	maxTemp = -B/(2*A) - math.sqrt(math.pow(B,2) - 4*A*C)/(2*A)
+	return maxTemp
+
+def generateCluster():
+	global cluster
+	global freqs
+	global maxTemps
+	tmp = {'t_amb' : -10.0, 'r': 0.731, 'a1': -0.0040, 'a2': 5.5272, 'a3': 0.2977, 'a4': 0.0713, 'a5': -13.2765, 'a6': 56.4242, 'util': 4, 'u1' : 276.60, 'u2' : 114.0, 'u0' : 402.9}
+	newCluster = []
+	v = 0.0
+	for node in cluster:
+		newNode = dict()
+		for k in node.keys():
+			if k == 'a4':
+				newNode[k] = v
+			else:
+				newNode[k] = tmp[k]
+		v += 0.01
+		newCluster.append(newNode)
+	cluster = copy.deepcopy(newCluster)
+	newFreqs = []
+	for node in freqs:
+		newNode = []
+		for f in node:
+			rand = random.uniform(0.95, 1.05)
+			newNode.append(rand*f)
+		newFreqs.append(sorted(newNode))
+	freqs = copy.deepcopy(newFreqs)
+	maxTemps = []
+	for node in range(20):
+		maxT = maxTemp(node, freqs[node][9]) - 1
+		maxTemps.append(maxT)
+
 def buildTaskSet(numTasks, totUtil):
 	# Generate a random task set based on the tot util and num tasks
 	# task_set is a list of floats where each float is the utilization for a task
@@ -134,6 +181,10 @@ def algorithms(numTasks, totUtil):
 if __name__ == '__main__':
 	numTasks = [250, 350, 450]
 	totUtils = [25, 35, 45]
+	#numTasks = [250]
+	#totUtils = [25]
+
+	generateCluster()
 
 	print("Start schedulers\n")
 

@@ -1,0 +1,19 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [1][-]{section.3}{System Models and Problem Definition}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Multiprocessor Model}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Task Model}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Power Model}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Temperature Model}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Heat-Independent Thermal Model \(HIT Model\)}{subsection.3.4}% 8
+\BOOKMARK [2][-]{subsection.3.5}{Problem Definition}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Problem Statement}{subsection.3.5}% 10
+\BOOKMARK [1][-]{section.4}{Scheduling Algorithms}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Branch-and-Bound Algorithm}{section.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Task Scheduling}{subsection.4.1}% 13
+\BOOKMARK [1][-]{section.5}{Hybrid Min-Core Worst-Fit Genetic Algorithm}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Min-Core Worst-Fit Algorithm}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Genetic Algorithm}{section.5}% 16
+\BOOKMARK [1][-]{section.6}{Results and Discussion}{}% 17
+\BOOKMARK [2][-]{subsection.6.1}{}{section.6}% 18
+\BOOKMARK [1][-]{section*.1}{References}{}% 19

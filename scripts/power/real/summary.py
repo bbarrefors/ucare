@@ -27,8 +27,8 @@ def main():
 
 
     """
-    numTasks = [250, 350, 450]
-    totUtils = [25, 35, 45]
+    numTasks = [250, 350]
+    totUtils = [25]
     algs = ['HyMWGA', 'BaB']
 
     files = []

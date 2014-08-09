@@ -198,7 +198,7 @@ def hybridMinWorstGeneticAlgorithm(cluster_, freqs_, maxTemps_, taskSet_, totUti
 	freqs = freqs_
 	maxTemps = maxTemps_
 	taskSet = taskSet_
-	print("HyMWGA")
+	print("HyWGA")
 	check = 1
 	while check:
 		check, pop = generatePopulation(cores, popSize)
